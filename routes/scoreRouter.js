@@ -4,7 +4,7 @@ const { request } = require("express");
 const { Score } = require("../models/Score");
 const router = express.Router();
 
-router.get('/scores', (req, res) => {
+router.get('/', (req, res) => {
 
     Score.find({}, (err, docs) => {
         console.log(err, docs);
@@ -12,7 +12,6 @@ router.get('/scores', (req, res) => {
     }).sort({ score: -1 }).limit(10);
 
 });
-
 
 
 router.post('/score', (req, res) => {
