@@ -10,9 +10,13 @@ const populateDB = async () => {
     .then((json) => json.results)
     .catch((err) => console.log("failed to fetch API data", err));
   console.log(`received ${data.length} questions`);
-  Question.insertMany(data).then((obj) =>
-    console.log(`added ${obj.length} to the database`)
-  ).catch((err) => console.log("error writing to database", err));
+  Question.insertMany(data, (err, obj) => {
+    if (!err) {
+      console.log(`added ${obj.length} to the database`);
+    } else {
+      console.log("error writing to database", err);
+    }
+  });
 };
 
 populateDB();
