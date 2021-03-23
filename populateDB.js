@@ -5,7 +5,7 @@ const { connect } = require("./db/connection");
 connect();
 
 const populateDB = async () => {
-  const data = await fetch("https://opentdb.com/api.php?amount=10")
+  const data = await fetch("https://opentdb.com/api.php?amount=50")
     .then((res) => res.json())
     .then((json) => json.results)
     .catch((err) => console.log("failed to fetch API data", err));
