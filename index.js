@@ -1,11 +1,13 @@
 const express = require("express");
 const app = express();
-const scoreRouter = require("./routes/scoreRouter");
-const questionRouter = require("./routes/questionRouter");
 const {connect} = require("./db/connection");
-
+const questionRouter = require("./routes/questionRouter");
+const scoreRouter = require("./routes/scoreRouter");
+const userRouter = require("./routes/user");
 connect();
+
 app.use(express.json());
+app.use("/", userRouter);
 app.use('/', scoreRouter);
 app.use('/', questionRouter);
 
@@ -16,4 +18,6 @@ if (err) {
     console.log("listening on port 5000")
 }
 })
+
+
 
