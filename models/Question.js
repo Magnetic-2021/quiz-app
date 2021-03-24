@@ -9,6 +9,6 @@ const questionSchema = new mongoose.Schema({
   incorrect_answers: Array,
 });
 
-const Question = mongoose.model("Question", questionSchema);
+const Question = mongoose.model("Questions", questionSchema);
 
 module.exports = {Question};
