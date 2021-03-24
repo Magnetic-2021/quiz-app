@@ -1,0 +1,30 @@
+.menu-icon {
+  font-size: 2rem;
+  padding: 0.5em 1em;
+  display: block;
+  text-align: right;
+}
+
+.navbar-links {
+  font-size: 1.2rem;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.navbar-item {
+  display: block;
+  padding: 1em;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-active {
+  height: 100vh;
+  background-color: #fafafa;
+}
