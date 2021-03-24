@@ -7,8 +7,9 @@ const router = express.Router();
 router.post("/user/signup", (req, res) => {
   const newUser = req.body;
 
-  // check if user is all ready in the system
-  // check if email is all ready used
+  // TODO: check if user is all ready in the system
+  // TODO: check if email is all ready used
+
   // hash password
   bcrypt.hash(req.body.password, 4, (err, hash) => {
     if (!err) {
