@@ -6,6 +6,7 @@ import {
   CloseCircleOutlined,
 } from "@ant-design/icons";
 import "./Signup.css";
+import { FormProvider } from "antd/lib/form/context";
 const Signup = () => {
   const [formStatus, setFormStatus] = useState("idle");
   const buttonValues = {
@@ -51,7 +52,7 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
-      <Form name="signup" onFinish={onFinish}>
+      <Form name="signup" onFinish={onFinish} layout="vertical" size="large">
         <h1>Create an Account</h1>
         <Form.Item
           label="Username"
