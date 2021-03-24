@@ -20,15 +20,17 @@ router.post("/user/signup", (req, res) => {
       })
         .then((obj) => {
           console.log("signup", obj);
-          res.status(200).send({ message: "Account Created" });
+          res.status(200).send({ message: "Account Created", success: true });
         })
         .catch((err) => {
           console.log("Error", err);
-          res.status(500).send({ message: "Account Error", err });
+          res
+            .status(500)
+            .send({ message: "Account Error", success: false, err });
         });
     } else {
       console.log("Error", err);
-      res.status(500).send({ message: "Unable to hash", err });
+      res.status(500).send({ message: "Unable to hash", success: false, err });
     }
   });
 });
