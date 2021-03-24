@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/Magnetic-2021/quiz-app#readme",
   "dependencies": {
-    "@ant-design/icons": "^4.6.2",
     "bcrypt": "^5.0.1",
     "express": "^4.17.1",
     "mongoose": "^5.12.1",
