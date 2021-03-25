@@ -53,3 +53,29 @@
   text-decoration: none;
   color: black;
 }
+
+@media (min-width: 1000px) {
+  .navbar {
+    background-color: lightgrey;
+  }
+
+  .navbar button {
+    display: none;
+  }
+
+  .menuNav {
+    position: relative;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .menuNav a:first-child {
+    margin-top: 0;
+  }
+
+  .navbar a {
+    display: inline-block;
+  }
+}
