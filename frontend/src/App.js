@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Login/Login";
 import Navbar from "./Components/Navbar/Navbar";
+import Scoreboard from "./Components/Scoreboard/Scoreboard";
 import About from "./Components/About/About";
 
 function App() {
@@ -14,9 +15,9 @@ function App() {
         <Navbar />
         <div className="content">
           <Switch>
-            {/* <Route exact path="/">
-              <Home />
-            </Route> */}
+            <Route exact path="/">
+              {/* <Home /> */}
+            </Route>
             <Route path="/signup">
               <Signup />
             </Route>
@@ -29,9 +30,9 @@ function App() {
             {/* <Route path="/quiz">
               <Quiz />
             </Route> */}
-            {/* <Route path="/leaderboard">
-              <Leaderboard />
-            </Route> */}
+            <Route path="/leaderboard">
+              <Scoreboard />
+            </Route>
             {/* <Route path="*">
               <NotFound />
             </Route> */}

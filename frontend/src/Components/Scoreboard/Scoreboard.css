@@ -1,32 +1,27 @@
+.scoreboard-container {
+  padding: 30px;
+}
+
 .leadHeader {
   color: silver;
   font-weight: bold;
 }
-.scoreList {
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  height: 40%;
-  border: 1px solid black;
-  margin-left: 10px;
-  margin-top: 10px;
-}
+
 .podium {
   display: flex;
   flex-direction: row;
   justify-content: center;
   height: 140px;
-  width: 300px;
+  width: 70%;
   margin: auto;
   justify-content: space-between;
 }
 #first {
   align-self: unset;
-  border: 1px solid yellow;
+
   margin-top: 20px;
 }
 #second {
-  border: 1px solid silver;
   align-self: unset;
   margin-top: 70px;
 }
@@ -34,5 +29,4 @@
 #third {
   align-self: unset;
   margin-top: 70px;
-  border: 1px solid brown;
 }
