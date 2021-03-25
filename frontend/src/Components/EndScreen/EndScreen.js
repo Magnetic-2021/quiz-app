@@ -1,10 +1,8 @@
 import React, {useContext} from "react";
-import QuizContext from "../Quiz/Contexts";
 import QuestionList from "../Quiz/QuestionList";
 import "../Quiz/Quiz.css";
 
 const EndScreen = () => {
-    const { score, setScore, setGameState } = useContext(QuizContext);
     const restartQuiz = () => {
         setScore(0)
         setGameState("home");

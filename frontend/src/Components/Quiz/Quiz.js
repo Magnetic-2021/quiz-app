@@ -1,12 +1,13 @@
 import React, {useState, useContext} from "react";
-import Questions  from "./QuestionList";
-import QuizContext from "./Contexts";
+import Questions from "./QuestionList";
 import "./Quiz.css";
 
 const Quiz = () =>{
-    const { score, setScore, setGameState } = useContext(QuizContext);
+   
     const[currQuestion, setCurrQuestion] = useState(0);
     const[optionChosen, setOptionChosen] = useState("");
+    const [gameState, setGameState] = useState("home");
+    const [score, setScore] = useState(0);
 
     const nextQuestion = () => {
         if (Questions[currQuestion].correct_answer === optionChosen){
