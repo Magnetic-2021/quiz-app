@@ -98,7 +98,8 @@ const Scoreboard = () => {
     },
   ];
   return (
-    <div className="ScoreList">
+    <div className="scoreList">
+      <h1 className="leadHeader">LEADERBOARD</h1>
       <div className="podium">
         <UserAvatar id="second" img={twomedal} />
         <UserAvatar id="first" img={onemedal} />

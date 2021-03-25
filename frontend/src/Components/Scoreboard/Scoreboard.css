@@ -1,3 +1,16 @@
+.leadHeader {
+  color: silver;
+  font-weight: bold;
+}
+.scoreList {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 40%;
+  border: 1px solid black;
+  margin-left: 10px;
+  margin-top: 10px;
+}
 .podium {
   display: flex;
   flex-direction: row;
