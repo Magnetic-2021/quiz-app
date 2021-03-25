@@ -1,0 +1,32 @@
+.scoreboard-container {
+  padding: 30px;
+}
+
+.leadHeader {
+  color: silver;
+  font-weight: bold;
+}
+
+.podium {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 140px;
+  width: 70%;
+  margin: auto;
+  justify-content: space-between;
+}
+#first {
+  align-self: unset;
+
+  margin-top: 20px;
+}
+#second {
+  align-self: unset;
+  margin-top: 70px;
+}
+
+#third {
+  align-self: unset;
+  margin-top: 70px;
+}

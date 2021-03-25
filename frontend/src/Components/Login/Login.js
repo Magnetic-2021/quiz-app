@@ -1,54 +1,35 @@
 import { useState, useEffect } from "react";
-import { Form, Input, Space, Button } from "antd";
+import { Form, Input, Button } from "antd";
 import { useHistory } from "react-router-dom";
 import {
   PlusCircleOutlined,
   CheckCircleOutlined,
   CloseCircleOutlined,
 } from "@ant-design/icons";
-import "./Signup.css";
-import { FormProvider } from "antd/lib/form/context";
-const Signup = (props) => {
+import "./Login.css";
+const Login = (props) => {
   const [formStatus, setFormStatus] = useState("idle");
-  const buttonValues = {
-    idle: {
-      text: "Create Account",
-      loading: false,
-      icon: <PlusCircleOutlined />,
-    },
-    loading: { text: "Creating Account", loading: true, icon: null },
-    success: {
-      text: "Account Created",
-      loading: false,
-      icon: <CheckCircleOutlined />,
-    },
-    failed: {
-      text: "Account Creation Failed",
-      loading: false,
-      icon: <CloseCircleOutlined />,
-    },
-  };
   const history = useHistory();
   useEffect(() => {
     if (props.user) {
       history.push("/leaderboard");
     }
   }, []);
-
   const onFinish = (values) => {
     console.log(values);
     setFormStatus("loading");
     // post data
-    fetch("http://localhost:5000/user/signup", {
+    fetch("http://localhost:5000/user/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.success) {
+        if (data.auth) {
           setFormStatus("success");
           window.localStorage.setItem("currentUser", JSON.stringify(data.user));
+          history.push("/leaderboard");
         } else {
           setFormStatus("failed");
         }
@@ -57,11 +38,28 @@ const Signup = (props) => {
         setFormStatus("failed");
       });
   };
-
+  const buttonValues = {
+    idle: {
+      text: "Login In",
+      loading: false,
+      icon: <PlusCircleOutlined />,
+    },
+    loading: { text: "Logging In", loading: true, icon: null },
+    success: {
+      text: "You are now logged in",
+      loading: false,
+      icon: <CheckCircleOutlined />,
+    },
+    failed: {
+      text: "Login Failed",
+      loading: false,
+      icon: <CloseCircleOutlined />,
+    },
+  };
   return (
-    <div className="signup-container">
-      <Form name="signup" onFinish={onFinish} layout="vertical" size="large">
-        <h1>Create an Account</h1>
+    <div className="login-container">
+      <Form name="login" onFinish={onFinish} layout="vertical" size="large">
+        <h1>Log In</h1>
         <Form.Item
           label="Username"
           name="username"
@@ -69,24 +67,15 @@ const Signup = (props) => {
         >
           <Input />
         </Form.Item>
+
         <Form.Item
-          label="Email Address"
-          name="email"
-          rules={[
-            {
-              required: true,
-              message: "A valid email address is required to signup.",
-            },
-          ]}
+          label="Password"
+          name="password"
+          rules={[{ required: true, message: "Please input a password." }]}
         >
-          <Input />
-        </Form.Item>
-        <Form.Item label="Password" name="password" rules={[{}]}>
           <Input.Password />
         </Form.Item>
-        <Form.Item label="Confirm Password" name="confirmPassword" rules={[{}]}>
-          <Input.Password />
-        </Form.Item>
+
         <Button
           htmlType="submit"
           type="primary"
@@ -100,4 +89,4 @@ const Signup = (props) => {
   );
 };
 
-export default Signup;
+export default Login;

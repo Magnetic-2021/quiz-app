@@ -18,17 +18,24 @@ router.post("/user/signup", (req, res) => {
         email: req.body.email,
         password: hash,
       })
-        .then((obj) => {
-          console.log("signup", obj);
-          res.status(200).send({ message: "Account Created" });
+        .then((userRecord) => {
+          res
+            .status(200)
+            .send({
+              message: "Account Created",
+              success: true,
+              user: createClientUser(userRecord),
+            });
         })
         .catch((err) => {
           console.log("Error", err);
-          res.status(500).send({ message: "Account Error", err });
+          res
+            .status(500)
+            .send({ message: "Account Error", success: false, err });
         });
     } else {
       console.log("Error", err);
-      res.status(500).send({ message: "Unable to hash", err });
+      res.status(500).send({ message: "Unable to hash", success: false, err });
     }
   });
 });
@@ -40,13 +47,20 @@ router.post("/user/login", (req, res) => {
     if (!userRecord) {
       res.status(200).send({ message: "User does not exist", auth: false });
     } else {
-      console.log("here");
       bcrypt.compare(password, userRecord.password, (err, result) => {
         console.log(result);
-        res.status(200).send({ auth: result });
+        res.status(200).send({
+          auth: result,
+          user: createClientUser(userRecord),
+        });
       });
     }
   });
+});
+
+const createClientUser = ({ password, ...rest }) => ({
+  timeStamp: Date.now(),
+  ...rest,
 });
 
 module.exports = router;
