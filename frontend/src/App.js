@@ -7,6 +7,7 @@ import Login from "./Components/Login/Login";
 import Navbar from "./Components/Navbar/Navbar";
 import Scoreboard from "./Components/Scoreboard/Scoreboard";
 import About from "./Components/About/About";
+import NotFound from "./Components/NotFound/NotFound";
 
 function App() {
   return (
@@ -33,9 +34,9 @@ function App() {
             <Route path="/leaderboard">
               <Scoreboard />
             </Route>
-            {/* <Route path="*">
+            <Route path="*">
               <NotFound />
-            </Route> */}
+            </Route>
           </Switch>
         </div>
       </div>
