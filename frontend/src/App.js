@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import React, {useState} from "react";
 import "antd/dist/antd.css";
 import "./App.css";
 import "./Components/Quiz/Quiz.css";
@@ -18,9 +17,6 @@ import NotFound from "./Components/NotFound/NotFound";
 import Home from "./Components/Home/Home";
 import Quiz from "./Components/Quiz/Quiz";
 
-
-// import Home from "./Components/Home/Home";
-import About from "./Components/About/About";
 function App() {
   const [user, setUser] = useState();
   useEffect(() => {
@@ -46,7 +42,7 @@ function App() {
         <div className="content">
           <Switch>
             <Route exact path="/">
-              <Home user={user}/>
+              <Home user={user} />
             </Route>
             <Route path="/signup">
               <Signup user={user} />
@@ -55,11 +51,11 @@ function App() {
               <Login user={user} />
             </Route>
             <Route path="/about">
-              <Login user={user} />
+              <About user={user} />
             </Route>
             <Route path="/quiz">
-              <Quiz />
-            </Route> 
+              <Quiz user={user} />
+            </Route>
             <Route path="/leaderboard">
               <Scoreboard user={user} />
             </Route>
@@ -70,7 +66,6 @@ function App() {
         </div>
       </div>
     </Router>
-
   );
 }
 
