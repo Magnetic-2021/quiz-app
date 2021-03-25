@@ -6,9 +6,11 @@ const { connect } = require("./db/connection");
 const questionRouter = require("./routes/questionRouter");
 const scoreRouter = require("./routes/scoreRouter");
 const userRouter = require("./routes/user");
+
 connect();
 app.use(cors());
 app.use(express.json());
+
 app.use("/", userRouter);
 app.use("/", scoreRouter);
 app.use("/", questionRouter);
