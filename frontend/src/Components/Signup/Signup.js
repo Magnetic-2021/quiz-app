@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Input, Space, Button } from "antd";
+import { useHistory } from "react-router-dom";
 import {
   PlusCircleOutlined,
   CheckCircleOutlined,
@@ -7,7 +8,7 @@ import {
 } from "@ant-design/icons";
 import "./Signup.css";
 import { FormProvider } from "antd/lib/form/context";
-const Signup = () => {
+const Signup = (props) => {
   const [formStatus, setFormStatus] = useState("idle");
   const buttonValues = {
     idle: {
@@ -27,6 +28,12 @@ const Signup = () => {
       icon: <CloseCircleOutlined />,
     },
   };
+  const history = useHistory();
+  useEffect(() => {
+    if (props.user) {
+      history.push("/leaderboard");
+    }
+  }, []);
 
   const onFinish = (values) => {
     console.log(values);

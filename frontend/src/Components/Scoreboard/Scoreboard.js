@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "antd";
+import { useHistory } from "react-router-dom";
 import UserAvatar from "../Avatar/Avatar.js";
 import "./Scoreboard.css";
 import onemedal from "../../images/onemedal.PNG";
 import twomedal from "../../images/twomedal.PNG";
 import threemedal from "../../images/threemedal.PNG";
 
-const Scoreboard = () => {
+const Scoreboard = (props) => {
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [tableState, setTableState] = useState("loading");
-
+  const history = useHistory();
+  useEffect(() => {
+    if (!props.user) {
+      history.push("/login");
+    }
+  }, []);
   useEffect(() => {
     fetch("http://localhost:5000/", {})
       .then((res) => res.json())

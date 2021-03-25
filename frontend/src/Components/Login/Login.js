@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Input, Button } from "antd";
+import { useHistory } from "react-router-dom";
 import {
   PlusCircleOutlined,
   CheckCircleOutlined,
   CloseCircleOutlined,
 } from "@ant-design/icons";
 import "./Login.css";
-const Login = () => {
+const Login = (props) => {
   const [formStatus, setFormStatus] = useState("idle");
+  const history = useHistory();
+  useEffect(() => {
+    if (props.user) {
+      history.push("/leaderboard");
+    }
+  }, []);
   const onFinish = (values) => {
     console.log(values);
     setFormStatus("loading");
@@ -22,6 +29,7 @@ const Login = () => {
         if (data.auth) {
           setFormStatus("success");
           window.localStorage.setItem("currentUser", JSON.stringify(data.user));
+          history.push("/leaderboard");
         } else {
           setFormStatus("failed");
         }

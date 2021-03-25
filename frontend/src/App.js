@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import "antd/dist/antd.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useHistory,
+} from "react-router-dom";
 
 import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
@@ -12,7 +17,6 @@ import Scoreboard from "./Components/Scoreboard/Scoreboard";
 import About from "./Components/About/About";
 function App() {
   const [user, setUser] = useState();
-
   useEffect(() => {
     // get user from local storage
     // if user check timestamp
@@ -36,20 +40,22 @@ function App() {
         <div className="content">
           <Switch>
             <Route exact path="/">
-              {/* <Home /> */}
+              {/* <Home user={user}/> */}
             </Route>
             <Route path="/signup">
-              <Signup />
+              <Signup user={user} />
             </Route>
             <Route path="/login">
-              <Login />
+              <Login user={user} />
             </Route>
-            <Route path="/about">{user ? <About /> : <Login />}</Route>
+            <Route path="/about">
+              <Login user={user} />
+            </Route>
             {/* <Route path="/quiz">
               <Quiz />
             </Route> */}
             <Route path="/leaderboard">
-              <Scoreboard />
+              <Scoreboard user={user} />
             </Route>
             {/* <Route path="*">
               <NotFound />
