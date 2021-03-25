@@ -12,6 +12,9 @@ import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Login/Login";
 import Scoreboard from "./Components/Scoreboard/Scoreboard";
+import About from "./Components/About/About";
+import NotFound from "./Components/NotFound/NotFound";
+
 
 // import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
@@ -57,9 +60,9 @@ function App() {
             <Route path="/leaderboard">
               <Scoreboard user={user} />
             </Route>
-            {/* <Route path="*">
+            <Route path="*">
               <NotFound />
-            </Route> */}
+            </Route>
           </Switch>
         </div>
       </div>
