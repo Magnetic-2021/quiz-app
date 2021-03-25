@@ -1,19 +1,22 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import React, {useState} from "react";
 import "antd/dist/antd.css";
+import "./App.css";
+import "./Components/Quiz/Quiz.css";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   useHistory,
 } from "react-router-dom";
-
 import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Login/Login";
 import Scoreboard from "./Components/Scoreboard/Scoreboard";
 import About from "./Components/About/About";
 import NotFound from "./Components/NotFound/NotFound";
+import Home from "./Components/Home/Home";
+import Quiz from "./Components/Quiz/Quiz";
 
 
 // import Home from "./Components/Home/Home";
@@ -43,7 +46,7 @@ function App() {
         <div className="content">
           <Switch>
             <Route exact path="/">
-              {/* <Home user={user}/> */}
+              <Home user={user}/>
             </Route>
             <Route path="/signup">
               <Signup user={user} />
@@ -54,9 +57,9 @@ function App() {
             <Route path="/about">
               <Login user={user} />
             </Route>
-            {/* <Route path="/quiz">
+            <Route path="/quiz">
               <Quiz />
-            </Route> */}
+            </Route> 
             <Route path="/leaderboard">
               <Scoreboard user={user} />
             </Route>
@@ -67,6 +70,7 @@ function App() {
         </div>
       </div>
     </Router>
+
   );
 }
 
