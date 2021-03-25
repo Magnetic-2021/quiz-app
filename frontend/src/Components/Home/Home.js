@@ -1,15 +1,19 @@
-import React, { useContext } from "react";
-import QuizContext from "../Quiz/Contexts";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "../Quiz/Quiz.css";
 
-const Home = () =>{
-    const {setGameState} = useContext(QuizContext);
-    return(
-        <div className="Home">
-            <button onClick={() =>{
-                setGameState("quiz");
-            }}>Start Quiz</button>
-        </div>
-    );
-}
+const Home = (props) => {
+  const history = useHistory();
+  useEffect(() => {
+    if (!props.user) {
+      history.push("/login");
+    }
+  }, []);
+
+  return (
+    <div className="Home">
+      <button onClick={() => history.push("/quiz")}>Start Quiz</button>
+    </div>
+  );
+};
 export default Home;

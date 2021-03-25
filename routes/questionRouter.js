@@ -6,10 +6,10 @@ const router = express.Router();
 router.get("/questions", (req, res) => {
   Question.find({}, (err, docs) => {
     const questionList = [];
-    for (let i = 0; i < 10; i++) {
-        let randomNumber = Math.floor(Math.random() * docs.length);
-        console.log(docs[randomNumber]);
-        questionList.push(docs[randomNumber]);
+    for (let i = 0; i < 2; i++) {
+      let randomNumber = Math.floor(Math.random() * docs.length);
+      console.log(docs[randomNumber]);
+      questionList.push(docs[randomNumber]);
     }
     res.send(questionList);
   });
