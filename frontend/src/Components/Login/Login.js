@@ -5,7 +5,6 @@ import {
   CheckCircleOutlined,
   CloseCircleOutlined,
 } from "@ant-design/icons";
-import authFetch from "../../lib/authFetch";
 import "./Login.css";
 const Login = () => {
   const [formStatus, setFormStatus] = useState("idle");

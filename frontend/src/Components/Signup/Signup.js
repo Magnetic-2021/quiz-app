@@ -41,6 +41,7 @@ const Signup = () => {
       .then((data) => {
         if (data.success) {
           setFormStatus("success");
+          window.localStorage.setItem("currentUser", JSON.stringify(data.user));
         } else {
           setFormStatus("failed");
         }

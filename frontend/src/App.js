@@ -3,12 +3,13 @@ import "./App.css";
 import "antd/dist/antd.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Login/Login";
-import Navbar from "./Components/Navbar/Navbar";
 import Scoreboard from "./Components/Scoreboard/Scoreboard";
-import About from "./Components/About/About";
 
+// import Home from "./Components/Home/Home";
+import About from "./Components/About/About";
 function App() {
   const [user, setUser] = useState();
 
@@ -17,10 +18,13 @@ function App() {
     // if user check timestamp
     // if timestamp valid set user in state
 
-    const currentUser = JSON.parse(window.localStorage.getItem("currentUser"));
+    const currentUser =
+      JSON.parse(window.localStorage.getItem("currentUser")) ?? null;
 
     if (currentUser) {
-      const valid = Date.now - currentUser.timeStamp < 120000;
+      const valid = Date.now() - currentUser.timeStamp < 120000;
+      console.log(valid);
+      console.log("CURRENT USER AUTHD", currentUser);
       setUser(valid ? currentUser : null);
     }
   }, []);
@@ -40,9 +44,7 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
-            <Route path="/about">
-              <About />
-            </Route>
+            <Route path="/about">{user ? <About /> : <Login />}</Route>
             {/* <Route path="/quiz">
               <Quiz />
             </Route> */}

@@ -18,9 +18,14 @@ router.post("/user/signup", (req, res) => {
         email: req.body.email,
         password: hash,
       })
-        .then((obj) => {
-          console.log("signup", obj);
-          res.status(200).send({ message: "Account Created", success: true });
+        .then((userRecord) => {
+          res
+            .status(200)
+            .send({
+              message: "Account Created",
+              success: true,
+              user: createClientUser(userRecord),
+            });
         })
         .catch((err) => {
           console.log("Error", err);
@@ -42,7 +47,6 @@ router.post("/user/login", (req, res) => {
     if (!userRecord) {
       res.status(200).send({ message: "User does not exist", auth: false });
     } else {
-      console.log("here");
       bcrypt.compare(password, userRecord.password, (err, result) => {
         console.log(result);
         res.status(200).send({
