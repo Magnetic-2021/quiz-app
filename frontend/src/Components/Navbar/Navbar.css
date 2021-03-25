@@ -28,6 +28,15 @@
   width: 100%;
 }
 
+.navbar button {
+  background: transparent;
+  border: none;
+}
+
+.navbar-icon {
+  font-size: 1.8rem;
+}
+
 .menuNav a:first-child {
   margin-top: 5em;
 }

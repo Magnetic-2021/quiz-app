@@ -10,22 +10,20 @@ const Navbar = () => {
     // const openMenu = () => setIsActive(false);
     // const closeMenu = () => setIsActive(true);
 
-    const handleToggle = () => {
-        setMenuOpen(prev => !prev)
-    };
+    const handleToggle = () => setMenuOpen(prev => !prev);
 
     const closeMenu = () => setMenuOpen(false);
 
     return (
         <header>
             <nav className="navbar">
-                <button onClick={handleToggle}>{menuOpen ? "Close" : "Open"}</button>
+                <button onClick={handleToggle}>{menuOpen ? <CloseOutlined className="navbar-icon" /> : <MenuOutlined className="navbar-icon" /> }</button>
                 <div className={`menuNav ${menuOpen ? "showMenu" : ""}`}>
-                    <Link to="/" className="navbar-item" onClick={() => closeMenu()}>Home</Link>
-                    <Link to="/quiz" className="navbar-item" onClick={() => closeMenu()}>Quiz</Link>
-                    <Link to="/leaderboard" className="navbar-item" onClick={() => closeMenu()}>Leaderboard</Link>
-                    <Link to="/about" className="navbar-item" onClick={() => closeMenu()}>About</Link>
-                    <Link to="/signup" className="navbar-item" onClick={() => closeMenu()}>Sign Up / Register</Link>
+                    <Link to="/" className="navbar-item" onClick={closeMenu}>Home</Link>
+                    <Link to="/quiz" className="navbar-item" onClick={closeMenu}>Quiz</Link>
+                    <Link to="/leaderboard" className="navbar-item" onClick={closeMenu}>Leaderboard</Link>
+                    <Link to="/about" className="navbar-item" onClick={closeMenu}>About</Link>
+                    <Link to="/signup" className="navbar-item" onClick={closeMenu}>Sign Up / Register</Link>
                 </div>
             </nav>
             {/* {isActive && (
