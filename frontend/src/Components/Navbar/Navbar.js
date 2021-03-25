@@ -1,6 +1,7 @@
 // import {Link} from "react-router-dom";
 import {useState} from "react";
 import {MenuOutlined, CloseOutlined} from "@ant-design/icons";
+import {Link} from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -20,11 +21,11 @@ const Navbar = () => {
                 <nav className="navbar navbar-active">
                     <CloseOutlined className="menu-icon menu-icon-close" onClick={closeMenu} />
                     <div className="navbar-links">
-                        <a href="#" className="navbar-item">Home</a>
-                        <a href="#" className="navbar-item">Quiz</a>
-                        <a href="#" className="navbar-item">Leaderboard</a>
-                        <a href="#" className="navbar-item">About</a>
-                        <a href="#" className="navbar-item">Sign In / Register</a>
+                        <Link to="/" className="navbar-item">Home</Link>
+                        <Link to="/quiz" className="navbar-item">Quiz</Link>
+                        <Link to="/leaderboard" className="navbar-item">Leaderboard</Link>
+                        <Link to="/about" className="navbar-item">About</Link>
+                        <Link to="/signup" className="navbar-item">Sign Up / Register</Link>
                     </div>
                 </nav>
             )}
