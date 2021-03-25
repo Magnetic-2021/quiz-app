@@ -9,6 +9,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Navbar />
         <div className="content">
           <Switch>
             <Route exact path="/">
@@ -40,3 +41,4 @@ function App() {
 }
 
 export default App;
+
