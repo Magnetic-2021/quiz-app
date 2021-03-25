@@ -45,10 +45,18 @@ router.post("/user/login", (req, res) => {
       console.log("here");
       bcrypt.compare(password, userRecord.password, (err, result) => {
         console.log(result);
-        res.status(200).send({ auth: result });
+        res.status(200).send({
+          auth: result,
+          user: createClientUser(userRecord),
+        });
       });
     }
   });
+});
+
+const createClientUser = ({ password, ...rest }) => ({
+  timeStamp: Date.now(),
+  ...rest,
 });
 
 module.exports = router;
