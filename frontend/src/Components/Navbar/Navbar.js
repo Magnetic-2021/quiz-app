@@ -14,16 +14,18 @@ const Navbar = () => {
         setMenuOpen(prev => !prev)
     };
 
+    const closeMenu = () => setMenuOpen(false);
+
     return (
         <header>
             <nav className="navbar">
                 <button onClick={handleToggle}>{menuOpen ? "Close" : "Open"}</button>
                 <div className={`menuNav ${menuOpen ? "showMenu" : ""}`}>
-                    <Link to="/" className="navbar-item">Home</Link>
-                    <Link to="/quiz" className="navbar-item">Quiz</Link>
-                    <Link to="/leaderboard" className="navbar-item">Leaderboard</Link>
-                    <Link to="/about" className="navbar-item">About</Link>
-                    <Link to="/signup" className="navbar-item">Sign Up / Register</Link>
+                    <Link to="/" className="navbar-item" onClick={() => closeMenu()}>Home</Link>
+                    <Link to="/quiz" className="navbar-item" onClick={() => closeMenu()}>Quiz</Link>
+                    <Link to="/leaderboard" className="navbar-item" onClick={() => closeMenu()}>Leaderboard</Link>
+                    <Link to="/about" className="navbar-item" onClick={() => closeMenu()}>About</Link>
+                    <Link to="/signup" className="navbar-item" onClick={() => closeMenu()}>Sign Up / Register</Link>
                 </div>
             </nav>
             {/* {isActive && (
