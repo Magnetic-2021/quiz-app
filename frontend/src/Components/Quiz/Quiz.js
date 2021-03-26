@@ -39,7 +39,7 @@ const Quiz = () => {
     "loading"
   ) : (
     <div className="Quiz">
-      <h1>{questions[currQuestion].question}</h1>
+      <h1 className="questionTitle">{questions[currQuestion].question}</h1>
       <div className="options">
         <button onClick={() => setOptionChosen("A")}>
           {questions[currQuestion].incorrect_answers[0]}
