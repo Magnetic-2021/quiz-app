@@ -52,6 +52,14 @@ p {
 
 a {
   text-decoration: none;
+  color: var(--lightAccent);
+}
+
+a:hover,
+.navbar-selected {
+  text-decoration: none;
+  color: var(--orangeAccent);
+  font-weight: 600;
 }
 
 ul {
