@@ -29,7 +29,10 @@ const Login = (props) => {
         if (data.auth) {
           setFormStatus("success");
           props.setUser(JSON.stringify(data.user));
-          window.localStorage.setItem("currentUser", JSON.stringify(data.user));
+          window.sessionStorage.setItem(
+            "currentUser",
+            JSON.stringify(data.user)
+          );
           history.push("/");
         } else {
           setFormStatus("failed");
