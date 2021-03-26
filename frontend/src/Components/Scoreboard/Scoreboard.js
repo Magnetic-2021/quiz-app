@@ -8,6 +8,7 @@ import twomedal from "../../images/twomedal.PNG";
 import threemedal from "../../images/threemedal.PNG";
 
 const Scoreboard = (props) => {
+  console.log("scoreboard mounted");
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [tableState, setTableState] = useState("loading");
   const history = useHistory();
@@ -17,7 +18,7 @@ const Scoreboard = (props) => {
     }
   }, []);
   useEffect(() => {
-    fetch("http://localhost:5000/", {})
+    fetch("http://localhost:5000/score", {})
       .then((res) => res.json())
       .then((data) => {
         setLeaderboardData(data);

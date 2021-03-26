@@ -20,18 +20,27 @@ import Quiz from "./Components/Quiz/Quiz";
 function App() {
   const [user, setUser] = useState();
   useEffect(() => {
-    // get user from local storage
+    // get user from session storage
     // if user check timestamp
     // if timestamp valid set user in state
-
-    const currentUser =
-      JSON.parse(window.localStorage.getItem("currentUser")) ?? null;
-
-    if (currentUser) {
-      const valid = Date.now() - currentUser.timeStamp < 120000;
-      console.log(valid);
-      console.log("CURRENT USER AUTHD", currentUser);
-      setUser(valid ? currentUser : null);
+    try {
+      const currentUser =
+        JSON.parse(window.sessionStorage.getItem("currentUser")) ?? null;
+      if (currentUser) {
+        const valid = Date.now() - currentUser.timeStamp < 120000;
+        console.log(valid);
+        console.log("CURRENT USER AUTHD", currentUser);
+        if (valid) {
+          console.log("setting current user");
+          setUser(currentUser);
+        } else {
+          setUser(null);
+          console.log("deleting user from storage");
+          window.sessionStorage.deleteItem("currentUser");
+        }
+      }
+    } catch {
+      setUser(null);
     }
   }, []);
 
@@ -45,10 +54,10 @@ function App() {
               <Home user={user} />
             </Route>
             <Route path="/signup">
-              <Signup user={user} />
+              <Signup user={user} setUser={setUser} />
             </Route>
             <Route path="/login">
-              <Login user={user} />
+              <Login user={user} setUser={setUser} />
             </Route>
             <Route path="/about">
               <About user={user} />
