@@ -1,4 +1,153 @@
-.App{
+/*----- Global CSS -----*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
+/* 
+font-family: 'Poppins', sans-serif; - for all text, adjusting font-weight as you need to
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+/*----- Colours -----*/
+/* All colours can be used using var(--colourYouWant) */
+
+:root {
+  /* Main colors */
+  --lightAccent: #ffffff; /* white */
+  --darkAccent: #363537; /* jet */
+  --redAccent: #bf211e; /* venetian red */
+  --orangeAccent: #ff8c42; /* mango tango */
+  --yellowAccent: #e9ce2c; /* safety yellow */
+  --greyAccent: #c4c4c4; /* lighter grey */
+  --darkerGrey: #8b939c; /* darker grey for hover */
+}
+
+/*----- Global Styles -----*/
+
+body {
+  margin: 0;
+  line-height: 1.4;
+  font-family: "Poppins", sans-serif;
+  background: var(--darkBkgd);
+  color: var(--lightFont);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "IM Fell English SC", serif;
+  margin: 0;
+  color: var(--orangeAccent);
+  padding-bottom: 1em;
+}
+
+p {
+  margin: 0;
+  padding-bottom: 1em;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* ----- Fonts -----*/
+
+h1 {
+  font-size: 2.441rem;
+}
+
+h2 {
+  font-size: 1.563rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+/* ----- Buttons ----- */
+
+.btn {
+  display: inline-block;
+  font-size: 1.125rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 1em 1em;
+  margin: 1em 0;
+}
+
+.btn-primary {
+  background: var(--orangeAccent);
+  color: var(--lightFont);
+}
+
+.btn-primary:hover {
+  background: var(--darkerOrange);
+}
+
+.btn-secondary {
+  background: var(--greenAccent);
+  color: var(--lightFont);
+}
+
+.btn-secondary:hover {
+  background: var(--darkerGreen);
+}
+
+/* ----- Layouts ----- */
+
+.content-container {
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2em 0;
+}
+
+.home-content {
+  padding: 2em 0;
+}
+
+.home-card {
+  background-color: var(--lightBkgd);
+  padding: 2em 0;
+  margin: 1em;
+}
+
+.home-card img {
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
+}
+
+/* ----- Media Queries ----- */
+
+/* @media (min-width: 1000px) {
+  html {
+    font-size: 1.2rem;
+  }
+
+  .content-container {
+    width: 70%;
+    max-width: 1200px;
+    padding: 3em 0;
+  }
+
+  .home-content {
+    display: flex;
+    justify-content: space-evenly;
+  }
+} */
+
+/* .App{
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   justify-content: center;
@@ -15,4 +164,4 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
