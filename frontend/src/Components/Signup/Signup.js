@@ -31,12 +31,11 @@ const Signup = (props) => {
   const history = useHistory();
   useEffect(() => {
     if (props.user) {
-      history.push("/leaderboard");
+      history.push("/");
     }
   }, []);
 
   const onFinish = (values) => {
-    console.log(values);
     setFormStatus("loading");
     // post data
     fetch("http://localhost:5000/user/signup", {
@@ -48,6 +47,7 @@ const Signup = (props) => {
       .then((data) => {
         if (data.success) {
           setFormStatus("success");
+          props.setUser(JSON.stringify(data.user));
           window.localStorage.setItem("currentUser", JSON.stringify(data.user));
         } else {
           setFormStatus("failed");

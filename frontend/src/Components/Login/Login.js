@@ -28,14 +28,16 @@ const Login = (props) => {
       .then((data) => {
         if (data.auth) {
           setFormStatus("success");
+          props.setUser(JSON.stringify(data.user));
           window.localStorage.setItem("currentUser", JSON.stringify(data.user));
-          history.push("/leaderboard");
+          history.push("/");
         } else {
           setFormStatus("failed");
         }
       })
       .catch((err) => {
         setFormStatus("failed");
+        console.log(err);
       });
   };
   const buttonValues = {
