@@ -5,8 +5,8 @@
 .navbar button {
   position: fixed;
   text-align: right;
-  right: 2em;
-  top: 2em;
+  right: 1.5em;
+  top: 1.5em;
   z-index: 10;
   cursor: pointer;
 }
@@ -21,7 +21,8 @@
   width: 0;
   overflow: hidden;
   z-index: 9;
-  background-color: #fafafa;
+  background-color: var(--darkerGrey);
+  transition: width 600ms cubic-bezier(0.175, 0.885, 0.32, 1.475);
 }
 
 .menuNav.showMenu {
@@ -50,15 +51,9 @@
 
 .navbar a {
   display: block;
-  text-decoration: none;
-  color: black;
 }
 
 @media (min-width: 1000px) {
-  .navbar {
-    background-color: lightgrey;
-  }
-
   .navbar button {
     display: none;
   }
@@ -67,12 +62,21 @@
     position: relative;
     height: auto;
     width: 100%;
+    padding: 1em;
     display: flex;
     justify-content: flex-end;
+    background-color: inherit;
   }
 
   .menuNav a:first-child {
     margin-top: 0;
+  }
+
+  .navbar-item {
+    width: auto;
+    padding: 0;
+    margin-right: 1em;
+    font-size: 1rem;
   }
 
   .navbar a {

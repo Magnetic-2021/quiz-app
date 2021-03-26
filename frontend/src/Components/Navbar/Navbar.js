@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {MenuOutlined, CloseOutlined} from "@ant-design/icons";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -14,11 +14,11 @@ const Navbar = () => {
         <nav className="navbar">
             <button onClick={handleToggle}>{menuOpen ? <CloseOutlined className="navbar-icon" /> : <MenuOutlined className="navbar-icon" /> }</button>
             <div className={`menuNav ${menuOpen ? "showMenu" : ""}`}>
-                <Link to="/" className="navbar-item" onClick={closeMenu}>Home</Link>
-                <Link to="/quiz" className="navbar-item" onClick={closeMenu}>Quiz</Link>
-                <Link to="/leaderboard" className="navbar-item" onClick={closeMenu}>Leaderboard</Link>
-                <Link to="/about" className="navbar-item" onClick={closeMenu}>About</Link>
-                <Link to="/signup" className="navbar-item" onClick={closeMenu}>Sign Up / Register</Link>
+                <NavLink exact to="/" className="navbar-item" activeClassName="navbar-selected" onClick={closeMenu}>Home</NavLink>
+                <NavLink to="/quiz" className="navbar-item" activeClassName="navbar-selected" onClick={closeMenu}>Quiz</NavLink>
+                <NavLink to="/leaderboard" className="navbar-item" activeClassName="navbar-selected" onClick={closeMenu}>Leaderboard</NavLink>
+                <NavLink to="/about" className="navbar-item" activeClassName="navbar-selected" onClick={closeMenu}>About</NavLink>
+                <NavLink to="/signup" className="navbar-item" activeClassName="navbar-selected" onClick={closeMenu}>Sign Up / Register</NavLink>
             </div>
         </nav>
     );
