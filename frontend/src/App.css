@@ -1,4 +1,134 @@
-.App{
+/*----- Global CSS -----*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
+/* 
+font-family: 'Poppins', sans-serif; - for all text, adjusting font-weight as you need to
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+/*----- Colours -----*/
+/* All colours can be used using var(--colourYouWant) */
+
+:root {
+  /* Main colors */
+  --lightAccent: #ffffff; /* white */
+  --darkAccent: #363537; /* jet */
+  --redAccent: #bf211e; /* venetian red */
+  --orangeAccent: #ff8c42; /* mango tango */
+  --yellowAccent: #e9ce2c; /* safety yellow */
+  --greyAccent: #c4c4c4; /* lighter grey */
+  --darkerGrey: #8b939c; /* darker grey for hover */
+}
+
+/*----- Global Styles -----*/
+
+body {
+  margin: 0;
+  line-height: 1.4;
+  font-family: "Poppins", sans-serif;
+  background: var(--darkAccent);
+  color: var(--lightAccent);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: var(--lightAccent);
+  padding-bottom: 1em;
+}
+
+p {
+  margin: 0;
+  padding-bottom: 2em;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* ----- Fonts -----*/
+
+h1 {
+  font-size: 1.802rem;
+}
+
+h2 {
+  font-size: 1.602rem;
+}
+
+h3 {
+  font-size: 1.424rem;
+}
+
+/* ----- Buttons ----- */
+
+/*.btn {
+  display: inline-block;
+  font-size: 1.125rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 1em 1em;
+  margin: 1em 0;
+}
+
+.btn-primary {
+  background: var(--orangeAccent);
+  color: var(--lightFont);
+}
+
+.btn-primary:hover {
+  background: var(--darkerOrange);
+}
+
+.btn-secondary {
+  background: var(--greenAccent);
+  color: var(--lightFont);
+}
+
+.btn-secondary:hover {
+  background: var(--darkerGreen);
+}
+
+/* ----- Layouts ----- */
+
+.content {
+  width: 90%;
+  height: 100vh; /*calc(100vh - 80px);*/
+  margin: 0 auto;
+  padding: 6em 0 2em 0;
+}
+
+/* ----- Media Queries ----- */
+
+@media (min-width: 1000px) {
+  html {
+    font-size: 1.125rem;
+  }
+
+  .content {
+    width: 70%;
+    max-width: 1200px;
+    padding: 3em 0;
+  }
+}
+
+/*Gemcila styles?*/
+/* .App{
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   justify-content: center;
@@ -15,4 +145,4 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
