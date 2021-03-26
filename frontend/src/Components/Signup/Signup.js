@@ -48,7 +48,10 @@ const Signup = (props) => {
         if (data.success) {
           setFormStatus("success");
           props.setUser(JSON.stringify(data.user));
-          window.localStorage.setItem("currentUser", JSON.stringify(data.user));
+          window.sessionStorage.setItem(
+            "currentUser",
+            JSON.stringify(data.user)
+          );
         } else {
           setFormStatus("failed");
         }
