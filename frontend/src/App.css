@@ -47,7 +47,7 @@ h6 {
 
 p {
   margin: 0;
-  padding-bottom: 1em;
+  padding-bottom: 2em;
 }
 
 a {
@@ -115,9 +115,9 @@ h3 {
 
 /* ----- Media Queries ----- */
 
-/* @media (min-width: 1000px) {
+@media (min-width: 1000px) {
   html {
-    font-size: 1.2rem;
+    font-size: 1.125rem;
   }
 
   .content {
@@ -125,12 +125,7 @@ h3 {
     max-width: 1200px;
     padding: 3em 0;
   }
-
-  .home-content {
-    display: flex;
-    justify-content: space-evenly;
-  }
-} */
+}
 
 /*Gemcila styles?*/
 /* .App{
