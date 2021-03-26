@@ -28,8 +28,8 @@ body {
   margin: 0;
   line-height: 1.4;
   font-family: "Poppins", sans-serif;
-  background: var(--darkBkgd);
-  color: var(--lightFont);
+  background: var(--darkAccent);
+  color: var(--lightAccent);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -40,9 +40,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "IM Fell English SC", serif;
   margin: 0;
-  color: var(--orangeAccent);
+  color: var(--lightAccent);
   padding-bottom: 1em;
 }
 
@@ -62,20 +61,20 @@ ul {
 /* ----- Fonts -----*/
 
 h1 {
-  font-size: 2.441rem;
+  font-size: 1.802rem;
 }
 
 h2 {
-  font-size: 1.563rem;
+  font-size: 1.602rem;
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.424rem;
 }
 
 /* ----- Buttons ----- */
 
-.btn {
+/*.btn {
   display: inline-block;
   font-size: 1.125rem;
   font-family: "Josefin Sans", sans-serif;
@@ -107,25 +106,11 @@ h3 {
 
 /* ----- Layouts ----- */
 
-.content-container {
-  width: 95%;
+.content {
+  width: 90%;
+  height: 100vh; /*calc(100vh - 80px);*/
   margin: 0 auto;
-  text-align: center;
-  padding: 2em 0;
-}
-
-.home-content {
-  padding: 2em 0;
-}
-
-.home-card {
-  background-color: var(--lightBkgd);
-  padding: 2em 0;
-  margin: 1em;
-}
-
-.home-card img {
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
+  padding: 6em 0 2em 0;
 }
 
 /* ----- Media Queries ----- */
@@ -135,7 +120,7 @@ h3 {
     font-size: 1.2rem;
   }
 
-  .content-container {
+  .content {
     width: 70%;
     max-width: 1200px;
     padding: 3em 0;
@@ -147,6 +132,7 @@ h3 {
   }
 } */
 
+/*Gemcila styles?*/
 /* .App{
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
