@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import "./Quiz.css";
+import bomb from "../../images/bomb.svg";
 
 const Quiz = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
@@ -40,6 +40,9 @@ const Quiz = () => {
   ) : (
     <div className="Quiz">
       <h1 className="questionTitle">{questions[currQuestion].question}</h1>
+      <div className="timerContainer">
+        <img src={bomb} alt="bomb" className="bombTimerLogo" />
+      </div>
       <div className="options">
         <button onClick={() => setOptionChosen("A")}>
           {questions[currQuestion].incorrect_answers[0]}
