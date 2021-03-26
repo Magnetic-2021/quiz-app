@@ -55,7 +55,8 @@ a {
   color: var(--lightAccent);
 }
 
-a:hover {
+a:hover,
+.navbar-selected {
   text-decoration: none;
   color: var(--orangeAccent);
   font-weight: 600;
