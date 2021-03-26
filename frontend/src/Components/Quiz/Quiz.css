@@ -24,6 +24,7 @@
     font-weight: 800;
     font-size: 20px;
     cursor: pointer;
+    border-color: rgb(0,0,0,0.1);
 }
 
 .Quiz button:hover{
