@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
-
 import "./Quiz.css";
+import bomb from "../../images/bomb.svg";
+import Aellipse from "../../images/Aellipse.svg";
+import Bellipse from "../../images/Bellipse.svg";
+import Cellipse from "../../images/Cellipse.svg";
+import Dellipse from "../../images/Dellipse.svg";
 
 const Quiz = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
@@ -40,17 +44,24 @@ const Quiz = () => {
   ) : (
     <div className="Quiz">
       <h1 className="questionTitle">{questions[currQuestion].question}</h1>
+      <div className="timerContainer">
+        <img src={bomb} alt="bomb" className="bombTimerLogo" />
+      </div>
       <div className="options">
         <button onClick={() => setOptionChosen("A")}>
+          <img src={Aellipse} alt="Aellipse" className="ellipseOption"/>
           {questions[currQuestion].incorrect_answers[0]}
         </button>
         <button onClick={() => setOptionChosen("B")}>
+        <img src={Bellipse} alt="Bellipse" className="ellipseOption"/>
           {questions[currQuestion].incorrect_answers[1]}
         </button>
         <button onClick={() => setOptionChosen("C")}>
+        <img src={Cellipse} alt="Cellipse" className="ellipseOption"/>
           {questions[currQuestion].incorrect_answers[2]}
         </button>
         <button onClick={() => setOptionChosen("D")}>
+        <img src={Dellipse} alt="Dellipse" className="ellipseOption"/>
           {questions[currQuestion].correct_answer}
         </button>
       </div>
