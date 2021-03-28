@@ -1,7 +1,9 @@
 /*----- Global CSS -----*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap");
 /* 
 font-family: 'Poppins', sans-serif; - for all text, adjusting font-weight as you need to
+font-family: 'Roboto Mono', monospace; - for bomb countdown
 */
 
 * {
@@ -134,4 +136,3 @@ h3 {
     padding: 3em 0;
   }
 }
- 

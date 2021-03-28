@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useRef } from "react";
+import explode from "./explode";
+import Timer from "./../Timer/Timer";
 import "./Quiz.css";
 
 const Quiz = () => {
@@ -8,6 +9,12 @@ const Quiz = () => {
   const [gameState, setGameState] = useState("loading");
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState();
+  const [timer, setTimer] = useState(1000);
+  const [timerState, setTimerState] = useState("idle");
+  const [showBomb, setShowBomb] = useState(true);
+
+  const bombRef = useRef();
+
   useEffect(() => {
     console.log("about to ffetxh");
     fetch("http://localhost:5000/questions")
@@ -18,6 +25,31 @@ const Quiz = () => {
         setGameState("active");
       });
   }, []);
+
+  useEffect(() => {
+    if (timerState === "active") {
+      if (timer === 0) {
+        const bombPosition = bombRef.current.children[1].getBoundingClientRect();
+        const y =
+          10 +
+          bombPosition.y +
+          bombPosition.height / 2 -
+          window.innerHeight / 2 +
+          window.scrollY;
+        // const x = bombPosition.x + bombPosition.width / 2;
+        explode(0, y);
+        setTimeout(() => {
+          setShowBomb(false);
+        }, 900);
+
+        setTimerState("idle");
+      } else {
+        setTimeout(() => {
+          setTimer(timer - 100);
+        }, 100);
+      }
+    }
+  }, [timer, timerState]);
 
   const nextQuestion = () => {
     if (questions[currQuestion].correct_answer === optionChosen) {
@@ -38,10 +70,17 @@ const Quiz = () => {
   return gameState === "loading" ? (
     "loading"
   ) : (
-    <div className="Quiz">
+    <div ref={bombRef} className="Quiz">
       <h1 className="questionTitle">{questions[currQuestion].question}</h1>
+
+      <Timer
+        showBomb={showBomb}
+        time={`00:${Math.floor(timer / 1000)
+          .toString()
+          .padStart(2, "0")}`}
+      />
       <div className="options">
-        <button onClick={() => setOptionChosen("A")}>
+        <button onClick={() => setTimerState("active")}>
           {questions[currQuestion].incorrect_answers[0]}
         </button>
         <button onClick={() => setOptionChosen("B")}>
