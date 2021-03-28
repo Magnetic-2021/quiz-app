@@ -2,6 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import explode from "./explode";
 import Timer from "./../Timer/Timer";
 import "./Quiz.css";
+import Aellipse from "../../images/Aellipse.svg";
+import Bellipse from "../../images/Bellipse.svg";
+import Cellipse from "../../images/Cellipse.svg";
+import Dellipse from "../../images/Dellipse.svg";
 
 const Quiz = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
@@ -72,7 +76,6 @@ const Quiz = () => {
   ) : (
     <div ref={bombRef} className="Quiz">
       <h1 className="questionTitle">{questions[currQuestion].question}</h1>
-
       <Timer
         showBomb={showBomb}
         time={`00:${Math.floor(timer / 1000)
@@ -80,16 +83,20 @@ const Quiz = () => {
           .padStart(2, "0")}`}
       />
       <div className="options">
-        <button onClick={() => setTimerState("active")}>
+        <button onClick={() => setTimerState("active")}>  
+          <img src={Aellipse} alt="Aellipse" className="ellipseOption"/>
           {questions[currQuestion].incorrect_answers[0]}
         </button>
         <button onClick={() => setOptionChosen("B")}>
+        <img src={Bellipse} alt="Bellipse" className="ellipseOption"/>
           {questions[currQuestion].incorrect_answers[1]}
         </button>
         <button onClick={() => setOptionChosen("C")}>
+        <img src={Cellipse} alt="Cellipse" className="ellipseOption"/>
           {questions[currQuestion].incorrect_answers[2]}
         </button>
         <button onClick={() => setOptionChosen("D")}>
+        <img src={Dellipse} alt="Dellipse" className="ellipseOption"/>
           {questions[currQuestion].correct_answer}
         </button>
       </div>
