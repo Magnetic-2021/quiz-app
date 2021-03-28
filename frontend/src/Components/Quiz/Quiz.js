@@ -6,29 +6,48 @@ import Aellipse from "../../images/Aellipse.svg";
 import Bellipse from "../../images/Bellipse.svg";
 import Cellipse from "../../images/Cellipse.svg";
 import Dellipse from "../../images/Dellipse.svg";
+import shuffleOptions from "../../lib/shuffleOptions";
+import { checkAnimation, checkBurst } from "./answerAnimation";
 
 const Quiz = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState("");
+  const [correctAnswerIndex, setCorrectAnswerIndex] = useState();
+  const [options, setOptions] = useState();
   const [gameState, setGameState] = useState("loading");
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState();
-  const [timer, setTimer] = useState(1000);
+  const [timer, setTimer] = useState(6000);
   const [timerState, setTimerState] = useState("idle");
   const [showBomb, setShowBomb] = useState(true);
 
   const bombRef = useRef();
 
   useEffect(() => {
-    console.log("about to ffetxh");
-    fetch("http://localhost:5000/questions")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("got data", data);
-        setQuestions(data);
-        setGameState("active");
-      });
+    if (!questions) {
+      console.log("about to fetch");
+      fetch("http://localhost:5000/questions")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("got data", data);
+          setQuestions(data);
+          setGameState("active");
+          setTimerState("active");
+        });
+    }
   }, []);
+
+  useEffect(() => {
+    if (gameState === "active") {
+      console.log({ currQuestion });
+      const [answers, correctIndex] = shuffleOptions(
+        questions[currQuestion].correct_answer,
+        questions[currQuestion].incorrect_answers
+      );
+      setOptions(answers);
+      setCorrectAnswerIndex(correctIndex);
+    }
+  }, [gameState, currQuestion]);
 
   useEffect(() => {
     if (timerState === "active") {
@@ -48,20 +67,24 @@ const Quiz = () => {
 
         setTimerState("idle");
       } else {
-        setTimeout(() => {
-          setTimer(timer - 100);
+        const timerFunc = setTimeout(() => {
+          setTimer((prevState) => prevState - 100);
         }, 100);
       }
     }
   }, [timer, timerState]);
 
-  const nextQuestion = () => {
-    if (questions[currQuestion].correct_answer === optionChosen) {
-      setScore(score + 1);
+  useEffect(() => {
+    if (gameState === "active" && optionChosen) {
+      if (optionChosen === correctAnswerIndex) {
+        // add points
+        // add time?
+        setTimer((prevState) => prevState + 6000);
+      }
+      setOptionChosen(null);
+      setCurrQuestion(currQuestion + 1);
     }
-    alert(score);
-    setCurrQuestion(currQuestion + 1);
-  };
+  }, [optionChosen, gameState]);
 
   const finishQuiz = () => {
     if (questions[currQuestion].correct_answer === optionChosen) {
@@ -83,29 +106,22 @@ const Quiz = () => {
           .padStart(2, "0")}`}
       />
       <div className="options">
-        <button onClick={() => setTimerState("active")}>  
-          <img src={Aellipse} alt="Aellipse" className="ellipseOption"/>
-          {questions[currQuestion].incorrect_answers[0]}
-        </button>
-        <button onClick={() => setOptionChosen("B")}>
-        <img src={Bellipse} alt="Bellipse" className="ellipseOption"/>
-          {questions[currQuestion].incorrect_answers[1]}
-        </button>
-        <button onClick={() => setOptionChosen("C")}>
-        <img src={Cellipse} alt="Cellipse" className="ellipseOption"/>
-          {questions[currQuestion].incorrect_answers[2]}
-        </button>
-        <button onClick={() => setOptionChosen("D")}>
-        <img src={Dellipse} alt="Dellipse" className="ellipseOption"/>
-          {questions[currQuestion].correct_answer}
-        </button>
+        {options &&
+          options.map((option, index) => {
+            return (
+              <button
+                onClick={(event) => {
+                  setOptionChosen(index);
+                  checkAnimation.play();
+                  checkBurst.play();
+                }}
+              >
+                <img src={Aellipse} alt="Aellipse" className="ellipseOption" />
+                {option}
+              </button>
+            );
+          })}
       </div>
-      {currQuestion === questions.length - 1 ? (
-        <button onClick={finishQuiz}>Finish Quiz</button>
-      ) : (
-        <button onClick={nextQuestion}> Next Question </button>
-      )}
-      <div>{gameState === "finished" && <p>Ended</p>}</div>
     </div>
   );
 };
