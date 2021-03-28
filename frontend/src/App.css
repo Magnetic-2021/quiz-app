@@ -59,7 +59,7 @@ a:hover,
 .navbar-selected {
   text-decoration: none;
   color: var(--orangeAccent);
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 ul {
@@ -134,4 +134,3 @@ h3 {
     padding: 3em 0;
   }
 }
- 
