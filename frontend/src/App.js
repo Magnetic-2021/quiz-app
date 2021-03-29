@@ -19,6 +19,7 @@ import Quiz from "./Components/Quiz/Quiz";
 import EndScreen from "./Components/EndScreen/EndScreen";
 
 function App() {
+
   const [user, setUser] = useState();
   useEffect(() => {
     // get user from session storage
@@ -70,7 +71,7 @@ function App() {
               <EndScreen user={user} />
             </Route>
             <Route path="/leaderboard">
-              <Scoreboard user={user} />
+              <Scoreboard user={user}/>
             </Route>
             <Route path="*">
               <NotFound />
