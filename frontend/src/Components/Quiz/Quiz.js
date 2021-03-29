@@ -6,31 +6,81 @@ import Aellipse from "../../images/Aellipse.svg";
 import Bellipse from "../../images/Bellipse.svg";
 import Cellipse from "../../images/Cellipse.svg";
 import Dellipse from "../../images/Dellipse.svg";
+import shuffleOptions from "../../lib/shuffleOptions";
+import {
+  checkAnimation,
+  checkBurst,
+  correctAnimation,
+} from "./answerAnimation";
+
+const time = {
+  easy: 3000,
+  medium: 5000,
+  hard: 7000,
+};
+const points = {
+  easy: 2,
+  medium: 5,
+  hard: 10,
+};
 
 const Quiz = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
-  const [optionChosen, setOptionChosen] = useState("");
+  const [optionChosen, setOptionChosen] = useState();
+  const [correctAnswerIndex, setCorrectAnswerIndex] = useState();
+  const [options, setOptions] = useState();
   const [gameState, setGameState] = useState("loading");
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState();
-  const [timer, setTimer] = useState(1000);
+  const [timer, setTimer] = useState(10000);
   const [timerState, setTimerState] = useState("idle");
   const [showBomb, setShowBomb] = useState(true);
+  const [optionStyles, setOptionStyles] = useState([]);
+  const [answerProcessed, setAnswerProcessed] = useState(true);
 
   const bombRef = useRef();
+  const timerRef = useRef();
 
   useEffect(() => {
-    console.log("about to ffetxh");
-    fetch("http://localhost:5000/questions")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("got data", data);
-        setQuestions(data);
-        setGameState("active");
-      });
+    console.log("initial useEffect");
+    if (!questions) {
+      console.log("about to fetch");
+      fetch("http://localhost:5000/questions")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("got data", data);
+          setQuestions(data);
+          setGameState("active");
+          setTimerState("active");
+        });
+    }
   }, []);
 
   useEffect(() => {
+    console.log("in create question useEffect", { gameState, answerProcessed });
+    if (gameState !== "loading") {
+      if (answerProcessed) {
+        setAnswerProcessed(false);
+        console.log("creating question", { currQuestion });
+        const [answers, correctIndex] = shuffleOptions(
+          questions[currQuestion].correct_answer,
+          questions[currQuestion].incorrect_answers
+        );
+        setOptions(answers);
+        setCorrectAnswerIndex(correctIndex);
+      }
+    }
+  }, [gameState, currQuestion, answerProcessed]);
+
+  useEffect(() => {
+    console.log("options style useEffect", options);
+    if (options) {
+      setOptionStyles(options.map(() => ({ opacity: "100%" })));
+    }
+  }, [options]);
+
+  useEffect(() => {
+    console.log("in timer useEffect");
     if (timerState === "active") {
       if (timer === 0) {
         const bombPosition = bombRef.current.children[1].getBoundingClientRect();
@@ -45,67 +95,96 @@ const Quiz = () => {
         setTimeout(() => {
           setShowBomb(false);
         }, 900);
-
+        setGameState("finished");
         setTimerState("idle");
       } else {
-        setTimeout(() => {
-          setTimer(timer - 100);
+        clearTimeout(timerRef.current);
+        timerRef.current = setTimeout(() => {
+          setTimer((prevState) => prevState - 100);
         }, 100);
       }
+    } else if (timerState === "paused") {
+      clearTimeout(timerRef.current);
     }
   }, [timer, timerState]);
 
-  const nextQuestion = () => {
-    if (questions[currQuestion].correct_answer === optionChosen) {
-      setScore(score + 1);
+  useEffect(() => {
+    console.log("process answer useEffect", { gameState, optionChosen });
+    if (gameState === "active" && optionChosen !== undefined) {
+      console.log("**********");
+      if (optionChosen === correctAnswerIndex) {
+        setScore(
+          (prevState) => prevState + points[questions[currQuestion].difficulty]
+        );
+        setTimer(
+          (prevState) => prevState + time[questions[currQuestion].difficulty]
+        );
+      }
+      setOptionChosen(null);
+      setCurrQuestion(currQuestion + 1);
+      setAnswerProcessed(true);
     }
-    alert(score);
-    setCurrQuestion(currQuestion + 1);
-  };
+  }, [optionChosen, gameState]);
 
-  const finishQuiz = () => {
-    if (questions[currQuestion].correct_answer === optionChosen) {
-      setScore(score + 1);
-    }
-    console.log("here");
-    setGameState("finished");
+  const handleAnswer = (event, answerIndex) => {
+    console.log("handle answer");
+    setTimerState("paused");
+    setGameState("paused");
+    // highlight chosen answer
+    // fade incorrect answers
+    setOptionStyles(
+      options.map((o, index) => ({
+        opacity: index === correctAnswerIndex ? "100%" : "0%",
+      }))
+    );
+
+    setTimeout(() => {
+      // update option chosen
+      console.log("Runnin handle answer settimeout", { answerIndex });
+      console.log({ optionChosen });
+      setOptionChosen(answerIndex);
+      setTimerState("active");
+      setGameState("active");
+    }, 1000);
   };
 
   return gameState === "loading" ? (
     "loading"
   ) : (
     <div ref={bombRef} className="Quiz">
-      <h1 className="questionTitle">{questions[currQuestion].question}</h1>
-      <Timer
-        showBomb={showBomb}
-        time={`00:${Math.floor(timer / 1000)
-          .toString()
-          .padStart(2, "0")}`}
-      />
-      <div className="options">
-        <button onClick={() => setTimerState("active")}>  
-          <img src={Aellipse} alt="Aellipse" className="ellipseOption"/>
-          {questions[currQuestion].incorrect_answers[0]}
-        </button>
-        <button onClick={() => setOptionChosen("B")}>
-        <img src={Bellipse} alt="Bellipse" className="ellipseOption"/>
-          {questions[currQuestion].incorrect_answers[1]}
-        </button>
-        <button onClick={() => setOptionChosen("C")}>
-        <img src={Cellipse} alt="Cellipse" className="ellipseOption"/>
-          {questions[currQuestion].incorrect_answers[2]}
-        </button>
-        <button onClick={() => setOptionChosen("D")}>
-        <img src={Dellipse} alt="Dellipse" className="ellipseOption"/>
-          {questions[currQuestion].correct_answer}
-        </button>
-      </div>
-      {currQuestion === questions.length - 1 ? (
-        <button onClick={finishQuiz}>Finish Quiz</button>
-      ) : (
-        <button onClick={nextQuestion}> Next Question </button>
+      {gameState !== "finished" && (
+        <>
+          <p className={`difficulty ${questions[currQuestion].difficulty}`}>
+            {questions[currQuestion].difficulty}
+          </p>
+          <h1 className="questionTitle">{questions[currQuestion].question}</h1>
+          <Timer
+            score={score}
+            showBomb={showBomb}
+            time={`00:${Math.floor(timer / 1000)
+              .toString()
+              .padStart(2, "0")}`}
+          />
+          <div className="options">
+            {options &&
+              options.map((option, index) => {
+                return (
+                  <button
+                    style={optionStyles[index]}
+                    onClick={(event) => handleAnswer(event, index)}
+                  >
+                    <img
+                      src={Aellipse}
+                      alt="Aellipse"
+                      className="ellipseOption"
+                    />
+                    {option}
+                  </button>
+                );
+              })}
+          </div>
+        </>
       )}
-      <div>{gameState === "finished" && <p>Ended</p>}</div>
     </div>
   );
 };

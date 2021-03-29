@@ -9,7 +9,7 @@ const Logo = ({ size, type }) => {
     horizontal: <HorizontalLogo />,
   };
 
-  return <div style={{ margin: "auto" }}>{logos[type]}</div>;
+  return <div>{logos[type]}</div>;
 };
 
 export default Logo;

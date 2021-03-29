@@ -23,6 +23,7 @@ font-family: 'Roboto Mono', monospace; - for bomb countdown
   --yellowAccent: #e9ce2c; /* safety yellow */
   --greyAccent: #c4c4c4; /* lighter grey */
   --darkerGrey: #8b939c; /* darker grey for hover */
+  --darkerOrange: #e67329; /* darker orange for hover */
 }
 
 /*----- Global Styles -----*/
@@ -62,7 +63,7 @@ a:hover,
 .navbar-selected {
   text-decoration: none;
   color: var(--orangeAccent);
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 ul {
@@ -85,21 +86,15 @@ h3 {
 
 /* ----- Buttons ----- */
 
-/*.btn {
-  display: inline-block;
-  font-size: 1.125rem;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 600;
-  cursor: pointer;
+.btn {
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
   border: none;
-  border-radius: 5px;
-  padding: 1em 1em;
-  margin: 1em 0;
 }
 
 .btn-primary {
   background: var(--orangeAccent);
-  color: var(--lightFont);
+  color: var(--lightAccent);
 }
 
 .btn-primary:hover {
@@ -107,12 +102,12 @@ h3 {
 }
 
 .btn-secondary {
-  background: var(--greenAccent);
+  background: var(--greyAccent);
   color: var(--lightFont);
 }
 
 .btn-secondary:hover {
-  background: var(--darkerGreen);
+  background: var(--darkerGrey);
 }
 
 /* ----- Layouts ----- */
@@ -124,6 +119,23 @@ h3 {
   padding: 6em 0 2em 0;
 }
 
+/* ----- Forms ----- */
+
+.form-label {
+  color: var(--lightAccent);
+}
+
+.form-input {
+  font-size: 1.125rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--darkAccent);
+  border-radius: 10px;
+}
+
+form .btn {
+  margin-top: 1em;
+}
+
 /* ----- Media Queries ----- */
 
 @media (min-width: 1000px) {
@@ -131,9 +143,13 @@ h3 {
     font-size: 1.125rem;
   }
 
-  .content {
-    width: 70%;
+  .App {
+    width: 80%;
     max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .content {
     padding: 3em 0;
   }
 }
