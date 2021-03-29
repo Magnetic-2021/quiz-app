@@ -2,7 +2,10 @@ const mongoose = require("mongoose");
 const express = require("express");
 const bcrypt = require("bcrypt");
 const { User } = require("../models/User");
+const { Image } = require("../models/Image");
 const router = express.Router();
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
 router.post("/user/signup", (req, res) => {
   const newUser = req.body;
@@ -19,13 +22,11 @@ router.post("/user/signup", (req, res) => {
         password: hash,
       })
         .then((userRecord) => {
-          res
-            .status(200)
-            .send({
-              message: "Account Created",
-              success: true,
-              user: createClientUser(userRecord),
-            });
+          res.status(200).send({
+            message: "Account Created",
+            success: true,
+            user: createClientUser(userRecord),
+          });
         })
         .catch((err) => {
           console.log("Error", err);
@@ -56,6 +57,12 @@ router.post("/user/login", (req, res) => {
       });
     }
   });
+});
+
+router.post("/user/avatar", upload.single("avatar"), (req, res) => {
+  console.log("avatar", req.file);
+  Image.create({ imageUri: req.file });
+  res.status(200);
 });
 
 const createClientUser = ({ password, ...rest }) => ({
