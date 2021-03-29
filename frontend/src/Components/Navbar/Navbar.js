@@ -3,6 +3,8 @@ import {MenuOutlined, CloseOutlined} from "@ant-design/icons";
 import {NavLink} from "react-router-dom";
 import "./Navbar.css";
 
+import Logo from "../Logo/Logo";
+
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -12,6 +14,7 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
+            <Logo type="horizontal" className="app-logo" />
             <button onClick={handleToggle}>{menuOpen ? <CloseOutlined className="navbar-icon" /> : <MenuOutlined className="navbar-icon" /> }</button>
             <div className={`menuNav ${menuOpen ? "showMenu" : ""}`}>
                 <NavLink exact to="/" className="navbar-item" activeClassName="navbar-selected" onClick={closeMenu}>Home</NavLink>
