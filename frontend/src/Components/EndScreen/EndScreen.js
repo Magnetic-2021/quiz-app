@@ -1,4 +1,6 @@
+import "./EndScreen.css";
 import Avatar from "../Avatar/Avatar";
+//import avatarBackground from "../../images/avatarBackground.svg";
 
 const EndScreen = () => {
   // const playAgain = () => {
@@ -18,9 +20,9 @@ const EndScreen = () => {
       </div>
       
       <div className="btn-endscreen">
-      <button id="btn-endscreen-playagain">Play again</button>
+      <button id="btn-endscreen-playagain" className="btn">Play again</button>
       <br/>
-      <button id="btn-endscreen-leaderboard">View Leaderboard</button>
+      <button id="btn-endscreen-leaderboard" className="btn">View Leaderboard</button>
       </div>
 
     </div>
@@ -31,3 +33,4 @@ export default EndScreen;
 
 //{score} / {QuestionList.length}{" "}
 //<button onClick={playAgain}>Play again</button>
+// <img src={avatarBackground} alt="avatarBackground" className="avatarBackground"/>
