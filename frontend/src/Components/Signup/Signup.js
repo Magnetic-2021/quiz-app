@@ -8,8 +8,10 @@ import {
 } from "@ant-design/icons";
 import "./Signup.css";
 import { FormProvider } from "antd/lib/form/context";
+import AvatarUpload from "./AvatarUpload";
 const Signup = (props) => {
   const [formStatus, setFormStatus] = useState("idle");
+  const [avatarImg, setAvatarImg] = useState();
   const buttonValues = {
     idle: {
       text: "Create Account",
@@ -41,7 +43,7 @@ const Signup = (props) => {
     fetch("http://localhost:5000/user/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
+      body: JSON.stringify({ ...values, avatarImg }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -65,6 +67,7 @@ const Signup = (props) => {
     <div className="signup-container">
       <Form name="signup" onFinish={onFinish} layout="vertical" size="large">
         <h1>Create an Account</h1>
+        <AvatarUpload avatarImg={avatarImg} setAvatarImg={setAvatarImg} />
         <Form.Item
           label="Username"
           name="username"
