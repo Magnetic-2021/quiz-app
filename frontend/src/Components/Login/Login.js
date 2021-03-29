@@ -70,7 +70,7 @@ const Login = (props) => {
           name="username"
           rules={[{ required: true, message: "Please input a username." }]}
         >
-          <Input />
+          <Input className="form-input" />
         </Form.Item>
 
         <Form.Item
@@ -78,14 +78,14 @@ const Login = (props) => {
           name="password"
           rules={[{ required: true, message: "Please input a password." }]}
         >
-          <Input.Password />
+          <Input.Password className="form-input" />
         </Form.Item>
 
         <Button
           htmlType="submit"
           type="primary"
           loading={buttonValues[formStatus].loading}
-          icon={buttonValues[formStatus].icon}
+          icon={buttonValues[formStatus].icon} className="btn btn-primary"
         >
           {buttonValues[formStatus].text}
         </Button>

@@ -20,6 +20,7 @@ font-family: 'Poppins', sans-serif; - for all text, adjusting font-weight as you
   --yellowAccent: #e9ce2c; /* safety yellow */
   --greyAccent: #c4c4c4; /* lighter grey */
   --darkerGrey: #8b939c; /* darker grey for hover */
+  --darkerOrange: #e67329; /* darker orange for hover */
 }
 
 /*----- Global Styles -----*/
@@ -82,21 +83,15 @@ h3 {
 
 /* ----- Buttons ----- */
 
-/*.btn {
-  display: inline-block;
-  font-size: 1.125rem;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 600;
-  cursor: pointer;
+.btn {
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
   border: none;
-  border-radius: 5px;
-  padding: 1em 1em;
-  margin: 1em 0;
 }
 
 .btn-primary {
   background: var(--orangeAccent);
-  color: var(--lightFont);
+  color: var(--lightAccent);
 }
 
 .btn-primary:hover {
@@ -104,12 +99,12 @@ h3 {
 }
 
 .btn-secondary {
-  background: var(--greenAccent);
+  background: var(--greyAccent);
   color: var(--lightFont);
 }
 
 .btn-secondary:hover {
-  background: var(--darkerGreen);
+  background: var(--darkerGrey);
 }
 
 /* ----- Layouts ----- */
@@ -119,6 +114,23 @@ h3 {
   height: 100vh; /*calc(100vh - 80px);*/
   margin: 0 auto;
   padding: 6em 0 2em 0;
+}
+
+/* ----- Forms ----- */
+
+.form-label {
+  color: var(--lightAccent);
+}
+
+.form-input {
+  font-size: 1.125rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--darkAccent);
+  border-radius: 10px;
+}
+
+form .btn {
+  margin-top: 1em;
 }
 
 /* ----- Media Queries ----- */
