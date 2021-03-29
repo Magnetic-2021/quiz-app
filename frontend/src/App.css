@@ -1,7 +1,9 @@
 /*----- Global CSS -----*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap");
 /* 
 font-family: 'Poppins', sans-serif; - for all text, adjusting font-weight as you need to
+font-family: 'Roboto Mono', monospace; - for bomb countdown
 */
 
 * {
@@ -137,6 +139,23 @@ form .btn {
   margin-top: 1em;
 }
 
+/* ----- Forms ----- */
+
+.form-label {
+  color: var(--lightAccent);
+}
+
+.form-input {
+  font-size: 1.125rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--darkAccent);
+  border-radius: 10px;
+}
+
+form .btn {
+  margin-top: 1em;
+}
+
 /* ----- Media Queries ----- */
 
 @media (min-width: 1000px) {
@@ -144,9 +163,13 @@ form .btn {
     font-size: 1.125rem;
   }
 
-  .content {
-    width: 70%;
+  .App {
+    width: 80%;
     max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .content {
     padding: 3em 0;
   }
 }

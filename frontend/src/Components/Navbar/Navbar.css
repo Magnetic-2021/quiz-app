@@ -1,3 +1,7 @@
+header {
+  padding: 1.5em 1em;
+}
+
 .navbar {
   position: relative;
 }
@@ -10,7 +14,7 @@
   position: fixed;
   text-align: right;
   right: 1em;
-  top: 1em;
+  top: 2em;
   z-index: 10;
   cursor: pointer;
   background: transparent;
@@ -54,7 +58,32 @@
   display: block;
 }
 
+@media (min-width: 700px) {
+  header {
+    padding: 2em 1.5em;
+  }
+
+  .navbar button {
+    right: 2em;
+    top: 3em;
+  }
+
+  .navbar-icon {
+    font-size: 4rem;
+  }
+}
+
 @media (min-width: 1000px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar {
+    align-self: flex-end;
+    margin-bottom: 1em;
+  }
+
   .navbar button {
     display: none;
   }
