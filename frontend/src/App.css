@@ -133,6 +133,23 @@ h3 {
 
 .ant-form-item-label > label {
   color: var(--lightAccent);
+  font-size: 1rem;
+}
+
+.ant-form-item-label
+  > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+  display: none;
+}
+
+.ant-form-item-label
+  > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+  display: inline-block;
+  margin-left: 4px;
+  color: #ff4d4f;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  line-height: 1;
+  content: "*";
 }
 
 form .btn {
