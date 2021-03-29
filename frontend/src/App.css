@@ -38,6 +38,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 h1,
 h2,
 h3,
@@ -92,6 +93,7 @@ h3 {
   border: none;
 }
 
+/*
 .btn-primary {
   background: var(--orangeAccent);
   color: var(--lightAccent);
