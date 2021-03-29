@@ -13,6 +13,17 @@ import {
   correctAnimation,
 } from "./answerAnimation";
 
+const time = {
+  easy: 3000,
+  medium: 5000,
+  hard: 7000,
+};
+const points = {
+  easy: 2,
+  medium: 5,
+  hard: 10,
+};
+
 const Quiz = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState();
@@ -102,10 +113,12 @@ const Quiz = () => {
     if (gameState === "active" && optionChosen !== undefined) {
       console.log("**********");
       if (optionChosen === correctAnswerIndex) {
-        // add points
-        // add time?
-        setScore((prevState) => prevState + 1);
-        setTimer((prevState) => prevState + 3000);
+        setScore(
+          (prevState) => prevState + points[questions[currQuestion].difficulty]
+        );
+        setTimer(
+          (prevState) => prevState + time[questions[currQuestion].difficulty]
+        );
       }
       setOptionChosen(null);
       setCurrQuestion(currQuestion + 1);
@@ -141,6 +154,9 @@ const Quiz = () => {
     <div ref={bombRef} className="Quiz">
       {gameState !== "finished" && (
         <>
+          <p className={`difficulty ${questions[currQuestion].difficulty}`}>
+            {questions[currQuestion].difficulty}
+          </p>
           <h1 className="questionTitle">{questions[currQuestion].question}</h1>
           <Timer
             score={score}

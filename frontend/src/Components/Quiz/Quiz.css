@@ -33,6 +33,27 @@
 .Quiz button:hover {
   background-color: var(--darkerGrey);
 }
+.Quiz h1 {
+  margin-top: 0;
+}
+p.difficulty {
+  margin: 0;
+  margin-bottom: 1em;
+  padding: 0.2em 1em;
+  font-family: "Poppins";
+  color: var(--darkAccent);
+  border-radius: 20px;
+}
+p.difficulty.easy {
+  background: lightseagreen;
+}
+p.difficulty.medium {
+  background: var(--yellowAccent);
+  color: var(--darkAccent);
+}
+p.difficulty.hard {
+  background: var(--redAccent);
+}
 
 .questionTitle {
   text-align: center;
