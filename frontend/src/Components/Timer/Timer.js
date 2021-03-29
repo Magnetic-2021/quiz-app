@@ -1,7 +1,6 @@
 import "./Timer.css";
 
-const Timer = ({ time, showBomb }) => {
-  console.log({ showBomb });
+const Timer = ({ time, showBomb, score }) => {
   const bombOpacity = showBomb ? 100 : 0;
   const gameOverOpacity = showBomb ? 0 : 100;
 
@@ -11,7 +10,7 @@ const Timer = ({ time, showBomb }) => {
         {time}
       </p>
       <p className="game-over" style={{ display: showBomb ? "none" : "block" }}>
-        GAME OVER
+        SCORE: {score}
       </p>
       <svg
         style={{ opacity: bombOpacity }}
