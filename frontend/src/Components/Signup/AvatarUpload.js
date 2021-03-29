@@ -45,20 +45,14 @@ const AvatarUpload = ({ avatarImg, setAvatarImg }) => {
     </div>
   );
 
-  const dummyRequest = (file, onSuccess) => {
-    setTimeout(() => {
-      onSuccess("ok");
-    }, 1000);
-  };
-
   return (
     <Upload
-      name="avatarImg"
+      name="avatar"
       listType="picture-card"
       className="avatarImg-uploader"
-      customRequest={dummyRequest}
       beforeUpload={beforeUpload}
       onChange={handleChange}
+      action="http://localhost:5000/user/avatar"
     >
       {imageUrl ? (
         <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
