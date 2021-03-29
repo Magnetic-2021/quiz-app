@@ -115,7 +115,28 @@ h3 {
   width: 90%;
   height: 100vh; /*calc(100vh - 80px);*/
   margin: 0 auto;
-  padding: 6em 0 2em 0;
+  padding: 2em 0;
+}
+
+/* ----- Forms ----- */
+
+.form-label {
+  color: var(--lightAccent);
+}
+
+.form-input {
+  font-size: 1.125rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--darkAccent);
+  border-radius: 10px;
+}
+
+.ant-form-item-label > label {
+  color: var(--lightAccent);
+}
+
+form .btn {
+  margin-top: 1em;
 }
 
 /* ----- Forms ----- */
