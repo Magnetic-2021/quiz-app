@@ -131,6 +131,10 @@ h3 {
   border-radius: 10px;
 }
 
+.ant-form-item .ant-form-item-label {
+  padding-bottom: 0;
+}
+
 .ant-form-item-label > label {
   color: var(--lightAccent);
   font-size: 1rem;
