@@ -7,23 +7,31 @@ import Bellipse from "../../images/Bellipse.svg";
 import Cellipse from "../../images/Cellipse.svg";
 import Dellipse from "../../images/Dellipse.svg";
 import shuffleOptions from "../../lib/shuffleOptions";
-import { checkAnimation, checkBurst } from "./answerAnimation";
+import {
+  checkAnimation,
+  checkBurst,
+  correctAnimation,
+} from "./answerAnimation";
 
 const Quiz = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
-  const [optionChosen, setOptionChosen] = useState("");
+  const [optionChosen, setOptionChosen] = useState();
   const [correctAnswerIndex, setCorrectAnswerIndex] = useState();
   const [options, setOptions] = useState();
   const [gameState, setGameState] = useState("loading");
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState();
-  const [timer, setTimer] = useState(6000);
+  const [timer, setTimer] = useState(10000);
   const [timerState, setTimerState] = useState("idle");
   const [showBomb, setShowBomb] = useState(true);
+  const [optionStyles, setOptionStyles] = useState([]);
+  const [answerProcessed, setAnswerProcessed] = useState(true);
 
   const bombRef = useRef();
+  const timerRef = useRef();
 
   useEffect(() => {
+    console.log("initial useEffect");
     if (!questions) {
       console.log("about to fetch");
       fetch("http://localhost:5000/questions")
@@ -38,18 +46,30 @@ const Quiz = () => {
   }, []);
 
   useEffect(() => {
-    if (gameState === "active") {
-      console.log({ currQuestion });
-      const [answers, correctIndex] = shuffleOptions(
-        questions[currQuestion].correct_answer,
-        questions[currQuestion].incorrect_answers
-      );
-      setOptions(answers);
-      setCorrectAnswerIndex(correctIndex);
+    console.log("in create question useEffect", { gameState, answerProcessed });
+    if (gameState !== "loading") {
+      if (answerProcessed) {
+        setAnswerProcessed(false);
+        console.log("creating question", { currQuestion });
+        const [answers, correctIndex] = shuffleOptions(
+          questions[currQuestion].correct_answer,
+          questions[currQuestion].incorrect_answers
+        );
+        setOptions(answers);
+        setCorrectAnswerIndex(correctIndex);
+      }
     }
-  }, [gameState, currQuestion]);
+  }, [gameState, currQuestion, answerProcessed]);
 
   useEffect(() => {
+    console.log("options style useEffect", options);
+    if (options) {
+      setOptionStyles(options.map(() => ({ opacity: "100%" })));
+    }
+  }, [options]);
+
+  useEffect(() => {
+    console.log("in timer useEffect");
     if (timerState === "active") {
       if (timer === 0) {
         const bombPosition = bombRef.current.children[1].getBoundingClientRect();
@@ -64,64 +84,91 @@ const Quiz = () => {
         setTimeout(() => {
           setShowBomb(false);
         }, 900);
-
+        setGameState("finished");
         setTimerState("idle");
       } else {
-        const timerFunc = setTimeout(() => {
+        clearTimeout(timerRef.current);
+        timerRef.current = setTimeout(() => {
           setTimer((prevState) => prevState - 100);
         }, 100);
       }
+    } else if (timerState === "paused") {
+      clearTimeout(timerRef.current);
     }
   }, [timer, timerState]);
 
   useEffect(() => {
-    if (gameState === "active" && optionChosen) {
+    console.log("process answer useEffect", { gameState, optionChosen });
+    if (gameState === "active" && optionChosen !== undefined) {
+      console.log("**********");
       if (optionChosen === correctAnswerIndex) {
         // add points
         // add time?
-        setTimer((prevState) => prevState + 6000);
+        setScore((prevState) => prevState + 1);
+        setTimer((prevState) => prevState + 3000);
       }
       setOptionChosen(null);
       setCurrQuestion(currQuestion + 1);
+      setAnswerProcessed(true);
     }
   }, [optionChosen, gameState]);
 
-  const finishQuiz = () => {
-    if (questions[currQuestion].correct_answer === optionChosen) {
-      setScore(score + 1);
-    }
-    console.log("here");
-    setGameState("finished");
+  const handleAnswer = (event, answerIndex) => {
+    console.log("handle answer");
+    setTimerState("paused");
+    setGameState("paused");
+    // highlight chosen answer
+    // fade incorrect answers
+    setOptionStyles(
+      options.map((o, index) => ({
+        opacity: index === correctAnswerIndex ? "100%" : "0%",
+      }))
+    );
+
+    setTimeout(() => {
+      // update option chosen
+      console.log("Runnin handle answer settimeout", { answerIndex });
+      console.log({ optionChosen });
+      setOptionChosen(answerIndex);
+      setTimerState("active");
+      setGameState("active");
+    }, 1000);
   };
 
   return gameState === "loading" ? (
     "loading"
   ) : (
     <div ref={bombRef} className="Quiz">
-      <h1 className="questionTitle">{questions[currQuestion].question}</h1>
-      <Timer
-        showBomb={showBomb}
-        time={`00:${Math.floor(timer / 1000)
-          .toString()
-          .padStart(2, "0")}`}
-      />
-      <div className="options">
-        {options &&
-          options.map((option, index) => {
-            return (
-              <button
-                onClick={(event) => {
-                  setOptionChosen(index);
-                  checkAnimation.play();
-                  checkBurst.play();
-                }}
-              >
-                <img src={Aellipse} alt="Aellipse" className="ellipseOption" />
-                {option}
-              </button>
-            );
-          })}
-      </div>
+      {gameState !== "finished" && (
+        <>
+          <h1 className="questionTitle">{questions[currQuestion].question}</h1>
+          <Timer
+            score={score}
+            showBomb={showBomb}
+            time={`00:${Math.floor(timer / 1000)
+              .toString()
+              .padStart(2, "0")}`}
+          />
+          <div className="options">
+            {options &&
+              options.map((option, index) => {
+                return (
+                  <button
+                    style={optionStyles[index]}
+                    onClick={(event) => handleAnswer(event, index)}
+                  >
+                    <img
+                      src={Aellipse}
+                      alt="Aellipse"
+                      className="ellipseOption"
+                    />
+                    {option}
+                  </button>
+                );
+              })}
+          </div>
+        </>
+      )}
     </div>
   );
 };
