@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
 .header {
+  font-family: "Luckiest Guy";
   margin-top: 100px;
 }
 .bombCatch {
@@ -9,4 +9,7 @@
 .catchLine {
   margin-top: 100px;
   margin-left: 50px;
+}
+ul {
+  list-style-type: square;
 }
