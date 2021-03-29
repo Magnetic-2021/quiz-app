@@ -70,6 +70,16 @@ header {
 }
 
 @media (min-width: 1000px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar {
+    align-self: flex-end;
+    margin-bottom: 1em;
+  }
+
   .navbar button {
     display: none;
   }

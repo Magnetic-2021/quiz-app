@@ -140,9 +140,13 @@ form .btn {
     font-size: 1.125rem;
   }
 
-  .content {
-    width: 70%;
+  .App {
+    width: 80%;
     max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .content {
     padding: 3em 0;
   }
 }
