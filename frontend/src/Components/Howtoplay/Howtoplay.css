@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+.header {
+  margin-top: 100px;
+}
+.bombCatch {
+  display: flex;
+  flex-direction: row;
+}
+.catchLine {
+  margin-top: 100px;
+  margin-left: 50px;
+}
