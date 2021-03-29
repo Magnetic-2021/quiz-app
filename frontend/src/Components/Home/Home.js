@@ -1,22 +1,37 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 
 import Logo from "../Logo/Logo";
 
 import "../Quiz/Quiz.css";
 
-const Home = (props) => {
+const Home = () => {
   const history = useHistory();
-  useEffect(() => {
-    if (!props.user) {
-      history.push("/login");
-    }
-  }, []);
 
   return (
     <div className="Home">
+
+      <div className="home-logoContainer"> 
       <Logo type="dark" />
-      <button onClick={() => history.push("/quiz")}>Start Quiz</button>
+      </div>
+
+      <div className="home-buttonsContainer"> 
+
+      <div className="home-button1"> 
+      <button onClick={() => history.push("/signup")} className="btn" id="signup-btn">Signup</button>
+      </div>
+      <div className="home-button2"> 
+      <button onClick={() => history.push("/login")} className="btn" id="login-btn">Login</button>
+      </div>
+      <div className="home-button3"> 
+      <button onClick={() => history.push("/Howtoplay")} className="btn" id="htp-btn">How to play</button>
+      </div>
+      <div className="home-button4"> 
+      <button onClick={() => history.push("/about")} className="btn" id="about-btn">About us</button>
+      </div>
+
+      </div>
+
     </div>
   );
 };
