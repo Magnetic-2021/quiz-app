@@ -11,6 +11,7 @@ import About from "./Components/About/About";
 import NotFound from "./Components/NotFound/NotFound";
 import Home from "./Components/Home/Home";
 import Quiz from "./Components/Quiz/Quiz";
+import EndScreen from "./Components/EndScreen/EndScreen";
 import Howtoplay from "./Components/Howtoplay/Howtoplay";
 
 function App() {
@@ -60,9 +61,6 @@ function App() {
             </Route>
             <Route path="/quiz">
               <Quiz user={user} />
-            </Route>
-            <Route path="/Howtoplay">
-              <Howtoplay />
             </Route>
             <Route path="/leaderboard">
               <Scoreboard user={user} />
