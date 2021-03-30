@@ -182,7 +182,7 @@ const Quiz = () => {
                       alt="Aellipse"
                       className="ellipseOption"
                     />
-                    {option}
+                    {Replacer(option)}
                   </button>
                 );
               })}
