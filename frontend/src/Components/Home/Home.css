@@ -1,4 +1,4 @@
-    #btn{
+.homebtn{
     color: var(--darkAccent);
     margin: 10px;
     height: 60px;
@@ -6,8 +6,12 @@
     font-weight: bold;
     width: 330px;
     height: 80px;
+    cursor: pointer;
 }
 
+.homebtn:hover{
+    background: var(--greyAccent);
+}
 .Home{
     display: flex;
     flex-direction: row;
