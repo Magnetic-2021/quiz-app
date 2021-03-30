@@ -1,63 +1,65 @@
-.EndScreen{
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-}
-
-.endscreen-title-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.endscreenTitle{
-    color: var(--yellowAccent);
-    font-weight: bold;
-    font-size: 30px;
-}
-
-.endscreenScore{
-    color:var(--yellowAccent);
-    font-weight: bold;
-    font-size: 70px;
-}
-
-.btn-endscreen{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 80px;
-}
-
-.playbtn{
-    margin-bottom: 0px;
-    background-color: var(--lightAccent);
-    color: var( --darkAccent);
-    width: 100px;
-    height: 30px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.leaderbtn{
-    background-color: var(--orangeAccent);
-    color: var( --darkAccent);
-    width: 160px;
-    height: 30px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.leaderbtn:hover{
-    background: var(--darkerOrange);
-}
-
-.playbtn:hover{
-    background: var(--greyAccent);
-}
-.avatarBackground{
-    width: 200px;
+@media screen and (max-width: 1000px){
+    .EndScreen{
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .endscreen-title-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .endscreenTitle{
+        color: var(--yellowAccent);
+        font-weight: bold;
+        font-size: 30px;
+    }
+    
+    .endscreenScore{
+        color:var(--yellowAccent);
+        font-weight: bold;
+        font-size: 70px;
+    }
+    
+    .btn-endscreen{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 80px;
+    }
+    
+    .playbtn{
+        margin-bottom: 0px;
+        background-color: var(--lightAccent);
+        color: var( --darkAccent);
+        width: 100px;
+        height: 30px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .leaderbtn{
+        background-color: var(--orangeAccent);
+        color: var( --darkAccent);
+        width: 160px;
+        height: 30px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .leaderbtn:hover{
+        background: var(--darkerOrange);
+    }
+    
+    .playbtn:hover{
+        background: var(--greyAccent);
+    }
+    .avatarBackground{
+        width: 200px;
+    }
 }
