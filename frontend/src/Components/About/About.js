@@ -7,8 +7,11 @@ const About = () => {
       <p className="appAbout">
         Knowledge Bomb is a general knowledge quiz designed to test the users
         skills against the clock. You have to solve the quiz before the timer
-        ends and the bomb explodes...! There are three levels to test yourself
-        against the fuse, easy, medium and hard.
+        ends and the bomb explodes...!
+      </p>
+      <p className="appAbout">
+        There are three levels to test yourself against the fuse, easy, medium
+        and hard.
       </p>
 
       <h2 className="teamHeader">Meet the team</h2>
@@ -23,7 +26,7 @@ const About = () => {
         <div className="team-member">
           <a href="https://github.com/ggemcila" className="team-link">
             <GithubOutlined className="team-icon" />
-            <p className="team-name">Gemcila Samini Gino Charlton</p>
+            <p className="team-name">Gemcila Samini <br/>Gino Charlton</p>
           </a>
         </div>
 

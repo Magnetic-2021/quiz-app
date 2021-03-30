@@ -1,33 +1,39 @@
 .container {
   text-align: center;
-  margin-top: 5%;
 }
-.appAbout {
-  text-align: center;
 
-  height: 100px;
-  width: 450px;
-  margin: 50px;
-}
-.team-icon {
-  font-size: 30px;
-}
-p {
-  color: black;
-  text-align: center;
-}
 .team-container {
-  margin: auto;
-  width: 450px;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
 }
+
+.team-icon {
+  font-size: 3em;
+  padding-bottom: 0.5em;
+}
+
 .team-member {
+  padding: 1em;
   width: 50%;
-  padding-top: 40px;
-  padding: 20px;
-  height: 200px;
+}
+
+.team-name {
+  padding-bottom: 0;
+}
+
+@media (min-width: 1000px) {
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .appAbout,
+  .team-name {
+    font-size: 1.1rem;
+  }
+
+  .team-container {
+    display: flex;
+    flex-wrap: nowrap;
+  }
 }
