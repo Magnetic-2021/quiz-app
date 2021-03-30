@@ -1,8 +1,11 @@
-#btn{
+    #btn{
     color: var(--darkAccent);
     margin: 10px;
     height: 60px;
-    font-size: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    width: 330px;
+    height: 80px;
 }
 
 .Home{
@@ -12,7 +15,8 @@
 }
 
 .home-buttonsContainer{
-    margin-left: 40%;
+    margin-top: 20px;
+    margin-left: 33%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,3 +27,5 @@
 .home-logoContainer{
     margin-left: 50px;
 }
+
+ 

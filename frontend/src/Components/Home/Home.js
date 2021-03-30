@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import Logo from "../Logo/Logo";
+import LogoHome from "../Logo/LogoHome";
 import "./Home.css";
 
 const Home = () => {
@@ -11,21 +11,21 @@ const Home = () => {
     <div className="Home">
 
       <div className="home-logoContainer"> 
-      <Logo type="dark"/>
+      <LogoHome type="dark"/>
       </div>
 
       <div className="home-buttonsContainer"> 
 
-      <div className="home-button1"> 
+      <div className="home-button"> 
       <button onClick={() => history.push("/signup")} className="btn" id="btn">SIGNUP</button>
       </div>
-      <div className="home-button2"> 
+      <div className="home-button"> 
       <button onClick={() => history.push("/login")} className="btn" id="btn">LOGIN</button>
       </div>
-      <div className="home-button3"> 
+      <div className="home-button"> 
       <button onClick={() => history.push("/Howtoplay")} className="btn" id="btn">HOW TO PLAY</button>
       </div>
-      <div className="home-button4"> 
+      <div className="home-button"> 
       <button onClick={() => history.push("/about")} className="btn" id="btn">ABOUT US</button>
       </div>
 
