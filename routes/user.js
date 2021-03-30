@@ -12,7 +12,7 @@ router.post("/user/signup", (req, res) => {
 
   // TODO: check if user is all ready in the system
   // TODO: check if email is all ready used
-
+  const imgBin = req.body.avatarImg ? new Buffer(req.body.avatarImg.split(",")[1], "base64"): null
   // hash password
   bcrypt.hash(req.body.password, 4, (err, hash) => {
     if (!err) {
@@ -20,6 +20,8 @@ router.post("/user/signup", (req, res) => {
         username: req.body.username,
         email: req.body.email,
         password: hash,
+        avatar: imgBin
+
       })
         .then((userRecord) => {
           res.status(200).send({
