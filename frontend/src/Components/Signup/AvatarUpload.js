@@ -1,6 +1,11 @@
 import { Upload, message } from "antd";
 import { useState } from "react";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import {
+  CheckCircleOutlined,
+  CheckOutlined,
+  LoadingOutlined,
+  PlusOutlined,
+} from "@ant-design/icons";
 
 function getBase64(img, callback) {
   const reader = new FileReader();
@@ -8,7 +13,7 @@ function getBase64(img, callback) {
   reader.readAsDataURL(img);
 }
 
-function beforeUpload(file) {
+function beforeUpload(file, setImageSelected, setAvatarImg) {
   const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
   if (!isJpgOrPng) {
     message.error("You can only upload JPG/PNG file!");
@@ -17,48 +22,41 @@ function beforeUpload(file) {
   if (!isLt2M) {
     message.error("Image must smaller than 2MB!");
   }
-  return isJpgOrPng && isLt2M;
+  console.log("this is the file", file);
+
+  getBase64(file, (result) => {
+    console.log("base64");
+    console.log(result);
+    if (isJpgOrPng && isLt2M) {
+      setImageSelected(true);
+      setAvatarImg(result);
+    }
+  });
+
+  return false;
 }
 
 const AvatarUpload = ({ avatarImg, setAvatarImg }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState();
-
-  const handleChange = (info) => {
-    if (info.file.status === "uploading") {
-      setIsLoading(true);
-      return;
-    }
-    if (info.file.status === "done") {
-      getBase64(info.file.originFileObj, (imageUrl) => {
-        console.log("dooooooone");
-        setAvatarImg(imageUrl);
-        setImageUrl(imageUrl);
-      });
-    }
-  };
+  const [imageSelected, setImageSelected] = useState(false);
 
   const uploadButton = (
     <div>
-      {isLoading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div style={{ marginTop: 8 }}>Upload</div>
+      {imageSelected ? <CheckOutlined /> : <PlusOutlined />}
+      <div style={{ marginTop: 8 }}>{imageSelected ? "done" : "upload"}</div>
     </div>
   );
-
+  console.log(imageSelected);
   return (
     <Upload
       name="avatar"
       listType="picture-card"
       className="avatarImg-uploader"
-      beforeUpload={beforeUpload}
-      onChange={handleChange}
-      action="http://localhost:5000/user/avatar"
+      beforeUpload={(file) =>
+        beforeUpload(file, setImageSelected, setAvatarImg)
+      }
     >
-      {imageUrl ? (
-        <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
-      ) : (
-        uploadButton
-      )}
+      {uploadButton}
     </Upload>
   );
 };
