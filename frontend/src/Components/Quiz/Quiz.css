@@ -1,17 +1,18 @@
 .loading-container {
+  padding: 8em 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .loader-circle {
-  border: 8px solid var(--greyAccent);
+  border: 6px solid var(--greyAccent);
   border-radius: 50%;
-  border-top: 8px solid var(--orangeAccent);
-  width: 60px;
-  height: 60px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
+  border-top: 6px solid var(--orangeAccent);
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 1500ms linear infinite; /* Safari */
+  animation: spin 1500ms linear infinite;
 }
 
 /* Safari */
@@ -35,7 +36,7 @@
 
 .loading-text {
   color: var(--greyAccent);
-  font-size: 2rem;
+  font-size: 1.602rem;
   padding-bottom: 0;
   margin-left: 0.5em;
 }
