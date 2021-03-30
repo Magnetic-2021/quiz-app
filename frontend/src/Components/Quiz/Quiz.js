@@ -149,7 +149,9 @@ const Quiz = () => {
   };
 
   return gameState === "loading" ? (
-    "loading"
+    <div className="loading-container">
+      <p className="loading-text">Loading...</p>
+    </div>
   ) : (
     <div ref={bombRef} className="Quiz">
       {gameState !== "finished" && (

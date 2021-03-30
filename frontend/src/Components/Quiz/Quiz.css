@@ -1,3 +1,9 @@
+.loading-text {
+  text-align: center;
+  color: var(--lightAccent);
+  font-size: 2rem;
+}
+
 .Quiz {
   display: flex;
   justify-content: center;
