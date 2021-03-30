@@ -2,19 +2,18 @@ const mongoose = require("mongoose");
 const express = require("express");
 const bcrypt = require("bcrypt");
 const { User } = require("../models/User");
-const { Image } = require("../models/Image");
 const router = express.Router();
-const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
 
 router.post("/user/signup", (req, res) => {
   const newUser = req.body;
 
   // TODO: check if user is all ready in the system
   // TODO: check if email is all ready used
+  console.log(req.body.avatarImg.slice(0, 40));
   const imgBin = req.body.avatarImg
-    ? new Buffer(req.body.avatarImg.split(",")[1], "base64")
+    ? new Buffer(req.body.avatarImg, "base64")
     : null;
+
   // hash password
   bcrypt.hash(req.body.password, 4, (err, hash) => {
     if (!err) {
@@ -65,13 +64,27 @@ router.post("/user/login", (req, res) => {
 router.get("/user/:id", (req, res) => {
   User.findOne({ _id: req.params.id }, (err, UserRecord) => {
     const { username, _id, avatar } = UserRecord;
-    res.send({ username, _id, avatar });
+    res.send({
+      username,
+      _id,
+      avatar: processAvatar(avatar.toString("base64")),
+    });
   });
 });
 
-const createClientUser = ({ password, ...rest }) => ({
+const createClientUser = ({ password, avatar, ...rest }) => ({
   timeStamp: Date.now(),
+  avatar: processAvatar(avatar.toString("base64")),
   ...rest,
 });
+
+const processAvatar = (imgString) => {
+  console.log(imgString.slice(0, 30));
+  if (!imgString) return null;
+  const matched = [...imgString.matchAll(/image\/(\w+)base64(.+)/g)]
+
+  console.log(matched.map(m => m[1]))
+  return `data:image/${matched[0][1]};base64, ${matched[0][2]}`;
+};
 
 module.exports = router;
