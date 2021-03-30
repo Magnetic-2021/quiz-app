@@ -39,6 +39,7 @@
     width: 100px;
     height: 30px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .leaderbtn{
@@ -47,8 +48,16 @@
     width: 160px;
     height: 30px;
     font-weight: bold;
+    cursor: pointer;
 }
 
+.leaderbtn:hover{
+    background: var(--darkerOrange);
+}
+
+.playbtn:hover{
+    background: var(--greyAccent);
+}
 .avatarBackground{
     width: 200px;
 }
