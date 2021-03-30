@@ -1,12 +1,13 @@
 .homebtn{
     color: var(--darkAccent);
-    margin: 10px;
+    margin: 15px;
     height: 60px;
-    font-size: 30px;
+    font-size: 18px;
     font-weight: bold;
-    width: 330px;
-    height: 80px;
+    width: 200px;
+    height: 40px;
     cursor: pointer;
+    margin-left: 45px;
 }
 
 .homebtn:hover{
@@ -19,8 +20,8 @@
 }
 
 .home-buttonsContainer{
-    margin-top: 20px;
-    margin-left: 33%;
+    margin-top: 80px;
+    margin-left: 35%;
     display: flex;
     flex-direction: column;
     align-items: center;
