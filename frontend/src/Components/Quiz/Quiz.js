@@ -7,6 +7,7 @@ import Bellipse from "../../images/Bellipse.svg";
 import Cellipse from "../../images/Cellipse.svg";
 import Dellipse from "../../images/Dellipse.svg";
 import shuffleOptions from "../../lib/shuffleOptions";
+import Replacer from "../../lib/Replacer";
 import {
   checkAnimation,
   checkBurst,
@@ -160,7 +161,7 @@ const Quiz = () => {
           <p className={`difficulty ${questions[currQuestion].difficulty}`}>
             {questions[currQuestion].difficulty}
           </p>
-          <h1 className="questionTitle">{questions[currQuestion].question}</h1>
+          <h1 className="questionTitle">{Replacer(questions[currQuestion].question)}</h1>
           <Timer
             score={score}
             showBomb={showBomb}
