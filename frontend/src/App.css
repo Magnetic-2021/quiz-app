@@ -130,27 +130,34 @@ h3 {
   font-family: "Poppins", sans-serif;
   color: var(--darkAccent);
   border-radius: 10px;
+  -webkit-box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.ant-form-item .ant-form-item-label {
+  padding-bottom: 0;
 }
 
 .ant-form-item-label > label {
   color: var(--lightAccent);
+  font-size: 1rem;
 }
 
-form .btn {
-  margin-top: 1em;
+.ant-form-item-label
+  > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+  display: none;
 }
 
-/* ----- Forms ----- */
-
-.form-label {
-  color: var(--lightAccent);
-}
-
-.form-input {
-  font-size: 1.125rem;
+.ant-form-item-label
+  > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+  display: inline-block;
+  margin-left: 4px;
+  color: #ff4d4f;
+  font-size: 14px;
   font-family: "Poppins", sans-serif;
-  color: var(--darkAccent);
-  border-radius: 10px;
+  line-height: 1;
+  content: "*";
 }
 
 form .btn {
@@ -165,12 +172,12 @@ form .btn {
   }
 
   .App {
-    width: 80%;
+    width: 85%;
     max-width: 1200px;
     margin: 0 auto;
   }
 
   .content {
-    padding: 3em 0;
+    padding: 2em 0;
   }
 }
