@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import explode from "./explode";
 import Timer from "./../Timer/Timer";
 import "./Quiz.css";
@@ -25,7 +26,7 @@ const points = {
   hard: 10,
 };
 
-const Quiz = () => {
+const Quiz = ({ user }) => {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState();
   const [correctAnswerIndex, setCorrectAnswerIndex] = useState();
@@ -38,11 +39,21 @@ const Quiz = () => {
   const [showBomb, setShowBomb] = useState(true);
   const [optionStyles, setOptionStyles] = useState([]);
   const [answerProcessed, setAnswerProcessed] = useState(true);
+  const [scoreUploaded, setScoreUploaded] = useState(false);
+
+  const history = useHistory()
 
   const bombRef = useRef();
   const timerRef = useRef();
 
   useEffect(() => {
+    if (!user) {
+      history.push("/login");
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(user.dateTime);
     console.log("initial useEffect");
     if (!questions) {
       console.log("about to fetch");
@@ -56,6 +67,30 @@ const Quiz = () => {
         });
     }
   }, []);
+
+  useEffect(() => {
+    if (gameState === "finished" && !scoreUploaded) {
+      const payload = {
+        username: user.username,
+        userID: user.id,
+        score,
+        date: Date.now(),
+      };
+      console.log({ payload });
+      fetch("http://localhost:5000/score", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).then((res) => {
+        if (res.status === 200) {
+          console.log("score saved");
+          setScoreUploaded(true);
+        } else {
+          console.log("unable to save score");
+        }
+      });
+    }
+  }, [gameState, scoreUploaded]);
 
   useEffect(() => {
     console.log("in create question useEffect", { gameState, answerProcessed });
@@ -158,6 +193,7 @@ const Quiz = () => {
     <div ref={bombRef} className="Quiz">
       {gameState !== "finished" && (
         <>
+
           <p className={`difficulty ${questions[currQuestion].difficulty}`}>
             {questions[currQuestion].difficulty}
           </p>

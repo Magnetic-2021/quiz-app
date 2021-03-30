@@ -4,8 +4,15 @@ import { UserOutlined } from "@ant-design/icons";
 import "./Avatar.css";
 
 const UserAvatar = (props) => {
+  console.log(props.user);
+
   return (
-    <Avatar id={props.id} src={props.img} size={64} icon={<UserOutlined />} />
+    <Avatar
+      id={props.id}
+      src={props.user ? props.user.avatar : null}
+      size={64}
+      icon={<UserOutlined />}
+    />
   );
 };
 export default UserAvatar;

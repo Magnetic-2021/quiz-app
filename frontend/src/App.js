@@ -15,18 +15,17 @@ import EndScreen from "./Components/EndScreen/EndScreen";
 import Howtoplay from "./Components/Howtoplay/Howtoplay";
 
 function App() {
-
   const [user, setUser] = useState();
   useEffect(() => {
     // get user from session storage
     // if user check timestamp
-    // if timestamp valid set user in state
+
     try {
       const currentUser =
         JSON.parse(window.sessionStorage.getItem("currentUser")) ?? null;
       if (currentUser) {
-        const valid = Date.now() - currentUser.timeStamp < 120000;
-        console.log(valid);
+        const valid = Date.now() - currentUser.timeStamp < 12000000;
+        console.log({valid});
         console.log("CURRENT USER AUTHD", currentUser);
         if (valid) {
           console.log("setting current user");
@@ -34,13 +33,20 @@ function App() {
         } else {
           setUser(null);
           console.log("deleting user from storage");
-          window.sessionStorage.deleteItem("currentUser");
+          // window.sessionStorage.deleteItem("currentUser");
         }
       }
     } catch {
       setUser(null);
     }
   }, []);
+  
+  useEffect(()=>{
+    setTimeout(()=> {
+    console.log(user? user.id : null)
+
+    }, 5000)
+  })
 
   return (
     <Router>
@@ -67,7 +73,7 @@ function App() {
               <EndScreen user={user} />
             </Route>
             <Route path="/leaderboard">
-              <Scoreboard user={user}/>
+              <Scoreboard user={user} />
             </Route>
             <Route path="*">
               <NotFound />

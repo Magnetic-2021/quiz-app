@@ -2,6 +2,7 @@ import "./EndScreen.css";
 import Avatar from "../Avatar/Avatar";
 import { useHistory } from 'react-router-dom';
 
+
 const EndScreen = (props) => {
   const history = useHistory();
 
@@ -14,7 +15,7 @@ const EndScreen = (props) => {
         </div>
 
         <div className="endscreen-avatar-container">
-        <Avatar />
+        <Avatar user={props.user} />
         </div>
 
         <div className="btn-endscreen">
