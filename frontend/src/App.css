@@ -160,23 +160,6 @@ form .btn {
   margin-top: 1em;
 }
 
-/* ----- Forms ----- */
-
-.form-label {
-  color: var(--lightAccent);
-}
-
-.form-input {
-  font-size: 1.125rem;
-  font-family: "Poppins", sans-serif;
-  color: var(--darkAccent);
-  border-radius: 10px;
-}
-
-form .btn {
-  margin-top: 1em;
-}
-
 /* ----- Media Queries ----- */
 
 @media (min-width: 1000px) {
