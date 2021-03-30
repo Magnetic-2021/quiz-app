@@ -28,7 +28,7 @@ const Login = (props) => {
       .then((data) => {
         if (data.auth) {
           setFormStatus("success");
-          props.setUser(JSON.stringify(data.user));
+          props.setUser(data.user);
           window.sessionStorage.setItem(
             "currentUser",
             JSON.stringify(data.user)

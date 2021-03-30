@@ -17,6 +17,7 @@ router.post("/user/signup", (req, res) => {
   // hash password
   bcrypt.hash(req.body.password, 4, (err, hash) => {
     if (!err) {
+      console.log("creating");
       User.create({
         username: req.body.username,
         email: req.body.email,
@@ -72,18 +73,17 @@ router.get("/user/:id", (req, res) => {
   });
 });
 
-const createClientUser = ({ password, avatar, ...rest }) => ({
+const createClientUser = ({ password, avatar, _id, username, ...rest }) => ({
   timeStamp: Date.now(),
   avatar: processAvatar(avatar.toString("base64")),
+  id: _id,
+  username,
   ...rest,
 });
 
 const processAvatar = (imgString) => {
-  console.log(imgString.slice(0, 30));
   if (!imgString) return null;
-  const matched = [...imgString.matchAll(/image\/(\w+)base64(.+)/g)]
-
-  console.log(matched.map(m => m[1]))
+  const matched = [...imgString.matchAll(/image\/(\w+)base64(.+)/g)];
   return `data:image/${matched[0][1]};base64, ${matched[0][2]}`;
 };
 
