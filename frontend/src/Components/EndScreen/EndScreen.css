@@ -32,15 +32,21 @@
     margin-top: 80px;
 }
 
-#btn-endscreen-playagain{
+.playbtn{
     margin-bottom: 0px;
     background-color: var(--lightAccent);
     color: var( --darkAccent);
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
 }
 
-#btn-endscreen-leaderboard{
+.leaderbtn{
     background-color: var(--orangeAccent);
     color: var( --darkAccent);
+    width: 160px;
+    height: 30px;
+    font-weight: bold;
 }
 
 .avatarBackground{

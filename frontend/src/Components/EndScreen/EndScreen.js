@@ -18,9 +18,9 @@ const EndScreen = () => {
         </div>
 
         <div className="btn-endscreen">
-          <button onClick={() => history.push('/quiz')} id="btn-endscreen-playagain" className="btn">Play again</button>
+          <button onClick={() => history.push('/quiz')} className="btn playbtn">Play again</button>
           <br/>
-          <button onClick={() => history.push('/leaderboard')} id="btn-endscreen-leaderboard" className="btn">View Leaderboard</button>
+          <button onClick={() => history.push('/leaderboard')} className="btn leaderbtn">View Leaderboard</button>
         </div>
 
       </div>
