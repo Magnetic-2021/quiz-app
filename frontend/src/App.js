@@ -11,9 +11,11 @@ import About from "./Components/About/About";
 import NotFound from "./Components/NotFound/NotFound";
 import Home from "./Components/Home/Home";
 import Quiz from "./Components/Quiz/Quiz";
+import EndScreen from "./Components/EndScreen/EndScreen";
 import Howtoplay from "./Components/Howtoplay/Howtoplay";
 
 function App() {
+
   const [user, setUser] = useState();
   useEffect(() => {
     // get user from session storage
@@ -61,11 +63,11 @@ function App() {
             <Route path="/quiz">
               <Quiz user={user} />
             </Route>
-            <Route path="/Howtoplay">
-              <Howtoplay />
+            <Route path="/endscreen">
+              <EndScreen user={user} />
             </Route>
             <Route path="/leaderboard">
-              <Scoreboard user={user} />
+              <Scoreboard user={user}/>
             </Route>
             <Route path="*">
               <NotFound />
