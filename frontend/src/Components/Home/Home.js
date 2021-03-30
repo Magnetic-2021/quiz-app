@@ -11,22 +11,22 @@ const Home = () => {
     <div className="Home">
 
       <div className="home-logoContainer"> 
-      <Logo type="dark" />
+      <Logo type="dark"/>
       </div>
 
       <div className="home-buttonsContainer"> 
 
       <div className="home-button1"> 
-      <button onClick={() => history.push("/signup")} className="btn" id="btn">Signup</button>
+      <button onClick={() => history.push("/signup")} className="btn" id="btn">SIGNUP</button>
       </div>
       <div className="home-button2"> 
-      <button onClick={() => history.push("/login")} className="btn" id="btn">Login</button>
+      <button onClick={() => history.push("/login")} className="btn" id="btn">LOGIN</button>
       </div>
       <div className="home-button3"> 
-      <button onClick={() => history.push("/Howtoplay")} className="btn" id="btn">How to play</button>
+      <button onClick={() => history.push("/Howtoplay")} className="btn" id="btn">HOW TO PLAY</button>
       </div>
       <div className="home-button4"> 
-      <button onClick={() => history.push("/about")} className="btn" id="btn">About us</button>
+      <button onClick={() => history.push("/about")} className="btn" id="btn">ABOUT US</button>
       </div>
 
       </div>
