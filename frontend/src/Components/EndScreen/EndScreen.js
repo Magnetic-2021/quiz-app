@@ -2,7 +2,7 @@ import "./EndScreen.css";
 import Avatar from "../Avatar/Avatar";
 import { useHistory } from 'react-router-dom';
 
-const EndScreen = () => {
+const EndScreen = (props) => {
   const history = useHistory();
 
     return (
@@ -10,7 +10,7 @@ const EndScreen = () => {
 
         <div className="endscreen-title-container">
           <h3 className="endscreenTitle">Your score</h3>
-          <h1 className="endscreenScore">290</h1>
+          <h1 className="endscreenScore">{props.score}</h1>
         </div>
 
         <div className="endscreen-avatar-container">
