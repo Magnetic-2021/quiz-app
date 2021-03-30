@@ -2,12 +2,7 @@ import { useState, useEffect } from "react";
 import "antd/dist/antd.css";
 import "./App.css";
 import "./Components/Quiz/Quiz.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Login/Login";
