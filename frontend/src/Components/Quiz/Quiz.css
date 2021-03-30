@@ -1,7 +1,43 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-circle {
+  border: 8px solid var(--greyAccent);
+  border-radius: 50%;
+  border-top: 8px solid var(--orangeAccent);
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .loading-text {
-  text-align: center;
-  color: var(--lightAccent);
+  color: var(--greyAccent);
   font-size: 2rem;
+  padding-bottom: 0;
+  margin-left: 0.5em;
 }
 
 .Quiz {

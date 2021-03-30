@@ -150,6 +150,7 @@ const Quiz = () => {
 
   return gameState === "loading" ? (
     <div className="loading-container">
+      <div className="loader-circle"></div>
       <p className="loading-text">Loading...</p>
     </div>
   ) : (
