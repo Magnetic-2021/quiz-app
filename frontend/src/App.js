@@ -63,6 +63,9 @@ function App() {
             <Route path="/quiz">
               <Quiz user={user} />
             </Route>
+            <Route path="/endscreen">
+              <EndScreen user={user} />
+            </Route>
             <Route path="/leaderboard">
               <Scoreboard user={user}/>
             </Route>
