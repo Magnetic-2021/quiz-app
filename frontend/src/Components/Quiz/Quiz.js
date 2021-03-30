@@ -8,6 +8,7 @@ import Bellipse from "../../images/Bellipse.svg";
 import Cellipse from "../../images/Cellipse.svg";
 import Dellipse from "../../images/Dellipse.svg";
 import shuffleOptions from "../../lib/shuffleOptions";
+import Replacer from "../../lib/Replacer";
 import {
   checkAnimation,
   checkBurst,
@@ -184,7 +185,10 @@ const Quiz = ({ user }) => {
   };
 
   return gameState === "loading" ? (
-    "loading"
+    <div className="loading-container">
+      <div className="loader-circle"></div>
+      <p className="loading-text">Loading...</p>
+    </div>
   ) : (
     <div ref={bombRef} className="Quiz">
       {gameState !== "finished" && (
@@ -193,7 +197,7 @@ const Quiz = ({ user }) => {
           <p className={`difficulty ${questions[currQuestion].difficulty}`}>
             {questions[currQuestion].difficulty}
           </p>
-          <h1 className="questionTitle">{questions[currQuestion].question}</h1>
+          <h1 className="questionTitle">{Replacer(questions[currQuestion].question)}</h1>
           <Timer
             score={score}
             showBomb={showBomb}
@@ -214,7 +218,7 @@ const Quiz = ({ user }) => {
                       alt="Aellipse"
                       className="ellipseOption"
                     />
-                    {option}
+                    {Replacer(option)}
                   </button>
                 );
               })}
