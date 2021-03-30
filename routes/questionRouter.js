@@ -3,7 +3,7 @@ const express = require("express");
 const { Question } = require("../models/Question");
 const router = express.Router();
 
-const QUESTIONS_RETURNED = 20;
+const QUESTIONS_RETURNED = 30;
 
 router.get("/questions", (req, res) => {
   Question.find({}, (err, docs) => {

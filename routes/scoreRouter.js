@@ -6,7 +6,10 @@ const router = express.Router();
 
 router.get("/score", (req, res) => {
   Score.find({}, (err, docs) => {
-    res.send(docs);
+    res.send(docs.map((doc, index) => {
+      doc.index = index
+      return doc
+    }));
   })
     .sort({ score: -1 })
     .limit(10)

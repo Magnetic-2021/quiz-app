@@ -1,16 +1,23 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./Avatar.css";
 
 const UserAvatar = (props) => {
-  console.log(props.user);
+  const [user, setUser] = useState()
+
+  useEffect(() => {
+    if (props.user){
+      if (!props.user?.avatar){
+        fetch(`http://localhost:5000/user/${props.user.id}`).then(res => res.json()).then(json => setUser(json))
+      }
+    }
+  }, [])
 
   return (
     <Avatar
-      id={props.id}
-      src={props.user ? props.user.avatar : null}
-      size={64}
+      src={user ? user.avatar : null}
+      size={props.size || 64}
       icon={<UserOutlined />}
     />
   );
