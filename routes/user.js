@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const express = require("express");
 const bcrypt = require("bcrypt");
 const { User } = require("../models/User");
-const { Image } = require("../models/Image");
 const router = express.Router();
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });

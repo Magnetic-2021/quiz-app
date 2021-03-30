@@ -57,7 +57,10 @@ const Scoreboard = (props) => {
         {tableState === "loaded" ? (
           <Table dataSource={leaderboardData} columns={columns} />
         ) : (
-          "loading"
+          <div className="loading-container">
+            <div className="loader-circle"></div>
+            <p className="loading-text">Loading...</p>
+          </div>
         )}
         ;
       </div>
