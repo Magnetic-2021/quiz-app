@@ -129,6 +129,9 @@ h3 {
   font-family: "Poppins", sans-serif;
   color: var(--darkAccent);
   border-radius: 10px;
+  -webkit-box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 .ant-form-item .ant-form-item-label {
