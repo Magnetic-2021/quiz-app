@@ -6,7 +6,11 @@ import "./Scoreboard.css";
 const Podium = ({ score, place, color }) => {
   return (
     <div className={`podium-${place}`}>
-      <Badge.Ribbon text={`${place}: ${score.username}`} offset={[0, 80]} color={color}>
+      <Badge.Ribbon
+        text={`${place}: ${score.username}`}
+        offset={[0, 80]}
+        color={color}
+      >
         <UserAvatar
           user={{ id: score.userID }}
           size={place === "1st" ? 124 : 96}
@@ -34,7 +38,7 @@ const Scoreboard = (props) => {
             return {
               ...score,
               date: new Date(score.date).toLocaleDateString("en-GB"),
-              index: index +1,
+              index: index + 1,
               key: score._id,
             };
           })
@@ -63,13 +67,20 @@ const Scoreboard = (props) => {
     },
   ];
   const places = ["1st", "2nd", "3rd"];
-  const medals = ["#AF9500", "#B4B4B4", "#6A3805"]
+  const medals = ["#AF9500", "#B4B4B4", "#6A3805"];
   return (
     <div className="scoreboard-container">
       <div className="podium">
         {leaderboardData?.slice(0, 3).map((score, index) => {
           const place = places[index];
-          return <Podium key={place} score={score} place={places[index]} color={medals[index]} />;
+          return (
+            <Podium
+              key={place}
+              score={score}
+              place={places[index]}
+              color={medals[index]}
+            />
+          );
         })}
       </div>
       <div className="tableScore">
@@ -85,7 +96,6 @@ const Scoreboard = (props) => {
             <p className="loading-text">Loading...</p>
           </div>
         )}
-        ;
       </div>
     </div>
   );

@@ -124,7 +124,7 @@ const Quiz = ({ user }) => {
     console.log("in timer useEffect");
     if (timerState === "active") {
       if (timer === 0) {
-        const bombPosition = bombRef.current.children[1].getBoundingClientRect();
+        const bombPosition = bombRef.current.children[2].getBoundingClientRect();
         const y =
           10 +
           bombPosition.y +
