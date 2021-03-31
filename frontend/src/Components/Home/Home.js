@@ -33,7 +33,7 @@ const Home = () => {
       </div>
 
       <div className="imagecontainer"> 
-        <img src={imageex} alt="imageex" width="400"/>
+        <img src={imageex} className="imageex" alt="imageex" width="400"/>
         <img src={clocklogo} className="clocklogo" alt="clocklogo" width="200"/>
       </div>
 
