@@ -15,14 +15,16 @@
     
     .endscreenTitle{
         color: var(--yellowAccent);
-        font-weight: bold;
-        font-size: 30px;
+        margin-left: -70%;
+        font-size: 20px;
     }
     
     .endscreenScore{
         color:var(--yellowAccent);
         font-weight: bold;
         font-size: 70px;
+        margin-left: 45%;
+        margin-top: -50%;
     }
     
     .btn-endscreen{
@@ -65,28 +67,27 @@
 }
 
 @media screen and (min-width: 1000px){
+    .EndScreen{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     .endscreenTitle{
         color: var(--yellowAccent);
-        font-weight: bold;
-        font-size: 30px;
+        margin-left: -70%;
+        font-size: 20px;
     }
     
     .endscreenScore{
         color:var(--yellowAccent);
         font-weight: bold;
         font-size: 70px;
-    }
-    
-    .btn-endscreen{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-right: 80%;
+        margin-left: 45%;
+        margin-top: -50%;
     }
     
     .playbtn{
-        margin-bottom: 0px;
         background-color: var(--lightAccent);
         color: var( --darkAccent);
         width: 150px;
@@ -114,11 +115,18 @@
     .endscreen-title-container{
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        margin-left: 53%;
     }
+
+    .btn-endscreen{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
     .endscreen-avatar-container{
-        margin-left: 73%;
-        
+        margin-bottom: 70px;
     }
 }
