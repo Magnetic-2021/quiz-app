@@ -25,7 +25,7 @@ function App() {
         JSON.parse(window.sessionStorage.getItem("currentUser")) ?? null;
       if (currentUser) {
         const valid = Date.now() - currentUser.timeStamp < 12000000;
-        console.log({valid});
+        console.log({ valid });
         console.log("CURRENT USER AUTHD", currentUser);
         if (valid) {
           console.log("setting current user");
@@ -40,13 +40,12 @@ function App() {
       setUser(null);
     }
   }, []);
-  
-  useEffect(()=>{
-    setTimeout(()=> {
-    console.log(user? user.id : null)
 
-    }, 5000)
-  })
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(user ? user.id : null);
+    }, 5000);
+  });
 
   return (
     <Router>
@@ -65,6 +64,9 @@ function App() {
             </Route>
             <Route path="/about">
               <About user={user} />
+            </Route>
+            <Route path="/howtoplay">
+              <Howtoplay />
             </Route>
             <Route path="/quiz">
               <Quiz user={user} />
