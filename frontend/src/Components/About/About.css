@@ -2,9 +2,18 @@
   text-align: center;
 }
 
+.app-about a {
+  text-decoration: underline;
+}
+
+.team-header {
+  padding-top: 1em;
+}
+
 .team-container {
   display: flex;
   flex-wrap: wrap;
+  padding-bottom: 3em;
 }
 
 .team-icon {
@@ -27,12 +36,8 @@
     margin: 0 auto;
   }
 
-  .appAbout,
-  .team-name {
-    font-size: 1.1rem;
-  }
-
   .team-container {
+    padding: 2em;
     display: flex;
     flex-wrap: nowrap;
   }
