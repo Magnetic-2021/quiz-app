@@ -9,6 +9,7 @@ import Cellipse from "../../images/Cellipse.svg";
 import Dellipse from "../../images/Dellipse.svg";
 import shuffleOptions from "../../lib/shuffleOptions";
 import Replacer from "../../lib/Replacer";
+import { randomSparks } from "./spark";
 import {
   checkAnimation,
   checkBurst,
@@ -26,7 +27,7 @@ const points = {
   hard: 10,
 };
 
-const optionImg =[Aellipse, Bellipse, Cellipse, Dellipse]
+const optionImg = [Aellipse, Bellipse, Cellipse, Dellipse];
 
 const Quiz = ({ user }) => {
   const [currQuestion, setCurrQuestion] = useState(0);
@@ -43,7 +44,7 @@ const Quiz = ({ user }) => {
   const [answerProcessed, setAnswerProcessed] = useState(true);
   const [scoreUploaded, setScoreUploaded] = useState(false);
 
-  const history = useHistory()
+  const history = useHistory();
 
   const bombRef = useRef();
   const timerRef = useRef();
@@ -55,23 +56,36 @@ const Quiz = ({ user }) => {
   }, []);
 
   useEffect(() => {
-    if(user){
-
-    console.log(user.dateTime);
-    console.log("initial useEffect");
-    if (!questions) {
-      console.log("about to fetch");
-      fetch("http://localhost:5000/questions")
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("got data", data);
-          setQuestions(data);
-          setGameState("active");
-          setTimerState("active");
-        });
-    }
+    if (user) {
+      console.log(user.dateTime);
+      console.log("initial useEffect");
+      if (!questions) {
+        console.log("about to fetch");
+        fetch("http://localhost:5000/questions")
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("got data", data);
+            setQuestions(data);
+            setGameState("active");
+            setTimerState("active");
+          });
+      }
     }
   }, []);
+
+  useEffect(() => {
+    if (timerState === "active") {
+      console.log("spark");
+      const bombPosition = bombRef.current.children[2].getBoundingClientRect();
+      const y =  bombPosition.y +
+          bombPosition.height / 2 -
+          window.innerHeight / 2 +
+          window.scrollY - 70;
+      randomSparks.tune({x:85, y:y}).play();
+    } else {
+      randomSparks.stop();
+    }
+  }, [timerState, currQuestion]);
 
   useEffect(() => {
     if (gameState === "finished" && !scoreUploaded) {
@@ -198,11 +212,12 @@ const Quiz = ({ user }) => {
     <div ref={bombRef} className="Quiz">
       {gameState !== "finished" && (
         <>
-
           <p className={`difficulty ${questions[currQuestion].difficulty}`}>
             {questions[currQuestion].difficulty}
           </p>
-          <h1 className="questionTitle">{Replacer(questions[currQuestion].question)}</h1>
+          <h1 className="questionTitle">
+            {Replacer(questions[currQuestion].question)}
+          </h1>
           <Timer
             score={score}
             showBomb={showBomb}
