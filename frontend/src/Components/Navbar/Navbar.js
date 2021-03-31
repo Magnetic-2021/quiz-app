@@ -71,14 +71,6 @@ const Navbar = () => {
             Leaderboard
           </NavLink>
           <NavLink
-            to="/about"
-            className="navbar-item"
-            activeClassName="navbar-selected"
-            onClick={closeMenu}
-          >
-            About
-          </NavLink>
-          <NavLink
             to="/howtoplay"
             className="navbar-item"
             activeClassName="navbar-selected"
@@ -87,12 +79,20 @@ const Navbar = () => {
             How to play
           </NavLink>
           <NavLink
-            to="/signup"
+            to="/about"
             className="navbar-item"
             activeClassName="navbar-selected"
             onClick={closeMenu}
           >
-            Sign Up / Register
+            About
+          </NavLink>
+          <NavLink
+            to="/login"
+            className="navbar-item"
+            activeClassName="navbar-selected"
+            onClick={closeMenu}
+          >
+            Log In
           </NavLink>
         </div>
       </nav>
