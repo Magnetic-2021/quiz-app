@@ -1,4 +1,11 @@
 @media screen and (min-width: 1000px) {
+    .imagecontainer{
+        margin-left: 130px;
+    }
+    .clocklogo{
+        margin-left: 60%;
+        margin-top: -40%;
+    }
    .hometitle-container{
        margin-left: 30px;
    } 
@@ -52,7 +59,7 @@
 
     .Home{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
     
 }    

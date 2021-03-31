@@ -9,6 +9,7 @@ const Home = () => {
 
   return (
     <div className="Home">
+
      <div className="container1"> 
       <div className="hometitle-container">
         <h1 className="hometitle">CAN YOU BEAT THE BOMB?</h1>
@@ -29,8 +30,11 @@ const Home = () => {
       </div>
       
       </div>
+      </div>
 
-       
+      <div className="imagecontainer"> 
+        <img src={imageex} alt="imageex" width="400"/>
+        <img src={clocklogo} className="clocklogo" alt="clocklogo" width="200"/>
       </div>
 
     </div>
@@ -38,10 +42,4 @@ const Home = () => {
 };
 export default Home;
 
-/*<div className="container2"> 
-      <div className="imagecontainer">
-        <img src={imageex}/>
-        <img src={clocklogo}/>
-      </div>
-      </div>
-*/
+ 
