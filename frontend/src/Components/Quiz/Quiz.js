@@ -77,14 +77,19 @@ const Quiz = ({ user }) => {
     if (timerState === "active") {
       console.log("spark");
       const bombPosition = bombRef.current.children[2].getBoundingClientRect();
-      const y =  bombPosition.y +
-          bombPosition.height / 2 -
-          window.innerHeight / 2 +
-          window.scrollY - 70;
-      randomSparks.tune({x:85, y:y}).play();
+      const y =
+        bombPosition.y +
+        bombPosition.height / 2 -
+        window.innerHeight / 2 +
+        window.scrollY -
+        70;
+      randomSparks.tune({ x: 85, y: y }).play();
     } else {
       randomSparks.stop();
     }
+    return () => {
+      randomSparks.stop();
+    };
   }, [timerState, currQuestion]);
 
   useEffect(() => {
@@ -149,8 +154,8 @@ const Quiz = ({ user }) => {
         explode(0, y);
         setTimeout(() => {
           setShowBomb(false);
-        }, 900);
-        setGameState("finished");
+          setGameState("finished");
+        }, 1000);
         setTimerState("idle");
       } else {
         clearTimeout(timerRef.current);
