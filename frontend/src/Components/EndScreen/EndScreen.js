@@ -1,8 +1,6 @@
 import "./EndScreen.css";
 import Avatar from "../Avatar/Avatar";
 import { useHistory } from 'react-router-dom';
-import trophy from "../../images/trophylogo.svg";
-import explotion from "../../images/explotionlogo.svg";
 
 const EndScreen = (props) => {
   const history = useHistory();
@@ -11,26 +9,19 @@ const EndScreen = (props) => {
       <div className="EndScreen">
 
         <div className="endscreen-title-container">
+
           <div> 
-          <h1>Congratulations!</h1>
+          <h1>You've made it!</h1>
           </div>
 
           <div> 
-          <img src={trophy}/>
-          </div> 
-          
-          <div> 
-          <h3 className="endscreenTitle">Your score</h3>
+          <h3 className="endscreenTitle">You scored</h3>
           </div> 
 
           <div>   
           <h2 className="endscreenScore">300</h2>
           </div> 
-          
-          <div>
-          <img src={explotion}/>
           </div>
-        </div>
 
         <div className="endscreen-avatar-container">
         <Avatar user={props.user} />
