@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "antd";
+import { Table, Badge } from "antd";
 import { useHistory } from "react-router-dom";
 import UserAvatar from "../Avatar/Avatar.js";
 import "./Scoreboard.css";
-import onemedal from "../../images/onemedal.PNG";
-import twomedal from "../../images/twomedal.PNG";
-import threemedal from "../../images/threemedal.PNG";
+const Podium = ({score, place}) => {
+  return (
+    <div className={`podium-${place}`}>
+    <Badge.Ribbon text={`${place}: ${score.username}`} offset={[0,80]}>
+      <UserAvatar user={{id:score.userID}} size={place === "1st"?124: 96}/>
+    </Badge.Ribbon>
+    </div>
 
+  )
+}
 const Scoreboard = (props) => {
   console.log("scoreboard mounted");
   const [leaderboardData, setLeaderboardData] = useState([]);
@@ -28,6 +34,9 @@ const Scoreboard = (props) => {
   }, []);
 
   const columns = [
+    {title: "#",
+    dataIndex: "index",
+    key:"index"},
     {
       title: "User",
       dataIndex: "username",
@@ -44,14 +53,17 @@ const Scoreboard = (props) => {
       key: "date",
     },
   ];
-
+  const places = ["1st", "2nd", "3rd"]
   return (
     <div className="scoreboard-container">
       <h1 className="leadHeader">LEADERBOARD</h1>
       <div className="podium">
-        <UserAvatar id="second" img={twomedal} />
-        <UserAvatar id="first" img={onemedal} />
-        <UserAvatar id="third" img={threemedal} />
+        {leaderboardData?.slice(0,3).map((score, index) => {
+          const place = places[index]
+          return (
+            <Podium key={place} score={score} place={places[index]} />
+          )
+})}
       </div>
       <div className="tableScore">
         {tableState === "loaded" ? (
@@ -67,5 +79,6 @@ const Scoreboard = (props) => {
     </div>
   );
 };
+
 
 export default Scoreboard;

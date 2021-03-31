@@ -49,11 +49,12 @@ const Signup = (props) => {
       .then((data) => {
         if (data.success) {
           setFormStatus("success");
-          props.setUser(JSON.stringify(data.user));
+          props.setUser(data.user);
           window.sessionStorage.setItem(
             "currentUser",
             JSON.stringify(data.user)
           );
+          history.push("/");
         } else {
           setFormStatus("failed");
         }
@@ -97,7 +98,8 @@ const Signup = (props) => {
           htmlType="submit"
           type="primary"
           loading={buttonValues[formStatus].loading}
-          icon={buttonValues[formStatus].icon} className="btn btn-primary"
+          icon={buttonValues[formStatus].icon}
+          className="btn btn-primary"
         >
           {buttonValues[formStatus].text}
         </Button>

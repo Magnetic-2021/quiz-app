@@ -9,23 +9,21 @@
 
 .podium {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   height: 140px;
-  width: 70%;
+  max-width: 600px;
   margin: auto;
+  margin-bottom: 2em;
   justify-content: space-between;
 }
-#first {
-  align-self: unset;
-  margin-top: 20px;
+.podium-1st{
+  order: 2;
+  align-self: start;
 }
-#second {
-  align-self: unset;
-  margin-top: 70px;
+.podium-2nd{
+  order: 1;
+  align-self: end;
 }
-
-#third {
-  align-self: unset;
-  margin-top: 70px;
+.podium-3rd{
+  order: 3;
+  align-self: end;
 }
