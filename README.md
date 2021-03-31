@@ -6,9 +6,11 @@
 
 To use the app, the user must create an account and sign in. When the game is played, the app serves the user 10 questions, from either easy, medium or hard difficulties, along with a timer. The questions are either multiple choice or true or false.
 
+The more answers you get right, the more time you have. But run out of time and it is game over!
+
 Once the game is over, the user's score is presented to them on a 'game over' screen and the score is stored in the app. The user can then choose to play again or view their score on a leaderboard, on which they can view all users' results or their own user score history.
 
-Knowledge Bomb was created and built by Steve, Gemcila, Jennifer and Phil as a final project for Code Nation's 12-week immersive coding bootcamp. [Click here](https://wearecodenation.com/event/master-coding/) for more information.
+Knowledge Bomb was created and built by Steve, Gemcila, Jennifer and Phil as our final project for Code Nation's 12-week immersive coding bootcamp. [Click here](https://wearecodenation.com/event/master-coding/) for more information.
 
 ## How we built the app
 
