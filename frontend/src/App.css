@@ -133,7 +133,7 @@ h3 {
 
 .content {
   width: 90%;
-  height: 100vh; /*calc(100vh - 80px);*/
+  height: 85vh; /*calc(100vh - 80px);*/
   margin: 0 auto;
   padding: 2em 0;
 }
