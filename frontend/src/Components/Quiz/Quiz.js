@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import explode from "./explode";
 import Timer from "./../Timer/Timer";
+import EndScreen from "../EndScreen/EndScreen"
 import "./Quiz.css";
 import Aellipse from "../../images/Aellipse.svg";
 import Bellipse from "../../images/Bellipse.svg";
@@ -10,11 +11,7 @@ import Dellipse from "../../images/Dellipse.svg";
 import shuffleOptions from "../../lib/shuffleOptions";
 import Replacer from "../../lib/Replacer";
 import { randomSparks } from "./spark";
-import {
-  checkAnimation,
-  checkBurst,
-  correctAnimation,
-} from "./answerAnimation";
+import { correctAnimation, wrongAnimation } from "./answerAnimation";
 
 const time = {
   easy: 3000,
@@ -28,6 +25,7 @@ const points = {
 };
 
 const optionImg = [Aellipse, Bellipse, Cellipse, Dellipse];
+
 
 const Quiz = ({ user }) => {
   const [currQuestion, setCurrQuestion] = useState(0);
@@ -43,7 +41,7 @@ const Quiz = ({ user }) => {
   const [optionStyles, setOptionStyles] = useState([]);
   const [answerProcessed, setAnswerProcessed] = useState(true);
   const [scoreUploaded, setScoreUploaded] = useState(false);
-
+  const [mouseClick, setMouseClick] = useState();
   const history = useHistory();
 
   const bombRef = useRef();
@@ -74,6 +72,7 @@ const Quiz = ({ user }) => {
   }, []);
 
   useEffect(() => {
+      try {
     if (timerState === "active") {
       console.log("spark");
       const bombPosition = bombRef.current.children[2].getBoundingClientRect();
@@ -86,10 +85,12 @@ const Quiz = ({ user }) => {
       randomSparks.tune({ x: 85, y: y }).play();
     } else {
       randomSparks.stop();
-    }
+    }}catch{console.log("caught")}finally{
+
     return () => {
       randomSparks.stop();
     };
+    }
   }, [timerState, currQuestion]);
 
   useEffect(() => {
@@ -140,9 +141,11 @@ const Quiz = ({ user }) => {
   }, [options]);
 
   useEffect(() => {
-    console.log("in timer useEffect");
+    console.log("in timer useEffect")
+    try {
     if (timerState === "active") {
       if (timer === 0) {
+        setTimerState("idle");
         const bombPosition = bombRef.current.children[2].getBoundingClientRect();
         const y =
           10 +
@@ -156,7 +159,6 @@ const Quiz = ({ user }) => {
           setShowBomb(false);
           setGameState("finished");
         }, 1000);
-        setTimerState("idle");
       } else {
         clearTimeout(timerRef.current);
         timerRef.current = setTimeout(() => {
@@ -166,12 +168,16 @@ const Quiz = ({ user }) => {
     } else if (timerState === "paused") {
       clearTimeout(timerRef.current);
     }
+    } catch{
+      console.log("caught")
+    }
   }, [timer, timerState]);
 
   useEffect(() => {
     console.log("process answer useEffect", { gameState, optionChosen });
     if (gameState === "active" && optionChosen !== undefined) {
       console.log("**********");
+
       if (optionChosen === correctAnswerIndex) {
         setScore(
           (prevState) => prevState + points[questions[currQuestion].difficulty]
@@ -192,6 +198,13 @@ const Quiz = ({ user }) => {
     setGameState("paused");
     // highlight chosen answer
     // fade incorrect answers
+    if (answerIndex == correctAnswerIndex){
+    const checkAnimation = correctAnimation({x: event.pageX - window.innerWidth /2, y: event.pageY - window.innerHeight / 2})
+          checkAnimation.play()
+    } else {
+      const crossAnimation = wrongAnimation({x: event.pageX - window.innerWidth /2, y: event.pageY - window.innerHeight / 2})
+          crossAnimation.play()
+    }
     setOptionStyles(
       options.map((o, index) => ({
         opacity: index === correctAnswerIndex ? "100%" : "0%",
@@ -215,7 +228,7 @@ const Quiz = ({ user }) => {
     </div>
   ) : (
     <div ref={bombRef} className="Quiz">
-      {gameState !== "finished" && (
+      {gameState !== "finished"?(
         <>
           <p className={`difficulty ${questions[currQuestion].difficulty}`}>
             {questions[currQuestion].difficulty}
@@ -249,7 +262,7 @@ const Quiz = ({ user }) => {
               })}
           </div>
         </>
-      )}
+      ): <EndScreen user={user} score={score}/>}
     </div>
   );
 };

@@ -84,11 +84,12 @@ p.difficulty {
   margin-bottom: 1em;
   padding: 0.2em 1em;
   font-family: "Poppins";
-  color: var(--darkAccent);
+  color: var(--lightAccent);
   border-radius: 20px;
 }
 p.difficulty.easy {
-  background: lightseagreen;
+  background: #1D7874;
+  
 }
 p.difficulty.medium {
   background: var(--yellowAccent);

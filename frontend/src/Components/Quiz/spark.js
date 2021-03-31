@@ -2,7 +2,7 @@ import mojs from "@mojs/core";
 
 const randomSparks = new mojs.Burst({
   radius: { 0: 100 },
-  count: 4000,
+  count: 1000,
   isShowEnd: false,
   children: {
     shape: "circle",
