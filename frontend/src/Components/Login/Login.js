@@ -29,10 +29,14 @@ const Login = (props) => {
         if (data.auth) {
           setFormStatus("success");
           props.setUser(data.user);
+          try{
           window.sessionStorage.setItem(
             "currentUser",
             JSON.stringify(data.user)
           );
+          } catch{
+            console.log('session storage error')
+          }
           history.push("/");
         } else {
           setFormStatus("failed");
@@ -61,7 +65,9 @@ const Login = (props) => {
       icon: <CloseCircleOutlined />,
     },
   };
+  console.log({formStatus})
   return (
+    
     <div className="login-container">
       <Form name="login" onFinish={onFinish} layout="vertical" size="large">
         <h1>Log In</h1>

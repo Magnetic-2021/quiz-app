@@ -82,6 +82,21 @@ const Scoreboard = (props) => {
   ];
   const places = ["1st", "2nd", "3rd"];
   const medals = ["#AF9500", "#B4B4B4", "#6A3805"];
+  return (
+    <div className="scoreboard-container">
+      <div className="podium">
+        {leaderboardData?.slice(0, 3).map((score, index) => {
+          const place = places[index];
+          return (
+            <Podium
+              key={place}
+              score={score}
+              place={places[index]}
+              color={medals[index]}
+            />
+          );
+        })}
+      </div>
 
   const handleMenuClick = ({ key }) => {
     setSelectedMode(key);

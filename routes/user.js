@@ -9,7 +9,6 @@ router.post("/user/signup", (req, res) => {
 
   // TODO: check if user is all ready in the system
   // TODO: check if email is all ready used
-  console.log(req.body.avatarImg.slice(0, 40));
   const imgBin = req.body.avatarImg
     ? new Buffer(req.body.avatarImg, "base64")
     : null;
