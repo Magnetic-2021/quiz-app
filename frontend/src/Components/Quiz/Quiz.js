@@ -26,6 +26,8 @@ const points = {
   hard: 10,
 };
 
+const optionImg =[Aellipse, Bellipse, Cellipse, Dellipse]
+
 const Quiz = ({ user }) => {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState();
@@ -53,6 +55,8 @@ const Quiz = ({ user }) => {
   }, []);
 
   useEffect(() => {
+    if(user){
+
     console.log(user.dateTime);
     console.log("initial useEffect");
     if (!questions) {
@@ -65,6 +69,7 @@ const Quiz = ({ user }) => {
           setGameState("active");
           setTimerState("active");
         });
+    }
     }
   }, []);
 
@@ -214,8 +219,8 @@ const Quiz = ({ user }) => {
                     onClick={(event) => handleAnswer(event, index)}
                   >
                     <img
-                      src={Aellipse}
-                      alt="Aellipse"
+                      src={optionImg[index]}
+                      alt="answer"
                       className="ellipseOption"
                     />
                     {Replacer(option)}
