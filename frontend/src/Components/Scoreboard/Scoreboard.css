@@ -1,10 +1,11 @@
 .scoreboard-container {
-  padding: 30px;
 }
 
 .leadHeader {
-  color: silver;
-  font-weight: bold;
+  color: white;
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 1em;
 }
 
 .podium {
@@ -12,18 +13,44 @@
   height: 140px;
   max-width: 600px;
   margin: auto;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
   justify-content: space-between;
+  padding-right:1em;
 }
-.podium-1st{
+.podium-1st {
   order: 2;
   align-self: start;
 }
-.podium-2nd{
+.podium-2nd {
   order: 1;
   align-self: end;
 }
-.podium-3rd{
+.podium-3rd {
   order: 3;
   align-self: end;
+}
+
+/* table styles */
+div.tableScore div.ant-table-wrapper {
+  max-width: 600px;
+  margin: auto;
+}
+table thead.ant-table-thead tr th {
+  background: var(--darkerGrey);
+  font-weight: 600;
+  font-size: 1.25em;
+  padding: 8px 16px;
+  border: none;
+}
+
+table tbody.ant-table-tbody tr td {
+  background: var(--greyAccent);
+  border: none;
+}
+
+table tbody.ant-table-tbody tr :nth-child(3),
+table tbody.ant-table-tbody tr :nth-child(4),
+table thead.ant-table-thead tr :nth-child(3),
+table thead.ant-table-thead tr :nth-child(4) {
+  text-align: right;
 }
