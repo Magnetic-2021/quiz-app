@@ -2,22 +2,6 @@
   padding: 0 1em;
 }
 
-form p {
-  padding: 2em 0;
-}
-
-.form-text {
-  color: var(--lightAccent);
-}
-
-.form-link {
-  color: var(--orangeAccent);
-}
-
-.form-link:hover {
-  color: var(--darkerOrange);
-}
-
 @media (min-width: 1000px) {
   .login-container {
     padding: 0;

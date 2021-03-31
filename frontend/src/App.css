@@ -166,6 +166,22 @@ h3 {
   content: "*";
 }
 
+form p {
+  padding: 2em 0;
+}
+
+.form-text {
+  color: var(--lightAccent);
+}
+
+.form-link {
+  color: var(--orangeAccent);
+}
+
+.form-link:hover {
+  color: var(--darkerOrange);
+}
+
 form .btn {
   margin-top: 1em;
 }
