@@ -1,0 +1,40 @@
+.not-found-page{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.notFound-title{
+    font-size: 60px; 
+     
+}
+
+.notFound-subtitle{
+    font-size: 20px;
+    font-weight: bold;
+    color:var(--redAccent);
+    margin-left: 10px;
+}
+
+.backtohome{
+    font-size: 25px;
+    margin-left: 12px;
+}
+
+.not-found-page{
+    margin-top: 80px;
+    margin-left: 70px;
+}
+
+.notfoundlogo-container{
+    margin-left: 200px;
+    margin-top: 70px;
+}
+
+.notfound-container{
+    background-color: var(--darkerGrey);
+    padding:70px;
+    border-radius: 3em;
+    
+}
