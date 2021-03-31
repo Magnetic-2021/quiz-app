@@ -26,7 +26,7 @@ const points = {
   hard: 10,
 };
 
-const optionImg =[Aellipse, Bellipse, Cellipse, Dellipse]
+const optionImg = [Aellipse, Bellipse, Cellipse, Dellipse];
 
 const Quiz = ({ user }) => {
   const [currQuestion, setCurrQuestion] = useState(0);
@@ -43,7 +43,7 @@ const Quiz = ({ user }) => {
   const [answerProcessed, setAnswerProcessed] = useState(true);
   const [scoreUploaded, setScoreUploaded] = useState(false);
 
-  const history = useHistory()
+  const history = useHistory();
 
   const bombRef = useRef();
   const timerRef = useRef();
@@ -55,21 +55,20 @@ const Quiz = ({ user }) => {
   }, []);
 
   useEffect(() => {
-    if(user){
-
-    console.log(user.dateTime);
-    console.log("initial useEffect");
-    if (!questions) {
-      console.log("about to fetch");
-      fetch("http://localhost:5000/questions")
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("got data", data);
-          setQuestions(data);
-          setGameState("active");
-          setTimerState("active");
-        });
-    }
+    if (user) {
+      console.log(user.dateTime);
+      console.log("initial useEffect");
+      if (!questions) {
+        console.log("about to fetch");
+        fetch("http://localhost:5000/questions")
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("got data", data);
+            setQuestions(data);
+            setGameState("active");
+            setTimerState("active");
+          });
+      }
     }
   }, []);
 
@@ -198,11 +197,12 @@ const Quiz = ({ user }) => {
     <div ref={bombRef} className="Quiz">
       {gameState !== "finished" && (
         <>
-
           <p className={`difficulty ${questions[currQuestion].difficulty}`}>
             {questions[currQuestion].difficulty}
           </p>
-          <h1 className="questionTitle">{Replacer(questions[currQuestion].question)}</h1>
+          <p className="questionTitle">
+            {Replacer(questions[currQuestion].question)}
+          </p>
           <Timer
             score={score}
             showBomb={showBomb}

@@ -76,8 +76,10 @@
 .Quiz button:hover {
   background-color: var(--darkerGrey);
 }
-.Quiz h1 {
+.Quiz p.questionTitle {
   margin-top: 0;
+  font-size: 2em;
+  font-weight: 700;
 }
 p.difficulty {
   margin: 0;
@@ -116,4 +118,10 @@ p.difficulty.hard {
 .ellipseOption {
   width: 50px;
   margin-right: 20px;
+}
+
+/* media query */
+
+@media (max-width: 600) {
+  /* css in here */
 }
