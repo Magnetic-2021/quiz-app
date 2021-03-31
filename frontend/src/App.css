@@ -33,6 +33,10 @@ body {
   line-height: 1.4;
   font-family: "Poppins", sans-serif;
   background: var(--darkAccent);
+  background-image: url("bkgroundbomb.svg");
+  background-repeat: no-repeat;
+  background-position-y: 35%;
+
   color: var(--lightAccent);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
