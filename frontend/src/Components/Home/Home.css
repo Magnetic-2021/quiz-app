@@ -1,37 +1,58 @@
 @media screen and (min-width: 1000px) {
-    .homebtn{
+   .hometitle-container{
+       margin-left: 30px;
+   } 
+   .hometitle{
+       font-weight: bold;
+       color: var(--darkerGrey);
+   }
+   .homesubtitle{
+       color: var(--greyAccent);
+       font-size: 20px;
+   }
+   .homebtn{
         color: var(--darkAccent);
-        margin: 15px;
+        margin-top: 20px;
         height: 60px;
-        font-size: 18px;
+        font-size: 22px;
         font-weight: bold;
-        width: 200px;
-        height: 40px;
+        width: 230px;
+        height: 60px;
         cursor: pointer;
-        margin-left: 45px;
+        margin-left: 20px;
     }
-    
-    .homebtn:hover{
+    .getstarted{
+        background-color: var( --darkerOrange);
+        color: var(--lightAccent);
+    }
+    .getstarted:hover{
+        background:var( --orangeAccent);
+    }
+    .white:hover{
         background: var(--greyAccent);
     }
-    .Home{
+    
+    .buttoncontainer1, .buttoncontainer2{
         display: flex;
         flex-direction: row;
-        align-items: center;
     }
-    
     .home-buttonsContainer{
-        margin-top: 80px;
-        margin-left: 35%;
+        margin-left: 10px;
+        margin-top: 120px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    
     }
     
+    .hometitle-container{
+        margin-top: 50px;
+    }
     .home-logoContainer{
         margin-left: 50px;
+    }
+
+    .Home{
+        display: flex;
+        flex-direction: column;
     }
     
 }    
