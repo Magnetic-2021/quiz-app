@@ -1,66 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
 @media screen and (min-width: 1000px) {
-    .homebtn{
+    .imagecontainer{
+        margin-left: 250px;
+    }
+    .clocklogo{
+        margin-left: 60%;
+        margin-top: -40%;
+    }
+
+   .hometitle{
+       font-weight: bold;
+       color: var(--yellowAccent);
+       font-family: 'Fredoka One', cursive;
+       font-size: 40px;
+       text-shadow: -3px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+   }
+   .homesubtitle{
+       color: var(--greyAccent);
+       font-size: 20px;
+   }
+   .homebtn{
         color: var(--darkAccent);
-        margin: 15px;
+        margin-top: 20px;
         height: 60px;
         font-size: 18px;
         font-weight: bold;
-        width: 200px;
-        height: 40px;
+        width: 170px;
+        height: 50px;
         cursor: pointer;
-        margin-left: 45px;
+        margin-left: 10px;
     }
-    
-    .homebtn:hover{
+    .getstarted{
+        background-color: var( --darkerOrange);
+        color: var(--lightAccent);
+    }
+    .getstarted:hover{
+        background:var( --orangeAccent);
+    }
+    .white:hover{
         background: var(--greyAccent);
     }
+    
+    .buttoncontainer1, .buttoncontainer2{
+        display: flex;
+        flex-direction: row;
+    }
+    .home-buttonsContainer{
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hometitle-container{
+        margin-top: 50px;
+    }
+
     .Home{
         display: flex;
         flex-direction: row;
-        align-items: center;
-    }
-    
-    .home-buttonsContainer{
-        margin-top: 80px;
-        margin-left: 35%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    
-    }
-    
-    .home-logoContainer{
-        margin-left: 50px;
     }
     
 }    
 
 @media screen and (max-width: 1000px) {
-    .homebtn{
-        color: var(--darkAccent);
-        margin: 10px;
-        height: 60px;
-        font-size: 23px;
+    .hometitle{
+        margin-left: 40px;
         font-weight: bold;
-        width: 300px;
-        height: 60px;
-        cursor: pointer;
-        margin-left: 45px;
+        color: var(--yellowAccent);
+        font-family: 'Fredoka One', cursive;
+        font-size: 40px;
+        text-shadow: -3px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
-    
-    .homebtn:hover{
-        background: var(--greyAccent);
+    .homesubtitle{
+        color: var(--greyAccent);
+        font-size: 20px;
+        margin-left: 18px;
     }
-
+    .homebtn{
+         color: var(--darkAccent);
+         margin-top: 20px;
+         height: 60px;
+         font-size: 18px;
+         font-weight: bold;
+         width: 170px;
+         height: 50px;
+         cursor: pointer;
+         margin-left: 30%;
+     }
+     .getstarted{
+         background-color: var( --darkerOrange);
+         color: var(--lightAccent);
+     }
+     .getstarted:hover{
+         background:var( --orangeAccent);
+     }
+     .white:hover{
+         background: var(--greyAccent);
+     }
     .Home{
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
     .home-buttonsContainer{
         margin-right: 32px;
         margin-top: 40px;
+    }
+    .imagecontainer{
+        display: none;
     }
 }

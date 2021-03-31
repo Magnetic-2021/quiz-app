@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-
-import LogoHome from "../Logo/LogoHome";
 import "./Home.css";
+import clocklogo from "../../images/clocklogo.svg";
+import imageex from "../../images/imageex.svg";
 
 const Home = () => {
   const history = useHistory();
@@ -10,28 +10,36 @@ const Home = () => {
   return (
     <div className="Home">
 
-      <div className="home-logoContainer"> 
-      <LogoHome type="dark"/>
+     <div className="container1"> 
+      <div className="hometitle-container">
+        <h1 className="hometitle">CAN YOU BEAT THE BOMB?</h1>
+        <h3 className="homesubtitle">Small and cool description of the game</h3>
       </div>
 
+    
       <div className="home-buttonsContainer"> 
-
-      <div className="home-button"> 
-      <button onClick={() => history.push("/signup")} className="btn homebtn">SIGNUP</button>
-      </div>
-      <div className="home-button"> 
-      <button onClick={() => history.push("/login")} className="btn homebtn">LOGIN</button>
-      </div>
-      <div className="home-button"> 
-      <button onClick={() => history.push("/Howtoplay")} className="btn homebtn">HOW TO PLAY</button>
-      </div>
-      <div className="home-button"> 
-      <button onClick={() => history.push("/about")} className="btn homebtn">ABOUT US</button>
+      
+      <div className="buttoncontainer1"> 
+      <button onClick={() => history.push("/signup")} className="btn homebtn getstarted">GET STARTED</button>
+      <button onClick={() => history.push("/Howtoplay")} className="btn homebtn white">HOW TO PLAY</button>
       </div>
 
+      <div className="buttoncontainer2"> 
+      <button onClick={() => history.push("/login")} className="btn homebtn white">PLAY NOW</button>
+      <button onClick={() => history.push("/leaderboard")} className="btn homebtn white">LEADERBOARD</button>
+      </div>
+      
+      </div>
+      </div>
+
+      <div className="imagecontainer"> 
+        <img src={imageex} className="imageex" alt="imageex" width="400"/>
+        <img src={clocklogo} className="clocklogo" alt="clocklogo" width="200"/>
       </div>
 
     </div>
   );
 };
 export default Home;
+
+ 
