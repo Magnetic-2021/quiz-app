@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import "./Home.css";
 import clocklogo from "../../images/clocklogo.svg";
 import imageex from "../../images/imageex.svg";
+import hero from "../../images/hero.svg";
 
 const Home = () => {
   const history = useHistory();
@@ -33,7 +34,8 @@ const Home = () => {
       </div>
 
       <div className="imagecontainer"> 
-        <img src={imageex} className="imageex" alt="imageex" width="400"/>
+        <img src={imageex} className="imageex" alt="imageex" width="400"/>        
+        <img src={hero} className="herologo" alt="imageex"  width="350"/>
         <img src={clocklogo} className="clocklogo" alt="clocklogo" width="200"/>
       </div>
 
