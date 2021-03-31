@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table, Badge } from "antd";
+import { Table, Badge, Dropdown, Menu, Button } from "antd";
 import { useHistory } from "react-router-dom";
 import UserAvatar from "../Avatar/Avatar.js";
 import "./Scoreboard.css";
@@ -19,18 +19,32 @@ const Podium = ({ score, place, color }) => {
     </div>
   );
 };
+
 const Scoreboard = (props) => {
   console.log("scoreboard mounted");
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [tableState, setTableState] = useState("loading");
   const history = useHistory();
+  const [selectedMode, setSelectedMode] = useState("global");
   useEffect(() => {
     if (!props.user) {
       history.push("/login");
     }
   }, []);
+
+  const urls = {
+    global: "http://localhost:5000/score",
+    user: `http://localhost:5000/score/${props.user.id}`,
+  };
+  const modeText = { global: "Global Scores", user: "Your Scores" };
+
   useEffect(() => {
-    fetch("http://localhost:5000/score", {})
+    setTableState("loading");
+    console.log(selectedMode);
+    console.log(urls);
+    const url = urls[selectedMode];
+    console.log("url", url);
+    fetch(url, {})
       .then((res) => res.json())
       .then((data) => {
         setLeaderboardData(
@@ -46,7 +60,7 @@ const Scoreboard = (props) => {
         setTableState("loaded");
       })
       .catch(console.log("unable to fetch scores from server"));
-  }, []);
+  }, [selectedMode]);
 
   const columns = [
     { title: "#", dataIndex: "index", key: "index" },
@@ -83,6 +97,43 @@ const Scoreboard = (props) => {
           );
         })}
       </div>
+
+  const handleMenuClick = ({ key }) => {
+    setSelectedMode(key);
+  };
+
+  const menu = (
+    <Menu onClick={handleMenuClick}>
+      <Menu.Item key="global">Global Scores</Menu.Item>
+      <Menu.Item key="user">Your Scores</Menu.Item>
+    </Menu>
+  );
+
+  return (
+    <div className="scoreboard-container">
+      <Dropdown
+        overlay={menu}
+        placement="bottomRight"
+        trigger={["click"]}
+        arrow
+      >
+        <Button>{modeText[selectedMode]}</Button>
+      </Dropdown>
+      {selectedMode === "global" ? (
+        <div className="podium">
+          {leaderboardData?.slice(0, 3).map((score, index) => {
+            const place = places[index];
+            return (
+              <Podium
+                key={place}
+                score={score}
+                place={places[index]}
+                color={medals[index]}
+              />
+            );
+          })}
+        </div>
+      ) : null}
       <div className="tableScore">
         {tableState === "loaded" ? (
           <Table

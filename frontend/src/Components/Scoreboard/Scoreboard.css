@@ -1,4 +1,11 @@
 .scoreboard-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+}
+button.ant-dropdown-trigger {
+  align-self: end;
 }
 
 .leadHeader {
@@ -11,11 +18,14 @@
 .podium {
   display: flex;
   height: 140px;
+  width: 100%;
   max-width: 600px;
   margin: auto;
   margin-bottom: 3em;
   justify-content: space-between;
-  padding-right:1em;
+  padding-right: 1em;
+  align-self: center;
+  flex-shrink: 0;
 }
 .podium-1st {
   order: 2;
@@ -48,8 +58,10 @@ table tbody.ant-table-tbody tr td {
   border: none;
 }
 
+table tbody.ant-table-tbody tr :nth-child(1),
 table tbody.ant-table-tbody tr :nth-child(3),
 table tbody.ant-table-tbody tr :nth-child(4),
+table thead.ant-table-thead tr :nth-child(1),
 table thead.ant-table-thead tr :nth-child(3),
 table thead.ant-table-thead tr :nth-child(4) {
   text-align: right;
