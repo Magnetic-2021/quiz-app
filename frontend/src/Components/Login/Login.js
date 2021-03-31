@@ -89,6 +89,7 @@ const Login = (props) => {
         >
           {buttonValues[formStatus].text}
         </Button>
+        <p className="form-text">Don't have an account yet? <a href="/signup" className="form-link">Sign up now</a></p>
       </Form>
     </div>
   );
