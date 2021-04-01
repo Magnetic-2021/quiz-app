@@ -20,7 +20,7 @@ For some of the styling, we also used some elements of the [Ant Design](https://
 
 ## How to view the app
 
-- To view the app, click [here](_to be confirmed_)
+- To view the app, click [here](https://magnetic-2021.herokuapp.com/)
 - Create an account with a username, email address, password and even your own Avatar (optional).
 
 ## Cloning the app
