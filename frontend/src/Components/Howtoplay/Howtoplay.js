@@ -19,7 +19,7 @@ const Howtoplay = () => {
             </div>
 
             <div > 
-            <h3>Answer as many questions you can in the time allowed</h3>
+            <h3>Answer as many questions as you can in the time allowed.</h3>
             </div>
           </div>
 
@@ -29,7 +29,8 @@ const Howtoplay = () => {
           </div>
           <div>
             <h3>
-              The more right answers you get, you up your time by 5 seconds
+              Answer a question correctly to add more time to the bomb. 
+              <br/>The harder the question, the more time you get.
             </h3>
             </div>
           </div>
@@ -39,7 +40,7 @@ const Howtoplay = () => {
           <img src={rule3} width="50px"/>
           </div>
           <div>
-            <h3>If the timer expires the bomb goes off and game over</h3>
+            <h3>If the timer expires, the bomb goes off and it's game over.</h3>
           </div>
           </div>
 
@@ -69,7 +70,7 @@ const Howtoplay = () => {
             fill="#FF8C42"
           />
         </svg>
-        <h1 className="catchLine">CAN YOU BEAT THE BOMB</h1>
+        <h1 className="catchLine">CAN YOU BEAT THE BOMB ?</h1>
       </div>
     </div>
   );
