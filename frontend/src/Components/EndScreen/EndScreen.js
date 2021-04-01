@@ -1,5 +1,5 @@
 import "./EndScreen.css";
-import Avatar from "../Avatar/Avatar";
+import UserAvatar from "../Avatar/Avatar";
 import { useHistory } from 'react-router-dom';
 
 const EndScreen = (props) => {
@@ -19,13 +19,13 @@ const EndScreen = (props) => {
           </div> 
 
           <div>   
-          <h2 className="endscreenScore">300</h2>
+          <h2 className="endscreenScore">{props.score}</h2>
           </div> 
           </div>
 
-        <div className="endscreen-avatar-container">
-        <Avatar user={props.user} />
-        </div>
+        {/* <div className="endscreen-avatar-container">
+        <UserAvatar user={props.user} />
+        </div> */}
 
         <div className="btn-endscreen">
           <button onClick={() => history.push('/quiz')} className="btn playbtn">Play again</button>
