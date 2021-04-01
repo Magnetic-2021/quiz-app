@@ -1,6 +1,6 @@
 # Knowledge Bomb - Quiz App
 
-<!-- ![Knowledge Bomb Logo](https://letsget-quizzical.herokuapp.com/static/media/invquizzical_logowink.b1d103f6.svg) -->
+![Knowledge Bomb Logo](/frontend/src/Components/Logo/dark.svg)
 
 **Knowledge Bomb** is an exciting quiz app in which users have to answer 10 questions in the time allowed or risk the bomb exploding. Can you beat the bomb?
 
@@ -20,17 +20,13 @@ For some of the styling, we also used some elements of the [Ant Design](https://
 
 ## How to view the app
 
-- To view the app, click [here](_to be confirmed_)
+- To view the app, click [here](https://magnetic-2021.herokuapp.com/)
 - Create an account with a username, email address, password and even your own Avatar (optional).
 
 ## Cloning the app
 
 - To clone our app, go to our repo [here](https://github.com/Magnetic-2021/quiz-app)
 - Select an option to clone the repository into your local directory
-
-## How to install the dependencies
-
-- npm run bootstrap (this installs all dependencies in the frontend and backend)
 
 ## How to run the app
 

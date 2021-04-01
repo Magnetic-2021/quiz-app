@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const { User } = require("../models/User");
 const router = express.Router();
 
-router.post("/user/signup", (req, res) => {
+router.post("/signup", (req, res) => {
   const newUser = req.body;
 
   // TODO: check if user is all ready in the system
@@ -43,7 +43,7 @@ router.post("/user/signup", (req, res) => {
   });
 });
 
-router.post("/user/login", (req, res) => {
+router.post("/login", (req, res) => {
   const { username, password } = req.body;
   User.findOne({ username }, (err, userRecord) => {
     console.log(userRecord);
@@ -61,7 +61,7 @@ router.post("/user/login", (req, res) => {
   });
 });
 
-router.get("/user/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   User.findOne({ _id: req.params.id }, (err, UserRecord) => {
     const { username, _id, avatar } = UserRecord;
     res.send({

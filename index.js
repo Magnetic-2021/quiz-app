@@ -6,6 +6,7 @@ const { connect } = require("./db/connection");
 const questionRouter = require("./routes/questionRouter");
 const scoreRouter = require("./routes/scoreRouter");
 const userRouter = require("./routes/user");
+const path = require("path");
 
 connect();
 app.use(cors());
@@ -21,9 +22,9 @@ if (
   });
 }
 
-app.use("/", userRouter);
-app.use("/", scoreRouter);
-app.use("/", questionRouter);
+app.use("/user", userRouter);
+app.use("/score", scoreRouter);
+app.use("/questions", questionRouter);
 
 const PORT = process.env.PORT || 5000;
 

@@ -13,9 +13,9 @@ const Home = (props) => {
       <div className="container1">
         <div className="hometitle-container">
           <h1 className="hometitle">CAN YOU BEAT THE BOMB?</h1>
-          <h3 className="homesubtitle">
-            Small and cool description of the game
-          </h3>
+          <p className="homesubtitle">
+            Test your knowledge skills against the clock to climb the leaderboard. But take your time and it's tick tick BOOM!
+          </p>
         </div>
 
         <div className="home-buttonsContainer">
