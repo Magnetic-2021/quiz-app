@@ -16,6 +16,7 @@ import Howtoplay from "./Components/Howtoplay/Howtoplay";
 
 function App() {
   const [user, setUser] = useState();
+  const [quizKey, setQuizKey] = useState(1);
   useEffect(() => {
     // get user from session storage
     // if user check timestamp
@@ -69,7 +70,11 @@ function App() {
               <Howtoplay />
             </Route>
             <Route path="/quiz">
-              <Quiz user={user} />
+              <Quiz
+                key={quizKey}
+                reset={() => setQuizKey((prevState) => prevState + 1)}
+                user={user}
+              />
             </Route>
             <Route path="/endscreen">
               <EndScreen user={user} />

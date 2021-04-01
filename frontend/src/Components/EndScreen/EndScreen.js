@@ -28,7 +28,7 @@ const EndScreen = (props) => {
         </div> */}
 
         <div className="btn-endscreen">
-          <button onClick={() => history.push('/quiz')} className="btn playbtn">Play again</button>
+          <button onClick={props.resetQuiz} className="btn playbtn">Play again</button>
           <br/>
           <button onClick={() => history.push('/leaderboard')} className="btn leaderbtn">View Leaderboard</button>
         </div>
