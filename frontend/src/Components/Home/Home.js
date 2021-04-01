@@ -38,7 +38,7 @@ const Home = (props) => {
             <div className="buttoncontainer2">
               <button
                 onClick={() => history.push("/quiz")}
-                className="btn homebtn white"
+                className="btn homebtn playnow"
               >
                 PLAY NOW
               </button>
