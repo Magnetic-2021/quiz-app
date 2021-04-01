@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../Logo/Logo";
 
-const Navbar = () => {
+const Navbar = ({user, setUser}) => {
   const useBigLogo = (query) => {
     const [matches, setMatches] = useState(false);
 
@@ -86,14 +86,29 @@ const Navbar = () => {
           >
             About
           </NavLink>
-          <NavLink
-            to="/login"
-            className="navbar-item"
-            activeClassName="navbar-selected"
-            onClick={closeMenu}
-          >
-            Log In
-          </NavLink>
+          {!user ? (
+            <NavLink
+              to="/login"
+              className="navbar-item"
+              activeClassName="navbar-selected"
+              onClick={closeMenu}
+            >
+              Log In
+            </NavLink>
+          ) : (
+            <NavLink
+              to="/"
+              className="navbar-item"
+              activeClassName="navbar-selected"
+              onClick={() => {
+                closeMenu();
+                setUser(null);
+                sessionStorage.clear();
+              }}
+            >
+              Log Out
+            </NavLink>
+          )}
         </div>
       </nav>
     </header>
