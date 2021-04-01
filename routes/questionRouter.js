@@ -5,7 +5,7 @@ const router = express.Router();
 
 const QUESTIONS_RETURNED = 100;
 
-router.get("/questions", (req, res) => {
+router.get("/", (req, res) => {
   Question.find({}, (err, docs) => {
     const questionList = [];
     const indexList = [];
