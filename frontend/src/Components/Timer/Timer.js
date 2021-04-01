@@ -26,7 +26,6 @@ const Timer = ({ time, showBomb, score }) => {
           fill="#FF8C42"
         />
        
-     
         
       </svg>
     </div>

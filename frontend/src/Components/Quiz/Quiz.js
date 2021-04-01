@@ -72,16 +72,19 @@ const Quiz = ({ user, reset }) => {
 
   useEffect(() => {
     try {
+      const bombPosition = bombRef.current.children[1].getBoundingClientRect();
+      const y =
+        bombPosition.y +
+        bombPosition.height / 2 -
+        window.innerHeight / 2 +
+        window.scrollY -
+        70;
+      randomSparks.tune({ x: 85, y: y });
+      console.log(y);
       if (timerState === "active") {
         console.log("spark");
-        const bombPosition = bombRef.current.children[1].getBoundingClientRect();
-        const y =
-          bombPosition.y +
-          bombPosition.height / 2 -
-          window.innerHeight / 2 +
-          window.scrollY -
-          70;
-        randomSparks.tune({ x: 85, y: y }).play();
+
+        randomSparks.play();
       } else {
         randomSparks.stop();
       }
