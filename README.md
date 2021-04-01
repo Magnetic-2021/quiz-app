@@ -1,6 +1,6 @@
 # Knowledge Bomb - Quiz App
 
-<!-- ![Knowledge Bomb Logo](https://letsget-quizzical.herokuapp.com/static/media/invquizzical_logowink.b1d103f6.svg) -->
+![Knowledge Bomb Logo](https://github.com/Magnetic-2021/quiz-app/frontend/src/Components/Logo/dark.svg)
 
 **Knowledge Bomb** is an exciting quiz app in which users have to answer 10 questions in the time allowed or risk the bomb exploding. Can you beat the bomb?
 
