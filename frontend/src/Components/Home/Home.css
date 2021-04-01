@@ -28,11 +28,11 @@
         cursor: pointer;
         margin-left: 10px;
     }
-    .getstarted{
+    .orange{
         background-color: var( --darkerOrange);
         color: var(--lightAccent);
     }
-    .getstarted:hover{
+    .orange:hover{
         background:var( --orangeAccent);
     }
     .white:hover{
@@ -90,11 +90,11 @@
          cursor: pointer;
          margin-left: 30%;
      }
-     .getstarted{
+     .orange{
          background-color: var( --darkerOrange);
          color: var(--lightAccent);
      }
-     .getstarted:hover{
+     .orange:hover{
          background:var( --orangeAccent);
      }
      .white:hover{

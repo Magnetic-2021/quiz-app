@@ -21,12 +21,12 @@ const Home = () => {
       <div className="home-buttonsContainer"> 
       
       <div className="buttoncontainer1"> 
-      <button onClick={() => history.push("/signup")} className="btn homebtn getstarted">GET STARTED</button>
+      <button onClick={() => history.push("/signup")} className="btn homebtn orange">GET STARTED</button>
       <button onClick={() => history.push("/Howtoplay")} className="btn homebtn white">HOW TO PLAY</button>
       </div>
 
       <div className="buttoncontainer2"> 
-      <button onClick={() => history.push("/login")} className="btn homebtn white">PLAY NOW</button>
+      <button onClick={() => history.push("/login")} className="btn homebtn orange">PLAY NOW</button>
       <button onClick={() => history.push("/leaderboard")} className="btn homebtn white">LEADERBOARD</button>
       </div>
       
