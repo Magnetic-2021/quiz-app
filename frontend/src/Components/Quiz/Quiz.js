@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import explode from "./explode";
 import Timer from "./../Timer/Timer";
-import EndScreen from "../EndScreen/EndScreen"
+import EndScreen from "../EndScreen/EndScreen";
 import "./Quiz.css";
 import Aellipse from "../../images/Aellipse.svg";
 import Bellipse from "../../images/Bellipse.svg";
@@ -26,8 +26,7 @@ const points = {
 
 const optionImg = [Aellipse, Bellipse, Cellipse, Dellipse];
 
-
-const Quiz = ({ user }) => {
+const Quiz = ({ user, reset }) => {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState();
   const [correctAnswerIndex, setCorrectAnswerIndex] = useState();
@@ -72,24 +71,26 @@ const Quiz = ({ user }) => {
   }, []);
 
   useEffect(() => {
-      try {
-    if (timerState === "active") {
-      console.log("spark");
-      const bombPosition = bombRef.current.children[2].getBoundingClientRect();
-      const y =
-        bombPosition.y +
-        bombPosition.height / 2 -
-        window.innerHeight / 2 +
-        window.scrollY -
-        70;
-      randomSparks.tune({ x: 85, y: y }).play();
-    } else {
-      randomSparks.stop();
-    }}catch{console.log("caught")}finally{
-
-    return () => {
-      randomSparks.stop();
-    };
+    try {
+      if (timerState === "active") {
+        console.log("spark");
+        const bombPosition = bombRef.current.children[1].getBoundingClientRect();
+        const y =
+          bombPosition.y +
+          bombPosition.height / 2 -
+          window.innerHeight / 2 +
+          window.scrollY -
+          70;
+        randomSparks.tune({ x: 85, y: y }).play();
+      } else {
+        randomSparks.stop();
+      }
+    } catch {
+      console.log("caught");
+    } finally {
+      return () => {
+        randomSparks.stop();
+      };
     }
   }, [timerState, currQuestion]);
 
@@ -141,35 +142,35 @@ const Quiz = ({ user }) => {
   }, [options]);
 
   useEffect(() => {
-    console.log("in timer useEffect")
+    console.log("in timer useEffect");
     try {
-    if (timerState === "active") {
-      if (timer === 0) {
-        setTimerState("idle");
-        const bombPosition = bombRef.current.children[2].getBoundingClientRect();
-        const y =
-          10 +
-          bombPosition.y +
-          bombPosition.height / 2 -
-          window.innerHeight / 2 +
-          window.scrollY;
-        // const x = bombPosition.x + bombPosition.width / 2;
-        explode(0, y);
-        setTimeout(() => {
-          setShowBomb(false);
-          setGameState("finished");
-        }, 1000);
-      } else {
+      if (timerState === "active") {
+        if (timer === 0) {
+          setTimerState("idle");
+          const bombPosition = bombRef.current.children[1].getBoundingClientRect();
+          const y =
+            10 +
+            bombPosition.y +
+            bombPosition.height / 2 -
+            window.innerHeight / 2 +
+            window.scrollY;
+          // const x = bombPosition.x + bombPosition.width / 2;
+          explode(0, y);
+          setTimeout(() => {
+            setShowBomb(false);
+            setGameState("finished");
+          }, 1000);
+        } else {
+          clearTimeout(timerRef.current);
+          timerRef.current = setTimeout(() => {
+            setTimer((prevState) => prevState - 100);
+          }, 100);
+        }
+      } else if (timerState === "paused") {
         clearTimeout(timerRef.current);
-        timerRef.current = setTimeout(() => {
-          setTimer((prevState) => prevState - 100);
-        }, 100);
       }
-    } else if (timerState === "paused") {
-      clearTimeout(timerRef.current);
-    }
-    } catch{
-      console.log("caught")
+    } catch {
+      console.log("caught");
     }
   }, [timer, timerState]);
 
@@ -198,12 +199,18 @@ const Quiz = ({ user }) => {
     setGameState("paused");
     // highlight chosen answer
     // fade incorrect answers
-    if (answerIndex == correctAnswerIndex){
-    const checkAnimation = correctAnimation({x: event.pageX - window.innerWidth /2, y: event.pageY - window.innerHeight / 2})
-          checkAnimation.play()
+    if (answerIndex == correctAnswerIndex) {
+      const checkAnimation = correctAnimation({
+        x: event.pageX - window.innerWidth / 2,
+        y: event.pageY - window.innerHeight / 2,
+      });
+      checkAnimation.play();
     } else {
-      const crossAnimation = wrongAnimation({x: event.pageX - window.innerWidth /2, y: event.pageY - window.innerHeight / 2})
-          crossAnimation.play()
+      const crossAnimation = wrongAnimation({
+        x: event.pageX - window.innerWidth / 2,
+        y: event.pageY - window.innerHeight / 2,
+      });
+      crossAnimation.play();
     }
     setOptionStyles(
       options.map((o, index) => ({
@@ -228,14 +235,16 @@ const Quiz = ({ user }) => {
     </div>
   ) : (
     <div ref={bombRef} className="Quiz">
-      {gameState !== "finished"?(
+      {gameState !== "finished" ? (
         <>
-          <p className={`difficulty ${questions[currQuestion].difficulty}`}>
-            {questions[currQuestion].difficulty}
-          </p>
-          <h1 className="questionTitle">
-            {Replacer(questions[currQuestion].question)}
-          </h1>
+          <div className="questionWrapper">
+            <p className={`difficulty ${questions[currQuestion].difficulty}`}>
+              {questions[currQuestion].difficulty}
+            </p>
+            <h1 className="questionTitle">
+              {Replacer(questions[currQuestion].question)}
+            </h1>
+          </div>
           <Timer
             score={score}
             showBomb={showBomb}
@@ -262,7 +271,9 @@ const Quiz = ({ user }) => {
               })}
           </div>
         </>
-      ): <EndScreen user={user} score={score}/>}
+      ) : (
+        <EndScreen user={user} score={score} resetQuiz={reset} />
+      )}
     </div>
   );
 };

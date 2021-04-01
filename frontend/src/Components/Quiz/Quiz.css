@@ -40,10 +40,13 @@
   padding-bottom: 0;
   margin-left: 0.5em;
 }
-
+div.content {
+  padding-top: 0;
+}
 .Quiz {
   display: flex;
-  justify-content: center;
+  height: 100%;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   color: var(--darkAccent);
@@ -54,42 +57,52 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .Quiz button {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 400px;
-  height: 70px;
-  margin: 10px;
+  width: 300px;
+  height: 60px;
+  margin-bottom: 10px;
   background-color: var(--greyAccent);
   border-radius: 1em;
   font-weight: 800;
-  font-size: 20px;
+  font-size: medium;
   cursor: pointer;
   border-color: rgb(0, 0, 0, 0.1);
   transition: opacity 100ms ease-in;
 }
-
+button.playbtn,
+button.leaderbtn {
+  padding-left: 1em;
+}
 .Quiz button:hover {
   background-color: var(--darkerGrey);
 }
-.Quiz h1 {
+.Quiz h1.questionTitle {
   margin-top: 0;
+  font-size: medium;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+div.questionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 p.difficulty {
-  margin: 0;
-  margin-bottom: 1em;
   padding: 0.2em 1em;
   font-family: "Poppins";
   color: var(--lightAccent);
   border-radius: 20px;
+  margin-bottom: 1em;
+  max-width: 200px;
 }
 p.difficulty.easy {
-  background: #1D7874;
-  
+  background: #1d7874;
 }
 p.difficulty.medium {
   background: var(--yellowAccent);
@@ -103,18 +116,20 @@ p.difficulty.hard {
   text-align: center;
   font-weight: 900;
   margin: auto;
-  margin-top: 10px;
   color: var(--lightAccent);
-  height: 30%;
   overflow: hidden;
-}
-
-.bombTimerLogo {
-  width: 200px;
-  margin-left: 50px;
 }
 
 .ellipseOption {
   width: 50px;
   margin-right: 20px;
+}
+
+@media (min-width: 600px) {
+  .Quiz h1.questionTitle {
+    font-size: xx-large;
+  }
+  .Quiz {
+    justify-content: space-around;
+  }
 }

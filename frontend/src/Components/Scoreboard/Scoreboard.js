@@ -34,7 +34,7 @@ const Scoreboard = (props) => {
 
   const urls = {
     global: "http://localhost:5000/score",
-    user: `http://localhost:5000/score/${props.user.id}`,
+    user: `http://localhost:5000/score/${props.user?.id}`,
   };
   const modeText = { global: "Global Scores", user: "Your Scores" };
 
