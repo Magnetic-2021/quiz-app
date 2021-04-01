@@ -67,3 +67,7 @@ table thead.ant-table-thead tr :nth-child(3),
 table thead.ant-table-thead tr :nth-child(4) {
   text-align: right;
 }
+
+.tableScore{
+  padding-bottom: 50px;
+}
