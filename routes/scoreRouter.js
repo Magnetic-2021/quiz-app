@@ -4,7 +4,7 @@ const { request } = require("express");
 const { Score } = require("../models/Score");
 const router = express.Router();
 
-router.get("/score", (req, res) => {
+router.get("/", (req, res) => {
   Score.find({}, (err, docs) => {
     res.send(docs.map((doc, index) => {
       doc.index = index
@@ -19,7 +19,7 @@ router.get("/score", (req, res) => {
     });
 });
 
-router.get("/score/:userID", (req, res) => {
+router.get("/:userID", (req, res) => {
   Score.find({ userID: req.params.userID }, (err, docs) => {
     res.send(docs);
   })
@@ -31,7 +31,7 @@ router.get("/score/:userID", (req, res) => {
     });
 });
 
-router.post("/score", (req, res) => {
+router.post("/", (req, res) => {
   const newScore = req.body;
   console.log(newScore);
   Score.create(newScore)
