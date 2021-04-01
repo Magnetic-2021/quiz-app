@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../Logo/Logo";
 
-const Navbar = () => {
+const Navbar = ({user, setUser}) => {
   const useBigLogo = (query) => {
     const [matches, setMatches] = useState(false);
 
@@ -71,14 +71,6 @@ const Navbar = () => {
             Leaderboard
           </NavLink>
           <NavLink
-            to="/about"
-            className="navbar-item"
-            activeClassName="navbar-selected"
-            onClick={closeMenu}
-          >
-            About
-          </NavLink>
-          <NavLink
             to="/howtoplay"
             className="navbar-item"
             activeClassName="navbar-selected"
@@ -87,13 +79,36 @@ const Navbar = () => {
             How to play
           </NavLink>
           <NavLink
-            to="/signup"
+            to="/about"
             className="navbar-item"
             activeClassName="navbar-selected"
             onClick={closeMenu}
           >
-            Sign Up / Register
+            About
           </NavLink>
+          {!user ? (
+            <NavLink
+              to="/login"
+              className="navbar-item"
+              activeClassName="navbar-selected"
+              onClick={closeMenu}
+            >
+              Log In
+            </NavLink>
+          ) : (
+            <NavLink
+              to="/"
+              className="navbar-item"
+              activeClassName="navbar-selected"
+              onClick={() => {
+                closeMenu();
+                setUser(null);
+                sessionStorage.clear();
+              }}
+            >
+              Log Out
+            </NavLink>
+          )}
         </div>
       </nav>
     </header>

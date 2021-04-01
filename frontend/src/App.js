@@ -50,7 +50,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Navbar user={user} setUser={setUser} />
         <div className="content">
           <Switch>
             <Route exact path="/">

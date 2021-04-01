@@ -58,18 +58,18 @@ header {
   display: block;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 500px) {
   header {
-    padding: 2em 1.5em;
+    padding: 3em 3em;
   }
 
   .navbar button {
-    right: 2em;
-    top: 3em;
+    right: 3em;
+    top: 3.5em;
   }
 
   .navbar-icon {
-    font-size: 4rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -77,6 +77,8 @@ header {
   header {
     display: flex;
     justify-content: space-between;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .navbar {
