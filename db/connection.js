@@ -1,6 +1,5 @@
-if (process.env.NODE_ENV === "development") {
-  require("dotenv").config();
-}
+require("dotenv").config();
+
 const mongoose = require("mongoose");
 
 const connect = () => {
