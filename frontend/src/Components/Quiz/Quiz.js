@@ -74,7 +74,7 @@ const Quiz = ({ user, reset }) => {
     try {
       if (timerState === "active") {
         console.log("spark");
-        const bombPosition = bombRef.current.children[2].getBoundingClientRect();
+        const bombPosition = bombRef.current.children[1].getBoundingClientRect();
         const y =
           bombPosition.y +
           bombPosition.height / 2 -
@@ -147,7 +147,7 @@ const Quiz = ({ user, reset }) => {
       if (timerState === "active") {
         if (timer === 0) {
           setTimerState("idle");
-          const bombPosition = bombRef.current.children[2].getBoundingClientRect();
+          const bombPosition = bombRef.current.children[1].getBoundingClientRect();
           const y =
             10 +
             bombPosition.y +
@@ -237,12 +237,14 @@ const Quiz = ({ user, reset }) => {
     <div ref={bombRef} className="Quiz">
       {gameState !== "finished" ? (
         <>
-          <p className={`difficulty ${questions[currQuestion].difficulty}`}>
-            {questions[currQuestion].difficulty}
-          </p>
-          <h1 className="questionTitle">
-            {Replacer(questions[currQuestion].question)}
-          </h1>
+          <div className="questionWrapper">
+            <p className={`difficulty ${questions[currQuestion].difficulty}`}>
+              {questions[currQuestion].difficulty}
+            </p>
+            <h1 className="questionTitle">
+              {Replacer(questions[currQuestion].question)}
+            </h1>
+          </div>
           <Timer
             score={score}
             showBomb={showBomb}
