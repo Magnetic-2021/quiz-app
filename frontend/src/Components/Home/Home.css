@@ -63,7 +63,7 @@
         font-weight: 900;
     }
     .herologo{
-        margin-top: -90%;
+        margin-top: -420px;
         margin-left: 25px;
     }
     
@@ -71,7 +71,8 @@
 
 @media screen and (max-width: 1000px) {
     .hometitle{
-        margin-left: 40px;
+        margin-top: 30px;
+        margin-left: 25px;
         font-weight: bold;
         color: var(--yellowAccent);
         font-size: 40px;
@@ -119,7 +120,22 @@
         margin-right: 32px;
         margin-top: 40px;
     }
-    .imagecontainer{
+    .imageex,.herologo{
         display: none;
     }
+    .clocklogo{
+        margin-top: 50px;
+        margin-left: 200px;
+    }
+}
+@media screen and (min-width: 700px) {
+    .hometitle{
+        margin-right: 20px;
+    }
+    .homesubtitle{
+        margin-left: 80px;
+    }
+    .home-buttonsContainer{
+        margin-left: 60px;
+}
 }
