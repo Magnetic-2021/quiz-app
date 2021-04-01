@@ -1,76 +1,59 @@
 @media screen and (min-width: 1000px){
 .not-found-page{
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
 }
-
-.notFound-title{
-    font-size: 60px; 
-     
-}
-
-.notFound-subtitle{
-    font-size: 20px;
+.notFound{
+    font-size: 130px;
+    font-family: 'Luckiest guy';
     font-weight: bold;
-    color:var(--redAccent);
-    margin-left: 10px;
+    color: var(--lightAccent);
 }
-
-.backtohome{
+.notFoundtitle-cont{
+    display: flex;
+    flex-direction: row;
+}
+.orangebomblogo{
+    margin-left: 33px;
+    margin-right: 10px;
+    margin-top: 30px;
+}
+.subtitle{ 
     font-size: 25px;
-    margin-left: 12px;
 }
 
-.not-found-page{
-    margin-top: 80px;
-    margin-left: 70px;
-}
-
-.notfoundlogo-container{
-    margin-left: 200px;
-    margin-top: 70px;
-}
-
-.notfound-container{
-    background-color: var(--darkerGrey);
-    padding:70px;
-    border-radius: 3em;
-    
+.notfoundcontainer{
+    margin-top: 50px;
 }
 }
 
 @media screen and (max-width: 1000px){
-    .notfound-container{
-        background-color: var(--darkerGrey);
-        padding:20px 20px;
-        padding-left:20px;
-        padding-right: 0px;
-        border-radius: 3em;
-        margin-top: 50px;
+    not-found-page{
         display: flex;
         flex-direction: column;
         align-items: center;
-         
-        
     }
-    .notFound-title{
-        font-size: 40px; 
-         
-    }
-    
-    .notFound-subtitle{
-        font-size: 20px;
+    .notFound{
+        font-size: 200px;
+        font-family: 'Luckiest guy';
         font-weight: bold;
-        color:var(--redAccent);        
+        color: var(--lightAccent);
     }
-    
-    .backtohome{
+    .notFoundtitle-cont{
+        display: flex;
+        flex-direction: row;
+    }
+    .redbomblogo{
+        margin-left: 40px;
+        margin-right: 10px;
+        margin-top: 60px;
+    }
+    .subtitle{ 
         font-size: 25px;
     }
-    .notfoundlogo-container{
-        margin-top: 30px;
-        margin-left: 33%;
+    .notfoundcontainer3{
+        margin-top: 50px;
     }
+   
 }
