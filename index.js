@@ -6,6 +6,7 @@ const { connect } = require("./db/connection");
 const questionRouter = require("./routes/questionRouter");
 const scoreRouter = require("./routes/scoreRouter");
 const userRouter = require("./routes/user");
+const path = require("path");
 
 connect();
 app.use(cors());
