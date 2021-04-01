@@ -1,10 +1,13 @@
 .header {
   font-family: "Luckiest Guy";
-  margin-top: 100px;
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 .bombCatch {
   display: flex;
   flex-direction: row;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .catchLine {
   margin-top: 100px;
@@ -13,4 +16,9 @@
 }
 ul {
   list-style-type: square;
+}
+.howtoplay-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

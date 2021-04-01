@@ -1,9 +1,13 @@
 import React from "react";
 import "./Howtoplay.css";
+import rule1 from "../../images/rule1.svg";
+import rule2 from "../../images/rule2.svg";
+import rule3 from "../../images/rule3.svg";
+import rule4 from "../../images/rule4.svg";
 
 const Howtoplay = () => {
   return (
-    <div>
+    <div className="howtoplay-page">
       <h1 className="header">How to play</h1>
       <div className="rules">
         <ul>
