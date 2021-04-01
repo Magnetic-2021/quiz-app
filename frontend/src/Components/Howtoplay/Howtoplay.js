@@ -1,27 +1,59 @@
 import React from "react";
 import "./Howtoplay.css";
+import rule1 from "../../images/rule1.svg";
+import rule2 from "../../images/rule2.svg";
+import rule3 from "../../images/rule3.svg";
+import rule4 from "../../images/rule4.svg";
 
 const Howtoplay = () => {
   return (
-    <div>
+    <div className="howtoplay-page">
       <h1 className="header">How to play</h1>
       <div className="rules">
-        <ul>
-          <li>
+
+          <div className="rulesContainer"> 
+
+          <div className="rule-Container">
+            <div className="logo-Container">
+            <img src={rule1} width="50px"/>
+            </div>
+
+            <div > 
             <h3>Answer as many questions you can in the time allowed</h3>
-          </li>
-          <li>
+            </div>
+          </div>
+
+          <div className="rule-Container">
+          <div className="logo-Container">
+          <img src={rule2} width="50px"/>
+          </div>
+          <div>
             <h3>
               The more right answers you get, you up your time by 5 seconds
             </h3>
-          </li>
-          <li>
+            </div>
+          </div>
+
+          <div className="rule-Container">
+          <div className="logo-Container">
+          <img src={rule3} width="50px"/>
+          </div>
+          <div>
             <h3>If the timer expires the bomb goes off and game over</h3>
-          </li>
-          <li>
+          </div>
+          </div>
+
+          <div className="rule-Container">
+          <div className="logo-Container">
+          <img src={rule4} width="50px" />
+          </div>
+          <div>
             <h3>Have fun!!</h3>
-          </li>
-        </ul>
+          </div>
+          </div>
+
+          </div>
+        
       </div>
       <div className="bombCatch">
         <svg
