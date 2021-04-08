@@ -1,206 +1,7 @@
-@media screen and (min-width: 1000px) {
-  .imagecontainer {
-    margin-left: 250px;
-  }
-  .clocklogo {
-    margin-left: 60%;
-    margin-top: -40%;
-  }
-
-   .hometitle{
-       font-weight: bold;
-       color: var(--yellowAccent);
-       font-size: 40px;
-       text-shadow: -3px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-   }
-   .homesubtitle{
-       color: var(--greyAccent);
-       font-size: 20px;
-   }
-   .homebtn{
-        color: var(--darkAccent);
-        margin-top: 20px;
-        height: 60px;
-        font-size: 18px;
-        font-weight: bold;
-        width: 170px;
-        height: 50px;
-        cursor: pointer;
-        margin-left: 10px;
-    }
-    .getstarted,.playnow{
-        background-color: var( --darkerOrange);
-        color: var(--lightAccent);
-    }
-    .getstarted:hover{
-        background:var( --orangeAccent);
-    }
-    .playnow:hover{
-        background:var( --orangeAccent);
-     }
-    .white:hover{
-        background: var(--greyAccent);
-    }
-    
-    .buttoncontainer1, .buttoncontainer2{
-        display: flex;
-        flex-direction: row;
-    }
-    .home-buttonsContainer{
-        margin-top: 80px;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .hometitle-container{
-        margin-top: 50px;
-    }
-
-    .Home{
-        display: flex;
-        flex-direction: row;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 900;
-    }
-    .herologo{
-        margin-top: -420px;
-        margin-left: 25px;
-    }
-    
-}    
-
-@media screen and (max-width: 1000px) {
-    .hometitle{
-        margin-top: 30px;
-        margin-left: 25px;
-        font-weight: bold;
-        color: var(--yellowAccent);
-        font-size: 40px;
-        text-shadow: -3px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    }
-    .homesubtitle{
-        color: var(--greyAccent);
-        font-size: 20px;
-        margin-left: 18px;
-    }
-    .homebtn{
-         color: var(--darkAccent);
-         margin-top: 20px;
-         height: 60px;
-         font-size: 18px;
-         font-weight: bold;
-         width: 170px;
-         height: 50px;
-         cursor: pointer;
-         margin-left: 30%;
-     }
-     .getstarted,.playnow{
-         background-color: var( --darkerOrange);
-         color: var(--lightAccent);
-     }
-     .getstarted:hover{
-         background:var( --orangeAccent);
-     }
-     .playnow:hover{
-        background:var( --orangeAccent);
-     }
-     .white:hover{
-         background: var(--greyAccent);
-     }
-    .Home{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 900;
-    }
-
-    .home-buttonsContainer{
-        margin-right: 32px;
-        margin-top: 40px;
-    }
-    .imageex,.herologo{
-        display: none;
-    }
-    .clocklogo{
-        margin-top: 50px;
-        margin-left: 200px;
-    }
-}
-@media screen and (min-width: 700px) {
-    .hometitle{
-        margin-right: 20px;
-    }
-    .homesubtitle{
-        margin-left: 80px;
-    }
-    .home-buttonsContainer{
-        margin-left: 60px;
-  }
-  .hometitle {
-    font-weight: bold;
-    color: var(--yellowAccent);
-    font-size: 40px;
-    text-shadow: -3px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  }
-  .homesubtitle {
-    color: var(--greyAccent);
-    font-size: 1rem;
-    font-weight: 400;
-  }
-  .homebtn {
-    color: var(--darkAccent);
-    margin-top: 20px;
-    height: 60px;
-    font-size: 18px;
-    font-weight: bold;
-    width: 170px;
-    height: 50px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-  .orange {
-    background-color: var(--darkerOrange);
-    color: var(--lightAccent);
-  }
-  .orange:hover {
-    background: var(--orangeAccent);
-  }
-  .white:hover {
-    background: var(--greyAccent);
-  }
-
-  .buttoncontainer1,
-  .buttoncontainer2 {
-    display: flex;
-    flex-direction: row;
-  }
-  .home-buttonsContainer {
-    margin-top: 80px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .hometitle-container {
-    margin-top: 50px;
-  }
-
-  .Home {
-    display: flex;
-    flex-direction: row;
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-  }
-  .herologo {
-    margin-top: -90%;
-    margin-left: 25px;
-  }
-}
-
 @media screen and (max-width: 1000px) {
   .hometitle {
-    margin-left: 40px;
+    margin-top: 30px;
+
     font-weight: bold;
     color: var(--yellowAccent);
     font-size: 40px;
@@ -222,13 +23,15 @@
     cursor: pointer;
     margin-left: 30%;
   }
-  .orange {
+  .getstarted,
+  .playnow {
     background-color: var(--darkerOrange);
     color: var(--lightAccent);
   }
-  .orange:hover {
+  .getstarted:hover, .playnow:hover {
     background: var(--orangeAccent);
   }
+
   .white:hover {
     background: var(--greyAccent);
   }
@@ -245,7 +48,79 @@
     margin-right: 32px;
     margin-top: 40px;
   }
-  .imagecontainer {
+  .imageex,
+  .herologo {
     display: none;
+  }
+  .clocklogo {
+    margin-top: 50px;
+    margin-left: 200px;
+  }
+}
+@media screen and (min-width: 700px) {
+  .hometitle {
+    font-weight: bold;
+    color: var(--yellowAccent);
+    font-size: 40px;
+    text-shadow: -3px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+  .homesubtitle {
+    color: var(--greyAccent);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .homebtn {
+    color: var(--darkAccent);
+    margin-top: 20px;
+    height: 60px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 170px;
+    height: 50px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .getstarted, .playnow {
+    background-color: var(--darkerOrange);
+    color: var(--lightAccent);
+  }
+  .getstarted:hover, .playnow:hover {
+    background: var(--orangeAccent);
+  }
+  .white:hover {
+    background: var(--greyAccent);
+  }
+
+  .buttoncontainer1,
+  .buttoncontainer2 {
+    display: flex;
+    flex-direction: row;
+  }
+  .home-buttonsContainer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hometitle-container {
+    margin-top: 50px;
+  }
+
+  .Home {
+    display: flex;
+    flex-direction: row;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+  }
+  .herologo {
+    margin-top: -420px;
+    margin-left: 25px;
+  }
+  .clocklogo{
+    margin-top:-180px; 
+    margin-left: 270px;
+  }
+  .imagecontainer{
+    margin-left: 270px;
   }
 }
