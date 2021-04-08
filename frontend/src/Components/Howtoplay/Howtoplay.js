@@ -10,51 +10,46 @@ const Howtoplay = () => {
     <div className="howtoplay-page">
       <h1 className="header">How to play</h1>
       <div className="rules">
-
-          <div className="rulesContainer"> 
-
-          <div className="rule-Container">
-            <div className="logo-Container">
-            <img src={rule1} width="50px"/>
-            </div>
-
-            <div > 
-            <h3>Answer as many questions as you can in the time allowed.</h3>
-            </div>
+        <div className="rule-container">
+          <div className="number-container">
+            <img src={rule1} width="50px" alt="rule number indicator" />
           </div>
 
-          <div className="rule-Container">
-          <div className="logo-Container">
-          <img src={rule2} width="50px"/>
+          <div>
+            <p className="rule">Answer as many questions as you can in the time allowed.</p>
+          </div>
+        </div>
+
+        <div className="rule-container">
+          <div className="number-container">
+            <img src={rule2} width="50px" alt="rule number indicator" />
           </div>
           <div>
-            <h3>
-              Answer a question correctly to add more time to the bomb. 
-              <br/>The harder the question, the more time you get.
-            </h3>
-            </div>
+            <p className="rule">
+              Answer a question correctly to add more time to the bomb.
+              <br />
+              The harder the question, the more time you get.
+            </p>
           </div>
+        </div>
 
-          <div className="rule-Container">
-          <div className="logo-Container">
-          <img src={rule3} width="50px"/>
+        <div className="rule-container">
+          <div className="number-container">
+            <img src={rule3} width="50px" alt="rule number indicator" />
           </div>
           <div>
-            <h3>If the timer expires, the bomb goes off and it's game over.</h3>
+            <p className="rule">If the timer expires, the bomb goes off and it's game over.</p>
           </div>
-          </div>
+        </div>
 
-          <div className="rule-Container">
-          <div className="logo-Container">
-          <img src={rule4} width="50px" />
+        <div className="rule-container">
+          <div className="number-container">
+            <img src={rule4} width="50px" alt="rule number indicator" />
           </div>
           <div>
-            <h3>Have fun!!</h3>
+            <p className="rule">Have fun!</p>
           </div>
-          </div>
-
-          </div>
-        
+        </div>
       </div>
       <div className="bombCatch">
         <svg
@@ -70,7 +65,7 @@ const Howtoplay = () => {
             fill="#FF8C42"
           />
         </svg>
-        <h1 className="catchLine">CAN YOU BEAT THE BOMB ?</h1>
+        <h1 className="catchLine">Can you beat the bomb?</h1>
       </div>
     </div>
   );
