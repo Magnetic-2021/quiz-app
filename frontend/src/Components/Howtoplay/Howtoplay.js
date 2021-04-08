@@ -26,9 +26,7 @@ const Howtoplay = () => {
           </div>
           <div>
             <p className="rule">
-              Answer a question correctly to add more time to the bomb.
-              <br />
-              The harder the question, the more time you get.
+              Answer a question correctly to add more time to the bomb. The harder the question, the more time you get.
             </p>
           </div>
         </div>

@@ -1,49 +1,46 @@
-.howtoplay-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .header,
 .catchLine {
   font-family: "Luckiest Guy";
+  text-align: center;
 }
 
 .rule-container {
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
-.rule {
-  font-size: 1.25rem;
-  padding-bottom: 1.25em;
+.number-container {
+  margin-right: 1.125em;
+  margin-bottom: 2em;
 }
 
-.number-container {
-  margin-right: 20px;
-  margin-bottom: 30px;
+.rule {
+  font-size: 1.125rem;
+  padding-bottom: 1.25em;
 }
 
 .bombCatch {
   display: flex;
-  flex-direction: row;
-  padding-top: 3em;
-  padding-bottom: 3em;
+  align-items: center;
+  padding-bottom: 1em;
 }
 
-.catchLine {
-  margin-top: 100px;
-  margin-left: 50px;
-}
-
-@media screen and (max-width: 1000px) {
-  .catchLine {
-    margin-top: 60px;
+@media (min-width: 750px) {
+  .howtoplay-page {
+    margin: 0 auto;
   }
+
+  .rule {
+    font-size: 1.25rem;
+  }
+
   .bombCatch {
-    padding-bottom: 15px;
-    margin-top: -40px;
-    margin-left: 50px;
+    justify-content: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+
+  .catchLine {
+    padding-left: 1em;
   }
 }
