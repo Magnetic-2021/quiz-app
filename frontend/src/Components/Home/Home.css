@@ -1,8 +1,8 @@
   .hometitle {
     font-weight: bold;
     color: var(--yellowAccent);
-    font-size: 40px;
-    text-shadow: -3px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-size: 2.5rem;
+    text-shadow: -0.188rem 0 black, 0 0.063rem black, 0.063rem 0 black, 0 -0.063rem black;
   }
   .homesubtitle {
     color: var(--greyAccent);
@@ -11,14 +11,14 @@
   }
   .homebtn {
     color: var(--darkAccent);
-    margin-top: 20px;
-    height: 60px;
-    font-size: 18px;
+    margin-top: 1.25rem;
+    height: 3.75rem;
+    font-size: 1.125rem;
     font-weight: bold;
-    width: 170px;
-    height: 50px;
+    width: 10.625rem;
+    height: 3.125rem;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 0.625rem;
   }
   .getstarted, .playnow {
     background-color: var(--darkerOrange);
@@ -35,7 +35,7 @@
     flex-direction: row;
   }
   .hometitle-container {
-    margin-top: 50px;
+    margin-top: 3.125rem;
   }
   .Home {
     display: flex;
@@ -44,15 +44,15 @@
     font-weight: 900;
   }
   .herologo {
-    margin-top: -420px;
-    margin-left: 25px;
+    margin-top: -26.25rem;
+    margin-left: 1.563rem;
   }
   .clocklogo{
-    margin-top:-180px; 
-    margin-left: 270px;
+    margin-top:-11.25rem; 
+    margin-left: 16.875rem;
   }
   .imagecontainer{
-    margin-left: 270px;
+    margin-left: 16.875rem;
   }
 
   @media screen and (max-width: 1000px) {
@@ -60,8 +60,8 @@
       display: none;
     }
     .clocklogo{
-      margin-bottom: -250px;
-      margin-left: 10px;
+      margin-bottom: -15.625rem;
+      margin-left: 0.625rem;
     }
     .Home {
       display: flex;
