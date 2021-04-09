@@ -15,18 +15,20 @@ const EndScreen = (props) => {
           <h2 className="endscreenScore">{props.score}</h2>
         </div>
         <div>
-          <h1>You've made it!</h1>
+          <h1 className="title-endscreen">You've made it!</h1>
         </div>
       </div>
 
-      <div className="btn-endscreen">
-        <button onClick={props.resetQuiz} className="btn playbtn">
+      <div className="button-endscreen">
+        <button 
+        onClick={props.resetQuiz} 
+        className="endbtn playagain">
           Play again
         </button>
         <br />
         <button
           onClick={() => history.push("/leaderboard")}
-          className="btn leaderbtn"
+          className="endbtn leaderboard"
         >
           View Leaderboard
         </button>
