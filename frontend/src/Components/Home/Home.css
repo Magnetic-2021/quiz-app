@@ -44,15 +44,15 @@
     font-weight: 900;
   }
   .herologo {
-    margin-top: -26.25rem;
+    margin-top: -23.25rem;
     margin-left: 1.563rem;
   }
   .clocklogo{
     margin-top:-11.25rem; 
-    margin-left: 16.875rem;
+    margin-left: 15.875rem;
   }
   .imagecontainer{
-    margin-left: 16.875rem;
+    margin-left: 11.875rem;
   }
 
   @media screen and (max-width: 1000px) {
