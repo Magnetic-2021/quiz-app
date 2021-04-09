@@ -1,4 +1,4 @@
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "dev") {
   require("dotenv").config();
 }
 const mongoose = require("mongoose");
