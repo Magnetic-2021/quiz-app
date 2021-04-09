@@ -1,138 +1,52 @@
-
-@media screen and (max-width: 1000px) {
   .EndScreen {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top:-3.125rem ;
   }
-
   .endscreen-title-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: -2.5rem ;
   }
-
-  .endscreenTitle {
-    color: var(--yellowAccent);
-    margin-left: -70%;
-    font-size: 20px;
+  .title-endscreen{
+    margin-top: -2.5rem;
   }
-
   .endscreenScore {
     color: var(--yellowAccent);
     font-weight: bold;
-    font-size: 70px;
+    font-size: 4.375rem;
     animation: fade-in ease-in 4s;
-    margin-bottom: 0
-
   }
-
-  .btn-endscreen {
+  .button-endscreen {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 1.25rem;
   }
-
-  .playbtn {
-    margin-bottom: 0px;
-    background-color: var(--lightAccent);
-    color: var(--darkAccent);
-    width: 100px;
-    height: 30px;
+  .endbtn{
+    height: 3.75rem;
+    font-size: 1.125rem;
     font-weight: bold;
+    width: 10.625rem;
+    height: 3.125rem;
     cursor: pointer;
-  }
-
-  .leaderbtn {
-    background-color: var(--orangeAccent);
-    color: var(--darkAccent);
-    width: 160px;
-    height: 30px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  .leaderbtn:hover {
-    background: var(--darkerOrange);
-  }
-
-  .playbtn:hover {
-    background: var(--greyAccent);
+    justify-content: center;
   }
   .avatarBackground {
-    width: 200px;
+    width: 12.5rem;
   }
-}
-
-@media screen and (min-width: 1000px) {
-  .EndScreen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .endscreenTitle {
-    color: var(--yellowAccent);
-
-    font-size: 20px;
-  }
-
-  .endscreenScore {
-    color: var(--yellowAccent);
-    font-weight: bold;
-    font-size: 70px;
-    animation: fade-in ease-in 4s;
-    margin-bottom:0;
-
-  }
-
-  
-
-  .playbtn {
-    background-color: var(--lightAccent);
-    color: var(--darkAccent);
-    width: 150px;
-    height: 50px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  .leaderbtn {
-    background-color: var(--orangeAccent);
-    color: var(--darkAccent);
-    width: 200px;
-    height: 50px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  .leaderbtn:hover {
-    background: var(--darkerOrange);
-  }
-
-  .playbtn:hover {
-    background: var(--greyAccent);
-  }
-  .endscreen-title-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .btn-endscreen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
   .endscreen-avatar-container {
-    margin-bottom: 70px;
+    margin-bottom: 4.375rem;
+  }
+
+@media screen and (max-width: 1000px) {
+  .endscreen-avatar-container{
+    margin-top: 5rem;
   }
 }
 
