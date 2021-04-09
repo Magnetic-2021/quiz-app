@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import explode from "./explode";
 import Timer from "./../Timer/Timer";
 import EndScreen from "../EndScreen/EndScreen";
+import Loading from "../Loading/Loading";
 import "./Quiz.css";
 import Aellipse from "../../images/Aellipse.svg";
 import Bellipse from "../../images/Bellipse.svg";
@@ -232,10 +233,7 @@ const Quiz = ({ user, reset }) => {
   };
 
   return gameState === "loading" ? (
-    <div className="loading-container">
-      <div className="loader-circle"></div>
-      <p className="loading-text">Loading...</p>
-    </div>
+    <Loading />
   ) : (
     <div ref={bombRef} className="Quiz">
       {gameState !== "finished" ? (
