@@ -3,6 +3,8 @@ import { Table, Badge, Dropdown, Menu, Button } from "antd";
 import { useHistory } from "react-router-dom";
 import UserAvatar from "../Avatar/Avatar.js";
 import "./Scoreboard.css";
+import Loading from "../Loading/Loading";
+
 const Podium = ({ score, place, color }) => {
   return (
     <div className={`podium-${place}`}>
@@ -127,10 +129,7 @@ const Scoreboard = (props) => {
             pagination={false}
           />
         ) : (
-          <div className="loading-container">
-            <div className="loader-circle"></div>
-            <p className="loading-text">Loading...</p>
-          </div>
+          <Loading />
         )}
       </div>
     </div>
