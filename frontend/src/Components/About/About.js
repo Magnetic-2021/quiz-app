@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className="container">
       <h1>About</h1>
-      <p className="appAbout">
+      <p className="app-about">
         Knowledge Bomb is a general knowledge quiz designed to test the user's
         skills against the clock. Answer 10 questions before the timer
         ends and the bomb explodes.
