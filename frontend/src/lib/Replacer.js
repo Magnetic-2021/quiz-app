@@ -16,6 +16,9 @@ const Replacer = (string) => {
     const pi = /&Pi;/g;
     const and = /&AMP;/g;
     const and1 = /&amp;/g;
+    const a1 = /&Aacute;/g;
+    const a2 = /&aacute;/g;
+    const ntil = /&ntilde;/g;
 
     let s = string.replace(apostrophe, "'");
     s = s.replace(apostrophe1, "'");
@@ -34,6 +37,9 @@ const Replacer = (string) => {
     s = s.replace(pi, "Π");
     s = s.replace(and, "&");
     s = s.replace(and1, "&");
+    s = s.replace(a1, "Á");
+    s = s.replace(a2, "á");
+    s = s.replace(ntil, "ñ");
     return s;
 };
 
