@@ -1,80 +1,85 @@
-  .hometitle {
-    font-weight: bold;
-    color: var(--yellowAccent);
-    font-size: 2.5rem;
-    text-shadow: -0.188rem 0 black, 0 0.063rem black, 0.063rem 0 black, 0 -0.063rem black;
+.hometitle {
+  font-weight: bold;
+  color: var(--yellowAccent);
+  font-size: 2.5rem;
+  text-shadow: -0.188rem 0 black, 0 0.063rem black, 0.063rem 0 black,
+    0 -0.063rem black;
+}
+.homesubtitle {
+  color: var(--greyAccent);
+  font-size: 1rem;
+  font-weight: 400;
+}
+.homebtn {
+  color: var(--darkAccent);
+  margin-top: 1.25rem;
+  height: 3.75rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+  width: 10.625rem;
+  height: 3.125rem;
+  cursor: pointer;
+  margin-right: 0.625rem;
+}
+.getstarted,
+.playnow {
+  background-color: var(--darkerOrange);
+  color: var(--lightAccent);
+}
+.getstarted:hover,
+.playnow:hover {
+  background: var(--orangeAccent);
+}
+.white:hover {
+  background: var(--greyAccent);
+}
+.buttoncontainer1,
+.buttoncontainer2 {
+  display: flex;
+  flex-direction: row;
+}
+.hometitle-container {
+  margin-top: 3.125rem;
+}
+.Home {
+  display: flex;
+  flex-direction: row;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+}
+.herologo {
+  margin-top: -23.25rem;
+  margin-left: 1.563rem;
+}
+.clocklogo {
+  margin-top: -11.25rem;
+  margin-left: 15.875rem;
+}
+.imagecontainer {
+  margin-left: 5rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .herologo,
+  .imageex {
+    display: none;
   }
-  .homesubtitle {
-    color: var(--greyAccent);
-    font-size: 1rem;
-    font-weight: 400;
-  }
-  .homebtn {
-    color: var(--darkAccent);
-    margin-top: 1.25rem;
-    height: 3.75rem;
-    font-size: 1.125rem;
-    font-weight: bold;
-    width: 10.625rem;
-    height: 3.125rem;
-    cursor: pointer;
-    margin-right: 0.625rem;
-  }
-  .getstarted, .playnow {
-    background-color: var(--darkerOrange);
-    color: var(--lightAccent);
-  }
-  .getstarted:hover, .playnow:hover {
-    background: var(--orangeAccent);
-  }
-  .white:hover {
-    background: var(--greyAccent);
-  }
-  .buttoncontainer1,.buttoncontainer2 {
-    display: flex;
-    flex-direction: row;
-  }
-  .hometitle-container {
-    margin-top: 3.125rem;
+  .clocklogo {
+    margin-bottom: -15.625rem;
+    margin-left: 0.625rem;
   }
   .Home {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-family: "Poppins", sans-serif;
     font-weight: 900;
   }
-  .herologo {
-    margin-top: -23.25rem;
-    margin-left: 1.563rem;
+  .buttoncontainer1,
+  .buttoncontainer2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .clocklogo{
-    margin-top:-11.25rem; 
-    margin-left: 15.875rem;
-  }
-  .imagecontainer{
-    margin-left: 11.875rem;
-  }
-
-  @media screen and (max-width: 1000px) {
-    .herologo, .imageex{
-      display: none;
-    }
-    .clocklogo{
-      margin-bottom: -15.625rem;
-      margin-left: 0.625rem;
-    }
-    .Home {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-family: "Poppins", sans-serif;
-      font-weight: 900;
-    }
-    .buttoncontainer1,.buttoncontainer2{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  
+}
