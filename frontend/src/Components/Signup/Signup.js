@@ -40,7 +40,7 @@ const Signup = (props) => {
   const onFinish = (values) => {
     setFormStatus("loading");
     // post data
-    fetch("http://localhost:5000/user/signup", {
+    fetch("https://localhost:5000/user/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...values, avatarImg }),
@@ -89,10 +89,16 @@ const Signup = (props) => {
           <Input className="form-input" placeholder="Enter an email address" />
         </Form.Item>
         <Form.Item label="Password" name="password" rules={[{}]}>
-          <Input.Password className="form-input" placeholder="Enter a password" />
+          <Input.Password
+            className="form-input"
+            placeholder="Enter a password"
+          />
         </Form.Item>
         <Form.Item label="Confirm Password" name="confirmPassword" rules={[{}]}>
-          <Input.Password className="form-input" placeholder="Re-enter your password" />
+          <Input.Password
+            className="form-input"
+            placeholder="Re-enter your password"
+          />
         </Form.Item>
         <Button
           htmlType="submit"
@@ -103,7 +109,12 @@ const Signup = (props) => {
         >
           {buttonValues[formStatus].text}
         </Button>
-        <p className="form-text">Already have an account? <a href="/login" className="form-link">Log in</a></p>
+        <p className="form-text">
+          Already have an account?{" "}
+          <a href="/login" className="form-link">
+            Log in
+          </a>
+        </p>
       </Form>
     </div>
   );

@@ -59,7 +59,7 @@ const Quiz = ({ user, reset }) => {
       console.log("initial useEffect");
       if (!questions) {
         console.log("about to fetch");
-        fetch("http://localhost:5000/questions")
+        fetch("https://localhost:5000/questions")
           .then((res) => res.json())
           .then((data) => {
             console.log("got data", data);
@@ -107,7 +107,7 @@ const Quiz = ({ user, reset }) => {
         date: Date.now(),
       };
       console.log({ payload });
-      fetch("http://localhost:5000/score", {
+      fetch("https://localhost:5000/score", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
