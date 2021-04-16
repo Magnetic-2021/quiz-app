@@ -19,7 +19,7 @@ const Login = (props) => {
     console.log(values);
     setFormStatus("loading");
     // post data
-    fetch("http://localhost:5000/user/login", {
+    fetch("https://localhost:5000/user/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
@@ -29,13 +29,13 @@ const Login = (props) => {
         if (data.auth) {
           setFormStatus("success");
           props.setUser(data.user);
-          try{
-          window.sessionStorage.setItem(
-            "currentUser",
-            JSON.stringify(data.user)
-          );
-          } catch{
-            console.log('session storage error')
+          try {
+            window.sessionStorage.setItem(
+              "currentUser",
+              JSON.stringify(data.user)
+            );
+          } catch {
+            console.log("session storage error");
           }
           history.push("/");
         } else {
@@ -65,9 +65,8 @@ const Login = (props) => {
       icon: <CloseCircleOutlined />,
     },
   };
-  console.log({formStatus})
+  console.log({ formStatus });
   return (
-    
     <div className="login-container">
       <Form name="login" onFinish={onFinish} layout="vertical" size="large">
         <h1>Log In</h1>
@@ -84,18 +83,27 @@ const Login = (props) => {
           name="password"
           rules={[{ required: true, message: "Please input a password." }]}
         >
-          <Input.Password className="form-input" placeholder="Enter your password" />
+          <Input.Password
+            className="form-input"
+            placeholder="Enter your password"
+          />
         </Form.Item>
 
         <Button
           htmlType="submit"
           type="primary"
           loading={buttonValues[formStatus].loading}
-          icon={buttonValues[formStatus].icon} className="btn btn-primary"
+          icon={buttonValues[formStatus].icon}
+          className="btn btn-primary"
         >
           {buttonValues[formStatus].text}
         </Button>
-        <p className="form-text">Don't have an account yet? <a href="/signup" className="form-link">Sign up now</a></p>
+        <p className="form-text">
+          Don't have an account yet?{" "}
+          <a href="/signup" className="form-link">
+            Sign up now
+          </a>
+        </p>
       </Form>
     </div>
   );
